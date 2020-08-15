@@ -1,9 +1,0 @@
-grammar org.xtext.niste15.mdsd.Android with org.eclipse.xtext.common.Terminals
-
-generate android "http://www.xtext.org/niste15/mdsd/Android"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
