@@ -191,16 +191,34 @@ rulePane returns [EObject current=null]
 		{
 			newLeafNode(otherlv_1, grammarAccess.getPaneAccess().getPaneKeyword_1());
 		}
-		otherlv_2='{'
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getPaneAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPaneRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)?
+		otherlv_3='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getPaneAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getPaneAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPaneAccess().getFramesFrameParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPaneAccess().getFramesFrameParserRuleCall_4_0());
 				}
-				lv_frames_3_0=ruleFrame
+				lv_frames_4_0=ruleFrame
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPaneRule());
@@ -208,15 +226,15 @@ rulePane returns [EObject current=null]
 					add(
 						$current,
 						"frames",
-						lv_frames_3_0,
+						lv_frames_4_0,
 						"org.xtext.niste15.mdsd.Android.Frame");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_4='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getPaneAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getPaneAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;
@@ -442,9 +460,32 @@ ruleButton returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3=')'
+		(
+			otherlv_3='navigate'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getButtonAccess().getNavigateKeyword_3_0());
+			}
+			otherlv_4='->'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getButtonAccess().getHyphenMinusGreaterThanSignKeyword_3_1());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getButtonRule());
+						}
+					}
+					otherlv_5=RULE_ID
+					{
+						newLeafNode(otherlv_5, grammarAccess.getButtonAccess().getPanePaneCrossReference_3_2_0());
+					}
+				)
+			)
+		)?
+		otherlv_6=')'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getButtonAccess().getRightParenthesisKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getButtonAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;
@@ -470,46 +511,44 @@ ruleConstraint returns [EObject current=null]
 			{
 				newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0_0());
 			}
+			otherlv_1=':'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getColonKeyword_0_1());
+			}
 			(
-				otherlv_1=':'
-				{
-					newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getColonKeyword_0_1_0());
-				}
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_1_1_0());
+					{
+						newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_0());
+					}
+					lv_constraintType_2_0=ruleConstraintTypeVertical
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getConstraintRule());
 						}
-						lv_constraintType_2_0=ruleConstraintTypeVertical
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getConstraintRule());
-							}
-							set(
-								$current,
-								"constraintType",
-								lv_constraintType_2_0,
-								"org.xtext.niste15.mdsd.Android.ConstraintTypeVertical");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						set(
+							$current,
+							"constraintType",
+							lv_constraintType_2_0,
+							"org.xtext.niste15.mdsd.Android.ConstraintTypeVertical");
+						afterParserOrEnumRuleCall();
+					}
 				)
-				otherlv_3='='
-				{
-					newLeafNode(otherlv_3, grammarAccess.getConstraintAccess().getEqualsSignKeyword_0_1_2());
-				}
+			)
+			otherlv_3='='
+			{
+				newLeafNode(otherlv_3, grammarAccess.getConstraintAccess().getEqualsSignKeyword_0_3());
+			}
+			(
 				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getConstraintRule());
-							}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getConstraintRule());
 						}
-						otherlv_4=RULE_ID
-						{
-							newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getFrameFrameCrossReference_0_1_3_0());
-						}
-					)
+					}
+					otherlv_4=RULE_ID
+					{
+						newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getFrameFrameCrossReference_0_4_0());
+					}
 				)
 			)
 		)

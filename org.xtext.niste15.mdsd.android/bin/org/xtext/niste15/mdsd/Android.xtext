@@ -10,7 +10,7 @@ Application:
 ;
 
 Pane:
-	{Pane} 'Pane' '{' (frames+=Frame)* '}'
+	{Pane} 'Pane' (name=ID)? '{' (frames+=Frame)* '}'
 ;
 
 Frame:
@@ -27,11 +27,11 @@ Text:
 ;
 
 Button:
-	'Button' '(' text=STRING ')' 
+	'Button' '(' text=STRING ('navigate' '->' pane=[Pane])? ')' 
 ;
 
 Constraint:
-	'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame]) |
+	'constraint' ':' constraintType=ConstraintTypeVertical '=' frame=[Frame] |
 	'constraint' '=' param=ConstraintParameter
 ;
 

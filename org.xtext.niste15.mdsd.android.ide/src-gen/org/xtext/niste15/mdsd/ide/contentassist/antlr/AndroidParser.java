@@ -40,8 +40,8 @@ public class AndroidParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFrameAccess().getGroup(), "rule__Frame__Group__0");
 			builder.put(grammarAccess.getTextAccess().getGroup(), "rule__Text__Group__0");
 			builder.put(grammarAccess.getButtonAccess().getGroup(), "rule__Button__Group__0");
+			builder.put(grammarAccess.getButtonAccess().getGroup_3(), "rule__Button__Group_3__0");
 			builder.put(grammarAccess.getConstraintAccess().getGroup_0(), "rule__Constraint__Group_0__0");
-			builder.put(grammarAccess.getConstraintAccess().getGroup_0_1(), "rule__Constraint__Group_0_1__0");
 			builder.put(grammarAccess.getConstraintAccess().getGroup_1(), "rule__Constraint__Group_1__0");
 			builder.put(grammarAccess.getConstraintTypeVerticalAccess().getGroup_0(), "rule__ConstraintTypeVertical__Group_0__0");
 			builder.put(grammarAccess.getConstraintTypeVerticalAccess().getGroup_1(), "rule__ConstraintTypeVertical__Group_1__0");
@@ -56,14 +56,16 @@ public class AndroidParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getModelAccess().getApplicationAssignment(), "rule__Model__ApplicationAssignment");
 			builder.put(grammarAccess.getApplicationAccess().getNameAssignment_1(), "rule__Application__NameAssignment_1");
 			builder.put(grammarAccess.getApplicationAccess().getPanesAssignment_3(), "rule__Application__PanesAssignment_3");
-			builder.put(grammarAccess.getPaneAccess().getFramesAssignment_3(), "rule__Pane__FramesAssignment_3");
+			builder.put(grammarAccess.getPaneAccess().getNameAssignment_2(), "rule__Pane__NameAssignment_2");
+			builder.put(grammarAccess.getPaneAccess().getFramesAssignment_4(), "rule__Pane__FramesAssignment_4");
 			builder.put(grammarAccess.getFrameAccess().getNameAssignment_2(), "rule__Frame__NameAssignment_2");
 			builder.put(grammarAccess.getFrameAccess().getElementsAssignment_4(), "rule__Frame__ElementsAssignment_4");
 			builder.put(grammarAccess.getFrameAccess().getConstraintAssignment_5(), "rule__Frame__ConstraintAssignment_5");
 			builder.put(grammarAccess.getTextAccess().getTextAssignment_2(), "rule__Text__TextAssignment_2");
 			builder.put(grammarAccess.getButtonAccess().getTextAssignment_2(), "rule__Button__TextAssignment_2");
-			builder.put(grammarAccess.getConstraintAccess().getConstraintTypeAssignment_0_1_1(), "rule__Constraint__ConstraintTypeAssignment_0_1_1");
-			builder.put(grammarAccess.getConstraintAccess().getFrameAssignment_0_1_3(), "rule__Constraint__FrameAssignment_0_1_3");
+			builder.put(grammarAccess.getButtonAccess().getPaneAssignment_3_2(), "rule__Button__PaneAssignment_3_2");
+			builder.put(grammarAccess.getConstraintAccess().getConstraintTypeAssignment_0_2(), "rule__Constraint__ConstraintTypeAssignment_0_2");
+			builder.put(grammarAccess.getConstraintAccess().getFrameAssignment_0_4(), "rule__Constraint__FrameAssignment_0_4");
 			builder.put(grammarAccess.getConstraintAccess().getParamAssignment_1_2(), "rule__Constraint__ParamAssignment_1_2");
 			builder.put(grammarAccess.getConstraintParameterAccess().getValueAssignment_0_1(), "rule__ConstraintParameter__ValueAssignment_0_1");
 		}

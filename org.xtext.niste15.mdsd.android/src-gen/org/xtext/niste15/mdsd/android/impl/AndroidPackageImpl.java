@@ -316,9 +316,20 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
+  public EAttribute getPane_Name()
+  {
+    return (EAttribute)paneEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getPane_Frames()
   {
-    return (EReference)paneEClass.getEStructuralFeatures().get(0);
+    return (EReference)paneEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -407,6 +418,17 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
   public EClass getButton()
   {
     return buttonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getButton_Pane()
+  {
+    return (EReference)buttonEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -635,6 +657,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     createEReference(applicationEClass, APPLICATION__PANES);
 
     paneEClass = createEClass(PANE);
+    createEAttribute(paneEClass, PANE__NAME);
     createEReference(paneEClass, PANE__FRAMES);
 
     frameEClass = createEClass(FRAME);
@@ -648,6 +671,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     textEClass = createEClass(TEXT);
 
     buttonEClass = createEClass(BUTTON);
+    createEReference(buttonEClass, BUTTON__PANE);
 
     constraintEClass = createEClass(CONSTRAINT);
     createEReference(constraintEClass, CONSTRAINT__CONSTRAINT_TYPE);
@@ -731,6 +755,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEReference(getApplication_Panes(), this.getPane(), null, "panes", null, 0, -1, Application.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paneEClass, Pane.class, "Pane", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPane_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPane_Frames(), this.getFrame(), null, "frames", null, 0, -1, Pane.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -744,6 +769,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getButton_Pane(), this.getPane(), null, "pane", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstraint_ConstraintType(), this.getConstraintTypeVertical(), null, "constraintType", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -133,13 +133,22 @@ public interface AndroidPackage extends EPackage
   int PANE = 2;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PANE__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Frames</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PANE__FRAMES = 0;
+  int PANE__FRAMES = 1;
 
   /**
    * The number of structural features of the '<em>Pane</em>' class.
@@ -148,7 +157,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PANE_FEATURE_COUNT = 1;
+  int PANE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.FrameImpl <em>Frame</em>}' class.
@@ -272,13 +281,22 @@ public interface AndroidPackage extends EPackage
   int BUTTON__TEXT = ELEMENTS__TEXT;
 
   /**
+   * The feature id for the '<em><b>Pane</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__PANE = ELEMENTS_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Button</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BUTTON_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 0;
+  int BUTTON_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -628,6 +646,17 @@ public interface AndroidPackage extends EPackage
   EClass getPane();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Pane#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.niste15.mdsd.android.Pane#getName()
+   * @see #getPane()
+   * @generated
+   */
+  EAttribute getPane_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.niste15.mdsd.android.Pane#getFrames <em>Frames</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -721,6 +750,17 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EClass getButton();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.niste15.mdsd.android.Button#getPane <em>Pane</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Pane</em>'.
+   * @see org.xtext.niste15.mdsd.android.Button#getPane()
+   * @see #getButton()
+   * @generated
+   */
+  EReference getButton_Pane();
 
   /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Constraint <em>Constraint</em>}'.
@@ -974,6 +1014,14 @@ public interface AndroidPackage extends EPackage
     EClass PANE = eINSTANCE.getPane();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PANE__NAME = eINSTANCE.getPane_Name();
+
+    /**
      * The meta object literal for the '<em><b>Frames</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1052,6 +1100,14 @@ public interface AndroidPackage extends EPackage
      * @generated
      */
     EClass BUTTON = eINSTANCE.getButton();
+
+    /**
+     * The meta object literal for the '<em><b>Pane</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BUTTON__PANE = eINSTANCE.getButton_Pane();
 
     /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl <em>Constraint</em>}' class.

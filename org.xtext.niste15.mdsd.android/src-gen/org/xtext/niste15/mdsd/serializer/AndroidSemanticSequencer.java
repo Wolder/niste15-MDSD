@@ -122,16 +122,10 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Button returns Button
 	 *
 	 * Constraint:
-	 *     text=STRING
+	 *     (text=STRING pane=[Pane|ID]?)
 	 */
 	protected void sequence_Button(ISerializationContext context, Button semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getButtonAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -308,7 +302,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Pane returns Pane
 	 *
 	 * Constraint:
-	 *     frames+=Frame*
+	 *     (name=ID? frames+=Frame*)
 	 */
 	protected void sequence_Pane(ISerializationContext context, Pane semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

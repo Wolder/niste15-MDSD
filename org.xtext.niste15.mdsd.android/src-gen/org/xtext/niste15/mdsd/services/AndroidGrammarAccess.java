@@ -84,16 +84,18 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cPaneAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cPaneKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFramesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cFramesFrameParserRuleCall_3_0 = (RuleCall)cFramesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFramesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFramesFrameParserRuleCall_4_0 = (RuleCall)cFramesAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Pane:
-		//	{Pane} 'Pane' '{' frames+=Frame* '}';
+		//	{Pane} 'Pane' name=ID? '{' frames+=Frame* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Pane} 'Pane' '{' frames+=Frame* '}'
+		//{Pane} 'Pane' name=ID? '{' frames+=Frame* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Pane}
@@ -102,17 +104,23 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'Pane'
 		public Keyword getPaneKeyword_1() { return cPaneKeyword_1; }
 		
+		//name=ID?
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
 		//frames+=Frame*
-		public Assignment getFramesAssignment_3() { return cFramesAssignment_3; }
+		public Assignment getFramesAssignment_4() { return cFramesAssignment_4; }
 		
 		//Frame
-		public RuleCall getFramesFrameParserRuleCall_3_0() { return cFramesFrameParserRuleCall_3_0; }
+		public RuleCall getFramesFrameParserRuleCall_4_0() { return cFramesFrameParserRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class FrameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.niste15.mdsd.Android.Frame");
@@ -224,13 +232,19 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cNavigateKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cPaneAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final CrossReference cPanePaneCrossReference_3_2_0 = (CrossReference)cPaneAssignment_3_2.eContents().get(0);
+		private final RuleCall cPanePaneIDTerminalRuleCall_3_2_0_1 = (RuleCall)cPanePaneCrossReference_3_2_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Button:
-		//	'Button' '(' text=STRING ')';
+		//	'Button' '(' text=STRING ('navigate' '->' pane=[Pane])? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Button' '(' text=STRING ')'
+		//'Button' '(' text=STRING ('navigate' '->' pane=[Pane])? ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'Button'
@@ -245,22 +259,39 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//STRING
 		public RuleCall getTextSTRINGTerminalRuleCall_2_0() { return cTextSTRINGTerminalRuleCall_2_0; }
 		
+		//('navigate' '->' pane=[Pane])?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'navigate'
+		public Keyword getNavigateKeyword_3_0() { return cNavigateKeyword_3_0; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_3_1() { return cHyphenMinusGreaterThanSignKeyword_3_1; }
+		
+		//pane=[Pane]
+		public Assignment getPaneAssignment_3_2() { return cPaneAssignment_3_2; }
+		
+		//[Pane]
+		public CrossReference getPanePaneCrossReference_3_2_0() { return cPanePaneCrossReference_3_2_0; }
+		
+		//ID
+		public RuleCall getPanePaneIDTerminalRuleCall_3_2_0_1() { return cPanePaneIDTerminalRuleCall_3_2_0_1; }
+		
 		//')'
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.niste15.mdsd.Android.Constraint");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cConstraintKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
-		private final Keyword cColonKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
-		private final Assignment cConstraintTypeAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
-		private final RuleCall cConstraintTypeConstraintTypeVerticalParserRuleCall_0_1_1_0 = (RuleCall)cConstraintTypeAssignment_0_1_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_1_2 = (Keyword)cGroup_0_1.eContents().get(2);
-		private final Assignment cFrameAssignment_0_1_3 = (Assignment)cGroup_0_1.eContents().get(3);
-		private final CrossReference cFrameFrameCrossReference_0_1_3_0 = (CrossReference)cFrameAssignment_0_1_3.eContents().get(0);
-		private final RuleCall cFrameFrameIDTerminalRuleCall_0_1_3_0_1 = (RuleCall)cFrameFrameCrossReference_0_1_3_0.eContents().get(1);
+		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cConstraintTypeAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_0 = (RuleCall)cConstraintTypeAssignment_0_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cFrameAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final CrossReference cFrameFrameCrossReference_0_4_0 = (CrossReference)cFrameAssignment_0_4.eContents().get(0);
+		private final RuleCall cFrameFrameIDTerminalRuleCall_0_4_0_1 = (RuleCall)cFrameFrameCrossReference_0_4_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cConstraintKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -268,42 +299,39 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cParamConstraintParameterParserRuleCall_1_2_0 = (RuleCall)cParamAssignment_1_2.eContents().get(0);
 		
 		//Constraint:
-		//	'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame]) |
+		//	'constraint' ':' constraintType=ConstraintTypeVertical '=' frame=[Frame] |
 		//	'constraint' '=' param=ConstraintParameter;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame]) | 'constraint' '=' param=ConstraintParameter
+		//'constraint' ':' constraintType=ConstraintTypeVertical '=' frame=[Frame] | 'constraint' '=' param=ConstraintParameter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame])
+		//'constraint' ':' constraintType=ConstraintTypeVertical '=' frame=[Frame]
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'constraint'
 		public Keyword getConstraintKeyword_0_0() { return cConstraintKeyword_0_0; }
 		
-		//(':' constraintType=ConstraintTypeVertical '=' frame=[Frame])
-		public Group getGroup_0_1() { return cGroup_0_1; }
-		
 		//':'
-		public Keyword getColonKeyword_0_1_0() { return cColonKeyword_0_1_0; }
+		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
 		
 		//constraintType=ConstraintTypeVertical
-		public Assignment getConstraintTypeAssignment_0_1_1() { return cConstraintTypeAssignment_0_1_1; }
+		public Assignment getConstraintTypeAssignment_0_2() { return cConstraintTypeAssignment_0_2; }
 		
 		//ConstraintTypeVertical
-		public RuleCall getConstraintTypeConstraintTypeVerticalParserRuleCall_0_1_1_0() { return cConstraintTypeConstraintTypeVerticalParserRuleCall_0_1_1_0; }
+		public RuleCall getConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_0() { return cConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_0_1_2() { return cEqualsSignKeyword_0_1_2; }
+		public Keyword getEqualsSignKeyword_0_3() { return cEqualsSignKeyword_0_3; }
 		
 		//frame=[Frame]
-		public Assignment getFrameAssignment_0_1_3() { return cFrameAssignment_0_1_3; }
+		public Assignment getFrameAssignment_0_4() { return cFrameAssignment_0_4; }
 		
 		//[Frame]
-		public CrossReference getFrameFrameCrossReference_0_1_3_0() { return cFrameFrameCrossReference_0_1_3_0; }
+		public CrossReference getFrameFrameCrossReference_0_4_0() { return cFrameFrameCrossReference_0_4_0; }
 		
 		//ID
-		public RuleCall getFrameFrameIDTerminalRuleCall_0_1_3_0_1() { return cFrameFrameIDTerminalRuleCall_0_1_3_0_1; }
+		public RuleCall getFrameFrameIDTerminalRuleCall_0_4_0_1() { return cFrameFrameIDTerminalRuleCall_0_4_0_1; }
 		
 		//'constraint' '=' param=ConstraintParameter
 		public Group getGroup_1() { return cGroup_1; }
@@ -553,7 +581,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Pane:
-	//	{Pane} 'Pane' '{' frames+=Frame* '}';
+	//	{Pane} 'Pane' name=ID? '{' frames+=Frame* '}';
 	public PaneElements getPaneAccess() {
 		return pPane;
 	}
@@ -595,7 +623,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Button:
-	//	'Button' '(' text=STRING ')';
+	//	'Button' '(' text=STRING ('navigate' '->' pane=[Pane])? ')';
 	public ButtonElements getButtonAccess() {
 		return pButton;
 	}
@@ -605,7 +633,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Constraint:
-	//	'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame]) |
+	//	'constraint' ':' constraintType=ConstraintTypeVertical '=' frame=[Frame] |
 	//	'constraint' '=' param=ConstraintParameter;
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;

@@ -9,6 +9,12 @@ package org.xtext.niste15.mdsd.android;
  * A representation of the model object '<em><b>Button</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Button#getPane <em>Pane</em>}</li>
+ * </ul>
  *
  * @see org.xtext.niste15.mdsd.android.AndroidPackage#getButton()
  * @model
@@ -16,4 +22,26 @@ package org.xtext.niste15.mdsd.android;
  */
 public interface Button extends Elements
 {
+  /**
+   * Returns the value of the '<em><b>Pane</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pane</em>' reference.
+   * @see #setPane(Pane)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getButton_Pane()
+   * @model
+   * @generated
+   */
+  Pane getPane();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Button#getPane <em>Pane</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pane</em>' reference.
+   * @see #getPane()
+   * @generated
+   */
+  void setPane(Pane value);
+
 } // Button
