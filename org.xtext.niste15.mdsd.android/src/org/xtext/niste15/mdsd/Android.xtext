@@ -1,9 +1,60 @@
 grammar org.xtext.niste15.mdsd.Android with org.eclipse.xtext.common.Terminals
 
-generate android "http://www.xtext.org/niste15/mdsd/Android"
+generate android 'http://www.xtext.org/niste15/mdsd/Android'
 
 Model:
-	greetings+=Greeting*;
+	application+=Application*;
 	
-Greeting:
-	'Hello' name=ID '!';
+Application:
+	'Application' name=ID '{' panes+=Pane '}' //NavigationBar
+;
+
+Pane:
+	'Pane' name=ID '{' frames+=Frame '}'
+;
+
+Frame:
+	'Frame' '{' elements+=Elements '}'
+;
+
+Elements:
+	Button | 
+	Text // ADD MORE 
+;
+
+Text:
+	'Text' '(' text=STRING (constraint=Constraint) ')'  //More Params
+;
+
+Button:
+	'Button' '(' text=STRING (constraint=Constraint) ')' 
+;
+
+Constraint:
+	{Vertical} 'constraintsVertical' (':' constraintType=ConstraintTypeVertical) '=' param=ConstraintParameterVertical |
+	{Horizontal} 'constraintsHorizontal' (':' constraintType=ConstraintTypeHorizontal) '=' param=ConstraintParameterHorizontal
+;
+
+ConstraintTypeVertical: 
+	{RightOf} 'rightOf' |
+	{LeftOf} 'leftOf'
+;
+
+ConstraintTypeHorizontal:
+	{BottomOf} 'bottomOf' |
+	{TopOf} 'topOf' 
+;
+
+ConstraintParameterVertical:
+	{Persentage} value=ID '%' |
+	{Right} 'right' |
+	{Left} 'left' |
+	{Middle} 'middle'
+;
+
+ConstraintParameterHorizontal:
+	{Persentage} value=ID '%' |
+	{Top} 'top' |
+	{Bottom} 'bottom' |
+	{Middle} 'middle'
+;
