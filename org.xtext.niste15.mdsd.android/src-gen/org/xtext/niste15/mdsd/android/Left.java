@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface Left extends ConstraintParameterVertical
+public interface Left extends ConstraintParameter
 {
 } // Left

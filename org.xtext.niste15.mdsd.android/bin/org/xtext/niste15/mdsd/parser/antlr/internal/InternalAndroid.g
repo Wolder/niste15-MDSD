@@ -85,7 +85,7 @@ ruleModel returns [EObject current=null]
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				add(
+				set(
 					$current,
 					"application",
 					lv_application_0_0,
@@ -93,7 +93,7 @@ ruleModel returns [EObject current=null]
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)*
+	)
 ;
 
 // Entry rule entryRuleApplication
@@ -156,7 +156,7 @@ ruleApplication returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
 		otherlv_4='}'
 		{
 			newLeafNode(otherlv_4, grammarAccess.getApplicationAccess().getRightCurlyBracketKeyword_4());
@@ -180,28 +180,17 @@ rulePane returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Pane'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPaneAccess().getPaneKeyword_0());
-		}
 		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getPaneAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPaneRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getPaneAccess().getPaneAction_0(),
+					$current);
+			}
 		)
+		otherlv_1='Pane'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getPaneAccess().getPaneKeyword_1());
+		}
 		otherlv_2='{'
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPaneAccess().getLeftCurlyBracketKeyword_2());
@@ -224,7 +213,7 @@ rulePane returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
 		otherlv_4='}'
 		{
 			newLeafNode(otherlv_4, grammarAccess.getPaneAccess().getRightCurlyBracketKeyword_4());
@@ -248,20 +237,45 @@ ruleFrame returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Frame'
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getFrameAccess().getFrameAction_0(),
+					$current);
+			}
+		)
+		otherlv_1='Frame'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getFrameAccess().getFrameKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getFrameAccess().getFrameKeyword_1());
 		}
-		otherlv_1='{'
+		(
+			(
+				lv_name_2_0=RULE_ID
+				{
+					newLeafNode(lv_name_2_0, grammarAccess.getFrameAccess().getNameIDTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFrameRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)?
+		otherlv_3='{'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getFrameAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_3, grammarAccess.getFrameAccess().getLeftCurlyBracketKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFrameAccess().getElementsElementsParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFrameAccess().getElementsElementsParserRuleCall_4_0());
 				}
-				lv_elements_2_0=ruleElements
+				lv_elements_4_0=ruleElements
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFrameRule());
@@ -269,15 +283,34 @@ ruleFrame returns [EObject current=null]
 					add(
 						$current,
 						"elements",
-						lv_elements_2_0,
+						lv_elements_4_0,
 						"org.xtext.niste15.mdsd.Android.Elements");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-		otherlv_3='}'
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFrameAccess().getConstraintConstraintParserRuleCall_5_0());
+				}
+				lv_constraint_5_0=ruleConstraint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFrameRule());
+					}
+					set(
+						$current,
+						"constraint",
+						lv_constraint_5_0,
+						"org.xtext.niste15.mdsd.Android.Constraint");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getFrameAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getFrameAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;
@@ -360,28 +393,9 @@ ruleText returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTextAccess().getConstraintConstraintParserRuleCall_3_0());
-				}
-				lv_constraint_3_0=ruleConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTextRule());
-					}
-					set(
-						$current,
-						"constraint",
-						lv_constraint_3_0,
-						"org.xtext.niste15.mdsd.Android.Constraint");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4=')'
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getTextAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getTextAccess().getRightParenthesisKeyword_3());
 		}
 	)
 ;
@@ -428,28 +442,9 @@ ruleButton returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getButtonAccess().getConstraintConstraintParserRuleCall_3_0());
-				}
-				lv_constraint_3_0=ruleConstraint
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getButtonRule());
-					}
-					set(
-						$current,
-						"constraint",
-						lv_constraint_3_0,
-						"org.xtext.niste15.mdsd.Android.Constraint");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_4=')'
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getButtonAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getButtonAccess().getRightParenthesisKeyword_3());
 		}
 	)
 ;
@@ -471,28 +466,21 @@ ruleConstraint returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getConstraintAccess().getVerticalAction_0_0(),
-						$current);
-				}
-			)
-			otherlv_1='constraintsVertical'
+			otherlv_0='constraint'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getConstraintsVerticalKeyword_0_1());
+				newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0_0());
 			}
 			(
-				otherlv_2=':'
+				otherlv_1=':'
 				{
-					newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getColonKeyword_0_2_0());
+					newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getColonKeyword_0_1_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_1_0());
+							newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_1_1_0());
 						}
-						lv_constraintType_3_0=ruleConstraintTypeVertical
+						lv_constraintType_2_0=ruleConstraintTypeVertical
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -500,85 +488,47 @@ ruleConstraint returns [EObject current=null]
 							set(
 								$current,
 								"constraintType",
-								lv_constraintType_3_0,
+								lv_constraintType_2_0,
 								"org.xtext.niste15.mdsd.Android.ConstraintTypeVertical");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
-			)
-			otherlv_4='='
-			{
-				newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getEqualsSignKeyword_0_3());
-			}
-			(
+				otherlv_3='='
+				{
+					newLeafNode(otherlv_3, grammarAccess.getConstraintAccess().getEqualsSignKeyword_0_1_2());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getConstraintAccess().getParamConstraintParameterVerticalParserRuleCall_0_4_0());
-					}
-					lv_param_5_0=ruleConstraintParameterVertical
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getConstraintRule());
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getConstraintRule());
+							}
 						}
-						set(
-							$current,
-							"param",
-							lv_param_5_0,
-							"org.xtext.niste15.mdsd.Android.ConstraintParameterVertical");
-						afterParserOrEnumRuleCall();
-					}
+						otherlv_4=RULE_ID
+						{
+							newLeafNode(otherlv_4, grammarAccess.getConstraintAccess().getFrameFrameCrossReference_0_1_3_0());
+						}
+					)
 				)
 			)
 		)
 		    |
 		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getConstraintAccess().getHorizontalAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_7='constraintsHorizontal'
+			otherlv_5='constraint'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getConstraintAccess().getConstraintsHorizontalKeyword_1_1());
+				newLeafNode(otherlv_5, grammarAccess.getConstraintAccess().getConstraintKeyword_1_0());
 			}
-			(
-				otherlv_8=':'
-				{
-					newLeafNode(otherlv_8, grammarAccess.getConstraintAccess().getColonKeyword_1_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeHorizontalParserRuleCall_1_2_1_0());
-						}
-						lv_constraintType_9_0=ruleConstraintTypeHorizontal
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getConstraintRule());
-							}
-							set(
-								$current,
-								"constraintType",
-								lv_constraintType_9_0,
-								"org.xtext.niste15.mdsd.Android.ConstraintTypeHorizontal");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			otherlv_10='='
+			otherlv_6='='
 			{
-				newLeafNode(otherlv_10, grammarAccess.getConstraintAccess().getEqualsSignKeyword_1_3());
+				newLeafNode(otherlv_6, grammarAccess.getConstraintAccess().getEqualsSignKeyword_1_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getConstraintAccess().getParamConstraintParameterHorizontalParserRuleCall_1_4_0());
+						newCompositeNode(grammarAccess.getConstraintAccess().getParamConstraintParameterParserRuleCall_1_2_0());
 					}
-					lv_param_11_0=ruleConstraintParameterHorizontal
+					lv_param_7_0=ruleConstraintParameter
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -586,8 +536,8 @@ ruleConstraint returns [EObject current=null]
 						set(
 							$current,
 							"param",
-							lv_param_11_0,
-							"org.xtext.niste15.mdsd.Android.ConstraintParameterHorizontal");
+							lv_param_7_0,
+							"org.xtext.niste15.mdsd.Android.ConstraintParameter");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -639,36 +589,18 @@ ruleConstraintTypeVertical returns [EObject current=null]
 				newLeafNode(otherlv_3, grammarAccess.getConstraintTypeVerticalAccess().getLeftOfKeyword_1_1());
 			}
 		)
-	)
-;
-
-// Entry rule entryRuleConstraintTypeHorizontal
-entryRuleConstraintTypeHorizontal returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConstraintTypeHorizontalRule()); }
-	iv_ruleConstraintTypeHorizontal=ruleConstraintTypeHorizontal
-	{ $current=$iv_ruleConstraintTypeHorizontal.current; }
-	EOF;
-
-// Rule ConstraintTypeHorizontal
-ruleConstraintTypeHorizontal returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
+		    |
 		(
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeHorizontalAccess().getBottomOfAction_0_0(),
+						grammarAccess.getConstraintTypeVerticalAccess().getBottomOfAction_2_0(),
 						$current);
 				}
 			)
-			otherlv_1='bottomOf'
+			otherlv_5='bottomOf'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getConstraintTypeHorizontalAccess().getBottomOfKeyword_0_1());
+				newLeafNode(otherlv_5, grammarAccess.getConstraintTypeVerticalAccess().getBottomOfKeyword_2_1());
 			}
 		)
 		    |
@@ -676,27 +608,27 @@ ruleConstraintTypeHorizontal returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeHorizontalAccess().getTopOfAction_1_0(),
+						grammarAccess.getConstraintTypeVerticalAccess().getTopOfAction_3_0(),
 						$current);
 				}
 			)
-			otherlv_3='topOf'
+			otherlv_7='topOf'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getConstraintTypeHorizontalAccess().getTopOfKeyword_1_1());
+				newLeafNode(otherlv_7, grammarAccess.getConstraintTypeVerticalAccess().getTopOfKeyword_3_1());
 			}
 		)
 	)
 ;
 
-// Entry rule entryRuleConstraintParameterVertical
-entryRuleConstraintParameterVertical returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConstraintParameterVerticalRule()); }
-	iv_ruleConstraintParameterVertical=ruleConstraintParameterVertical
-	{ $current=$iv_ruleConstraintParameterVertical.current; }
+// Entry rule entryRuleConstraintParameter
+entryRuleConstraintParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConstraintParameterRule()); }
+	iv_ruleConstraintParameter=ruleConstraintParameter
+	{ $current=$iv_ruleConstraintParameter.current; }
 	EOF;
 
-// Rule ConstraintParameterVertical
-ruleConstraintParameterVertical returns [EObject current=null]
+// Rule ConstraintParameter
+ruleConstraintParameter returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -708,7 +640,7 @@ ruleConstraintParameterVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterVerticalAccess().getPersentageAction_0_0(),
+						grammarAccess.getConstraintParameterAccess().getPersentageAction_0_0(),
 						$current);
 				}
 			)
@@ -716,11 +648,11 @@ ruleConstraintParameterVertical returns [EObject current=null]
 				(
 					lv_value_1_0=RULE_ID
 					{
-						newLeafNode(lv_value_1_0, grammarAccess.getConstraintParameterVerticalAccess().getValueIDTerminalRuleCall_0_1_0());
+						newLeafNode(lv_value_1_0, grammarAccess.getConstraintParameterAccess().getValueIDTerminalRuleCall_0_1_0());
 					}
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getConstraintParameterVerticalRule());
+							$current = createModelElement(grammarAccess.getConstraintParameterRule());
 						}
 						setWithLastConsumed(
 							$current,
@@ -732,7 +664,7 @@ ruleConstraintParameterVertical returns [EObject current=null]
 			)
 			otherlv_2='%'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getConstraintParameterVerticalAccess().getPercentSignKeyword_0_2());
+				newLeafNode(otherlv_2, grammarAccess.getConstraintParameterAccess().getPercentSignKeyword_0_2());
 			}
 		)
 		    |
@@ -740,13 +672,13 @@ ruleConstraintParameterVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterVerticalAccess().getRightAction_1_0(),
+						grammarAccess.getConstraintParameterAccess().getRightAction_1_0(),
 						$current);
 				}
 			)
 			otherlv_4='right'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConstraintParameterVerticalAccess().getRightKeyword_1_1());
+				newLeafNode(otherlv_4, grammarAccess.getConstraintParameterAccess().getRightKeyword_1_1());
 			}
 		)
 		    |
@@ -754,13 +686,13 @@ ruleConstraintParameterVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterVerticalAccess().getLeftAction_2_0(),
+						grammarAccess.getConstraintParameterAccess().getLeftAction_2_0(),
 						$current);
 				}
 			)
 			otherlv_6='left'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getConstraintParameterVerticalAccess().getLeftKeyword_2_1());
+				newLeafNode(otherlv_6, grammarAccess.getConstraintParameterAccess().getLeftKeyword_2_1());
 			}
 		)
 		    |
@@ -768,63 +700,13 @@ ruleConstraintParameterVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterVerticalAccess().getMiddleAction_3_0(),
+						grammarAccess.getConstraintParameterAccess().getTopAction_3_0(),
 						$current);
 				}
 			)
-			otherlv_8='middle'
+			otherlv_8='top'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getConstraintParameterVerticalAccess().getMiddleKeyword_3_1());
-			}
-		)
-	)
-;
-
-// Entry rule entryRuleConstraintParameterHorizontal
-entryRuleConstraintParameterHorizontal returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConstraintParameterHorizontalRule()); }
-	iv_ruleConstraintParameterHorizontal=ruleConstraintParameterHorizontal
-	{ $current=$iv_ruleConstraintParameterHorizontal.current; }
-	EOF;
-
-// Rule ConstraintParameterHorizontal
-ruleConstraintParameterHorizontal returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterHorizontalAccess().getPersentageAction_0_0(),
-						$current);
-				}
-			)
-			(
-				(
-					lv_value_1_0=RULE_ID
-					{
-						newLeafNode(lv_value_1_0, grammarAccess.getConstraintParameterHorizontalAccess().getValueIDTerminalRuleCall_0_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getConstraintParameterHorizontalRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_1_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-			otherlv_2='%'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getConstraintParameterHorizontalAccess().getPercentSignKeyword_0_2());
+				newLeafNode(otherlv_8, grammarAccess.getConstraintParameterAccess().getTopKeyword_3_1());
 			}
 		)
 		    |
@@ -832,13 +714,13 @@ ruleConstraintParameterHorizontal returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterHorizontalAccess().getTopAction_1_0(),
+						grammarAccess.getConstraintParameterAccess().getBottomAction_4_0(),
 						$current);
 				}
 			)
-			otherlv_4='top'
+			otherlv_10='bottom'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConstraintParameterHorizontalAccess().getTopKeyword_1_1());
+				newLeafNode(otherlv_10, grammarAccess.getConstraintParameterAccess().getBottomKeyword_4_1());
 			}
 		)
 		    |
@@ -846,27 +728,13 @@ ruleConstraintParameterHorizontal returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterHorizontalAccess().getBottomAction_2_0(),
+						grammarAccess.getConstraintParameterAccess().getMiddleAction_5_0(),
 						$current);
 				}
 			)
-			otherlv_6='bottom'
+			otherlv_12='middle'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getConstraintParameterHorizontalAccess().getBottomKeyword_2_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterHorizontalAccess().getMiddleAction_3_0(),
-						$current);
-				}
-			)
-			otherlv_8='middle'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getConstraintParameterHorizontalAccess().getMiddleKeyword_3_1());
+				newLeafNode(otherlv_12, grammarAccess.getConstraintParameterAccess().getMiddleKeyword_5_1());
 			}
 		)
 	)

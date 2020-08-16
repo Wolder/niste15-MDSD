@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.Right;
  *
  * @generated
  */
-public class RightImpl extends ConstraintParameterVerticalImpl implements Right
+public class RightImpl extends ConstraintParameterImpl implements Right
 {
   /**
    * <!-- begin-user-doc -->

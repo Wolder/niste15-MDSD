@@ -68,7 +68,7 @@ public interface AndroidPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Application</b></em>' containment reference list.
+   * The feature id for the '<em><b>Application</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -133,22 +133,13 @@ public interface AndroidPackage extends EPackage
   int PANE = 2;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PANE__NAME = 0;
-
-  /**
    * The feature id for the '<em><b>Frames</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PANE__FRAMES = 1;
+  int PANE__FRAMES = 0;
 
   /**
    * The number of structural features of the '<em>Pane</em>' class.
@@ -157,7 +148,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PANE_FEATURE_COUNT = 2;
+  int PANE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.FrameImpl <em>Frame</em>}' class.
@@ -170,13 +161,31 @@ public interface AndroidPackage extends EPackage
   int FRAME = 3;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAME__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FRAME__ELEMENTS = 0;
+  int FRAME__ELEMENTS = 1;
+
+  /**
+   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAME__CONSTRAINT = 2;
 
   /**
    * The number of structural features of the '<em>Frame</em>' class.
@@ -185,7 +194,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FRAME_FEATURE_COUNT = 1;
+  int FRAME_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ElementsImpl <em>Elements</em>}' class.
@@ -207,22 +216,13 @@ public interface AndroidPackage extends EPackage
   int ELEMENTS__TEXT = 0;
 
   /**
-   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENTS__CONSTRAINT = 1;
-
-  /**
    * The number of structural features of the '<em>Elements</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENTS_FEATURE_COUNT = 2;
+  int ELEMENTS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.TextImpl <em>Text</em>}' class.
@@ -242,15 +242,6 @@ public interface AndroidPackage extends EPackage
    * @ordered
    */
   int TEXT__TEXT = ELEMENTS__TEXT;
-
-  /**
-   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT__CONSTRAINT = ELEMENTS__CONSTRAINT;
 
   /**
    * The number of structural features of the '<em>Text</em>' class.
@@ -281,15 +272,6 @@ public interface AndroidPackage extends EPackage
   int BUTTON__TEXT = ELEMENTS__TEXT;
 
   /**
-   * The feature id for the '<em><b>Constraint</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BUTTON__CONSTRAINT = ELEMENTS__CONSTRAINT;
-
-  /**
    * The number of structural features of the '<em>Button</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -309,13 +291,40 @@ public interface AndroidPackage extends EPackage
   int CONSTRAINT = 7;
 
   /**
+   * The feature id for the '<em><b>Constraint Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__CONSTRAINT_TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Frame</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__FRAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Param</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__PARAM = 2;
+
+  /**
    * The number of structural features of the '<em>Constraint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTRAINT_FEATURE_COUNT = 0;
+  int CONSTRAINT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintTypeVerticalImpl <em>Constraint Type Vertical</em>}' class.
@@ -337,135 +346,23 @@ public interface AndroidPackage extends EPackage
   int CONSTRAINT_TYPE_VERTICAL_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintTypeHorizontalImpl <em>Constraint Type Horizontal</em>}' class.
+   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterImpl <em>Constraint Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.ConstraintTypeHorizontalImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintTypeHorizontal()
+   * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterImpl
+   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameter()
    * @generated
    */
-  int CONSTRAINT_TYPE_HORIZONTAL = 9;
+  int CONSTRAINT_PARAMETER = 9;
 
   /**
-   * The number of structural features of the '<em>Constraint Type Horizontal</em>' class.
+   * The number of structural features of the '<em>Constraint Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTRAINT_TYPE_HORIZONTAL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterVerticalImpl <em>Constraint Parameter Vertical</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterVerticalImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameterVertical()
-   * @generated
-   */
-  int CONSTRAINT_PARAMETER_VERTICAL = 10;
-
-  /**
-   * The number of structural features of the '<em>Constraint Parameter Vertical</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterHorizontalImpl <em>Constraint Parameter Horizontal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterHorizontalImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameterHorizontal()
-   * @generated
-   */
-  int CONSTRAINT_PARAMETER_HORIZONTAL = 11;
-
-  /**
-   * The number of structural features of the '<em>Constraint Parameter Horizontal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONSTRAINT_PARAMETER_HORIZONTAL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.VerticalImpl <em>Vertical</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.VerticalImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getVertical()
-   * @generated
-   */
-  int VERTICAL = 12;
-
-  /**
-   * The feature id for the '<em><b>Constraint Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERTICAL__CONSTRAINT_TYPE = CONSTRAINT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERTICAL__PARAM = CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Vertical</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERTICAL_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.HorizontalImpl <em>Horizontal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.HorizontalImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getHorizontal()
-   * @generated
-   */
-  int HORIZONTAL = 13;
-
-  /**
-   * The feature id for the '<em><b>Constraint Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HORIZONTAL__CONSTRAINT_TYPE = CONSTRAINT_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Param</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HORIZONTAL__PARAM = CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Horizontal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int HORIZONTAL_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
+  int CONSTRAINT_PARAMETER_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.RightOfImpl <em>Right Of</em>}' class.
@@ -475,7 +372,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getRightOf()
    * @generated
    */
-  int RIGHT_OF = 14;
+  int RIGHT_OF = 10;
 
   /**
    * The number of structural features of the '<em>Right Of</em>' class.
@@ -494,7 +391,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getLeftOf()
    * @generated
    */
-  int LEFT_OF = 15;
+  int LEFT_OF = 11;
 
   /**
    * The number of structural features of the '<em>Left Of</em>' class.
@@ -513,7 +410,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getBottomOf()
    * @generated
    */
-  int BOTTOM_OF = 16;
+  int BOTTOM_OF = 12;
 
   /**
    * The number of structural features of the '<em>Bottom Of</em>' class.
@@ -522,7 +419,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOTTOM_OF_FEATURE_COUNT = CONSTRAINT_TYPE_HORIZONTAL_FEATURE_COUNT + 0;
+  int BOTTOM_OF_FEATURE_COUNT = CONSTRAINT_TYPE_VERTICAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.TopOfImpl <em>Top Of</em>}' class.
@@ -532,7 +429,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTopOf()
    * @generated
    */
-  int TOP_OF = 17;
+  int TOP_OF = 13;
 
   /**
    * The number of structural features of the '<em>Top Of</em>' class.
@@ -541,7 +438,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TOP_OF_FEATURE_COUNT = CONSTRAINT_TYPE_HORIZONTAL_FEATURE_COUNT + 0;
+  int TOP_OF_FEATURE_COUNT = CONSTRAINT_TYPE_VERTICAL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.PersentageImpl <em>Persentage</em>}' class.
@@ -551,7 +448,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getPersentage()
    * @generated
    */
-  int PERSENTAGE = 18;
+  int PERSENTAGE = 14;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -560,7 +457,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSENTAGE__VALUE = CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT + 0;
+  int PERSENTAGE__VALUE = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Persentage</em>' class.
@@ -569,7 +466,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSENTAGE_FEATURE_COUNT = CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT + 1;
+  int PERSENTAGE_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.RightImpl <em>Right</em>}' class.
@@ -579,7 +476,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getRight()
    * @generated
    */
-  int RIGHT = 19;
+  int RIGHT = 15;
 
   /**
    * The number of structural features of the '<em>Right</em>' class.
@@ -588,7 +485,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RIGHT_FEATURE_COUNT = CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT + 0;
+  int RIGHT_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.LeftImpl <em>Left</em>}' class.
@@ -598,7 +495,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getLeft()
    * @generated
    */
-  int LEFT = 20;
+  int LEFT = 16;
 
   /**
    * The number of structural features of the '<em>Left</em>' class.
@@ -607,26 +504,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LEFT_FEATURE_COUNT = CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.MiddleImpl <em>Middle</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.MiddleImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
-   * @generated
-   */
-  int MIDDLE = 21;
-
-  /**
-   * The number of structural features of the '<em>Middle</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MIDDLE_FEATURE_COUNT = CONSTRAINT_PARAMETER_VERTICAL_FEATURE_COUNT + 0;
+  int LEFT_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.TopImpl <em>Top</em>}' class.
@@ -636,7 +514,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTop()
    * @generated
    */
-  int TOP = 22;
+  int TOP = 17;
 
   /**
    * The number of structural features of the '<em>Top</em>' class.
@@ -645,7 +523,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TOP_FEATURE_COUNT = CONSTRAINT_PARAMETER_HORIZONTAL_FEATURE_COUNT + 0;
+  int TOP_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.BottomImpl <em>Bottom</em>}' class.
@@ -655,7 +533,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getBottom()
    * @generated
    */
-  int BOTTOM = 23;
+  int BOTTOM = 18;
 
   /**
    * The number of structural features of the '<em>Bottom</em>' class.
@@ -664,7 +542,26 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOTTOM_FEATURE_COUNT = CONSTRAINT_PARAMETER_HORIZONTAL_FEATURE_COUNT + 0;
+  int BOTTOM_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.MiddleImpl <em>Middle</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.niste15.mdsd.android.impl.MiddleImpl
+   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
+   * @generated
+   */
+  int MIDDLE = 19;
+
+  /**
+   * The number of structural features of the '<em>Middle</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MIDDLE_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
 
 
   /**
@@ -678,10 +575,10 @@ public interface AndroidPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.niste15.mdsd.android.Model#getApplication <em>Application</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Model#getApplication <em>Application</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Application</em>'.
+   * @return the meta object for the containment reference '<em>Application</em>'.
    * @see org.xtext.niste15.mdsd.android.Model#getApplication()
    * @see #getModel()
    * @generated
@@ -731,17 +628,6 @@ public interface AndroidPackage extends EPackage
   EClass getPane();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Pane#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.niste15.mdsd.android.Pane#getName()
-   * @see #getPane()
-   * @generated
-   */
-  EAttribute getPane_Name();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.niste15.mdsd.android.Pane#getFrames <em>Frames</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -763,6 +649,17 @@ public interface AndroidPackage extends EPackage
   EClass getFrame();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Frame#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.niste15.mdsd.android.Frame#getName()
+   * @see #getFrame()
+   * @generated
+   */
+  EAttribute getFrame_Name();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.niste15.mdsd.android.Frame#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -772,6 +669,17 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EReference getFrame_Elements();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Frame#getConstraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint</em>'.
+   * @see org.xtext.niste15.mdsd.android.Frame#getConstraint()
+   * @see #getFrame()
+   * @generated
+   */
+  EReference getFrame_Constraint();
 
   /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Elements <em>Elements</em>}'.
@@ -793,17 +701,6 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EAttribute getElements_Text();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Elements#getConstraint <em>Constraint</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Constraint</em>'.
-   * @see org.xtext.niste15.mdsd.android.Elements#getConstraint()
-   * @see #getElements()
-   * @generated
-   */
-  EReference getElements_Constraint();
 
   /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Text <em>Text</em>}'.
@@ -836,6 +733,39 @@ public interface AndroidPackage extends EPackage
   EClass getConstraint();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Constraint#getConstraintType <em>Constraint Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Constraint Type</em>'.
+   * @see org.xtext.niste15.mdsd.android.Constraint#getConstraintType()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_ConstraintType();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.niste15.mdsd.android.Constraint#getFrame <em>Frame</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Frame</em>'.
+   * @see org.xtext.niste15.mdsd.android.Constraint#getFrame()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Frame();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Constraint#getParam <em>Param</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Param</em>'.
+   * @see org.xtext.niste15.mdsd.android.Constraint#getParam()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Param();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.ConstraintTypeVertical <em>Constraint Type Vertical</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -846,98 +776,14 @@ public interface AndroidPackage extends EPackage
   EClass getConstraintTypeVertical();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.ConstraintTypeHorizontal <em>Constraint Type Horizontal</em>}'.
+   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.ConstraintParameter <em>Constraint Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constraint Type Horizontal</em>'.
-   * @see org.xtext.niste15.mdsd.android.ConstraintTypeHorizontal
+   * @return the meta object for class '<em>Constraint Parameter</em>'.
+   * @see org.xtext.niste15.mdsd.android.ConstraintParameter
    * @generated
    */
-  EClass getConstraintTypeHorizontal();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.ConstraintParameterVertical <em>Constraint Parameter Vertical</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constraint Parameter Vertical</em>'.
-   * @see org.xtext.niste15.mdsd.android.ConstraintParameterVertical
-   * @generated
-   */
-  EClass getConstraintParameterVertical();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.ConstraintParameterHorizontal <em>Constraint Parameter Horizontal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Constraint Parameter Horizontal</em>'.
-   * @see org.xtext.niste15.mdsd.android.ConstraintParameterHorizontal
-   * @generated
-   */
-  EClass getConstraintParameterHorizontal();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Vertical <em>Vertical</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Vertical</em>'.
-   * @see org.xtext.niste15.mdsd.android.Vertical
-   * @generated
-   */
-  EClass getVertical();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Vertical#getConstraintType <em>Constraint Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Constraint Type</em>'.
-   * @see org.xtext.niste15.mdsd.android.Vertical#getConstraintType()
-   * @see #getVertical()
-   * @generated
-   */
-  EReference getVertical_ConstraintType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Vertical#getParam <em>Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Param</em>'.
-   * @see org.xtext.niste15.mdsd.android.Vertical#getParam()
-   * @see #getVertical()
-   * @generated
-   */
-  EReference getVertical_Param();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Horizontal <em>Horizontal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Horizontal</em>'.
-   * @see org.xtext.niste15.mdsd.android.Horizontal
-   * @generated
-   */
-  EClass getHorizontal();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Horizontal#getConstraintType <em>Constraint Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Constraint Type</em>'.
-   * @see org.xtext.niste15.mdsd.android.Horizontal#getConstraintType()
-   * @see #getHorizontal()
-   * @generated
-   */
-  EReference getHorizontal_ConstraintType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Horizontal#getParam <em>Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Param</em>'.
-   * @see org.xtext.niste15.mdsd.android.Horizontal#getParam()
-   * @see #getHorizontal()
-   * @generated
-   */
-  EReference getHorizontal_Param();
+  EClass getConstraintParameter();
 
   /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.RightOf <em>Right Of</em>}'.
@@ -1021,16 +867,6 @@ public interface AndroidPackage extends EPackage
   EClass getLeft();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Middle <em>Middle</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Middle</em>'.
-   * @see org.xtext.niste15.mdsd.android.Middle
-   * @generated
-   */
-  EClass getMiddle();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Top <em>Top</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1049,6 +885,16 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EClass getBottom();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Middle <em>Middle</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Middle</em>'.
+   * @see org.xtext.niste15.mdsd.android.Middle
+   * @generated
+   */
+  EClass getMiddle();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1084,7 +930,7 @@ public interface AndroidPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Application</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Application</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1128,14 +974,6 @@ public interface AndroidPackage extends EPackage
     EClass PANE = eINSTANCE.getPane();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PANE__NAME = eINSTANCE.getPane_Name();
-
-    /**
      * The meta object literal for the '<em><b>Frames</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1154,12 +992,28 @@ public interface AndroidPackage extends EPackage
     EClass FRAME = eINSTANCE.getFrame();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FRAME__NAME = eINSTANCE.getFrame_Name();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference FRAME__ELEMENTS = eINSTANCE.getFrame_Elements();
+
+    /**
+     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FRAME__CONSTRAINT = eINSTANCE.getFrame_Constraint();
 
     /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ElementsImpl <em>Elements</em>}' class.
@@ -1178,14 +1032,6 @@ public interface AndroidPackage extends EPackage
      * @generated
      */
     EAttribute ELEMENTS__TEXT = eINSTANCE.getElements_Text();
-
-    /**
-     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELEMENTS__CONSTRAINT = eINSTANCE.getElements_Constraint();
 
     /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.TextImpl <em>Text</em>}' class.
@@ -1218,6 +1064,30 @@ public interface AndroidPackage extends EPackage
     EClass CONSTRAINT = eINSTANCE.getConstraint();
 
     /**
+     * The meta object literal for the '<em><b>Constraint Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__CONSTRAINT_TYPE = eINSTANCE.getConstraint_ConstraintType();
+
+    /**
+     * The meta object literal for the '<em><b>Frame</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__FRAME = eINSTANCE.getConstraint_Frame();
+
+    /**
+     * The meta object literal for the '<em><b>Param</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__PARAM = eINSTANCE.getConstraint_Param();
+
+    /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintTypeVerticalImpl <em>Constraint Type Vertical</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1228,86 +1098,14 @@ public interface AndroidPackage extends EPackage
     EClass CONSTRAINT_TYPE_VERTICAL = eINSTANCE.getConstraintTypeVertical();
 
     /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintTypeHorizontalImpl <em>Constraint Type Horizontal</em>}' class.
+     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterImpl <em>Constraint Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.ConstraintTypeHorizontalImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintTypeHorizontal()
+     * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterImpl
+     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameter()
      * @generated
      */
-    EClass CONSTRAINT_TYPE_HORIZONTAL = eINSTANCE.getConstraintTypeHorizontal();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterVerticalImpl <em>Constraint Parameter Vertical</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterVerticalImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameterVertical()
-     * @generated
-     */
-    EClass CONSTRAINT_PARAMETER_VERTICAL = eINSTANCE.getConstraintParameterVertical();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintParameterHorizontalImpl <em>Constraint Parameter Horizontal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.ConstraintParameterHorizontalImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameterHorizontal()
-     * @generated
-     */
-    EClass CONSTRAINT_PARAMETER_HORIZONTAL = eINSTANCE.getConstraintParameterHorizontal();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.VerticalImpl <em>Vertical</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.VerticalImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getVertical()
-     * @generated
-     */
-    EClass VERTICAL = eINSTANCE.getVertical();
-
-    /**
-     * The meta object literal for the '<em><b>Constraint Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VERTICAL__CONSTRAINT_TYPE = eINSTANCE.getVertical_ConstraintType();
-
-    /**
-     * The meta object literal for the '<em><b>Param</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VERTICAL__PARAM = eINSTANCE.getVertical_Param();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.HorizontalImpl <em>Horizontal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.HorizontalImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getHorizontal()
-     * @generated
-     */
-    EClass HORIZONTAL = eINSTANCE.getHorizontal();
-
-    /**
-     * The meta object literal for the '<em><b>Constraint Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference HORIZONTAL__CONSTRAINT_TYPE = eINSTANCE.getHorizontal_ConstraintType();
-
-    /**
-     * The meta object literal for the '<em><b>Param</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference HORIZONTAL__PARAM = eINSTANCE.getHorizontal_Param();
+    EClass CONSTRAINT_PARAMETER = eINSTANCE.getConstraintParameter();
 
     /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.RightOfImpl <em>Right Of</em>}' class.
@@ -1388,16 +1186,6 @@ public interface AndroidPackage extends EPackage
     EClass LEFT = eINSTANCE.getLeft();
 
     /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.MiddleImpl <em>Middle</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.MiddleImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
-     * @generated
-     */
-    EClass MIDDLE = eINSTANCE.getMiddle();
-
-    /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.TopImpl <em>Top</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1416,6 +1204,16 @@ public interface AndroidPackage extends EPackage
      * @generated
      */
     EClass BOTTOM = eINSTANCE.getBottom();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.MiddleImpl <em>Middle</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.niste15.mdsd.android.impl.MiddleImpl
+     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
+     * @generated
+     */
+    EClass MIDDLE = eINSTANCE.getMiddle();
 
   }
 

@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.Middle;
  *
  * @generated
  */
-public class MiddleImpl extends ConstraintParameterVerticalImpl implements Middle
+public class MiddleImpl extends ConstraintParameterImpl implements Middle
 {
   /**
    * <!-- begin-user-doc -->

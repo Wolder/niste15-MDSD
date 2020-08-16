@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.niste15.mdsd.android.Elements#getText <em>Text</em>}</li>
- *   <li>{@link org.xtext.niste15.mdsd.android.Elements#getConstraint <em>Constraint</em>}</li>
  * </ul>
  *
  * @see org.xtext.niste15.mdsd.android.AndroidPackage#getElements()
@@ -45,27 +44,5 @@ public interface Elements extends EObject
    * @generated
    */
   void setText(String value);
-
-  /**
-   * Returns the value of the '<em><b>Constraint</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Constraint</em>' containment reference.
-   * @see #setConstraint(Constraint)
-   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getElements_Constraint()
-   * @model containment="true"
-   * @generated
-   */
-  Constraint getConstraint();
-
-  /**
-   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Elements#getConstraint <em>Constraint</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Constraint</em>' containment reference.
-   * @see #getConstraint()
-   * @generated
-   */
-  void setConstraint(Constraint value);
 
 } // Elements

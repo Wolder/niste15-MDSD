@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.niste15.mdsd.android.AndroidPackage;
-import org.xtext.niste15.mdsd.android.ConstraintParameterVertical;
+import org.xtext.niste15.mdsd.android.ConstraintParameter;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Constraint Parameter Vertical</b></em>'.
+ * An implementation of the model object '<em><b>Constraint Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ConstraintParameterVerticalImpl extends MinimalEObjectImpl.Container implements ConstraintParameterVertical
+public class ConstraintParameterImpl extends MinimalEObjectImpl.Container implements ConstraintParameter
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ConstraintParameterVerticalImpl()
+  protected ConstraintParameterImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class ConstraintParameterVerticalImpl extends MinimalEObjectImpl.Containe
   @Override
   protected EClass eStaticClass()
   {
-    return AndroidPackage.Literals.CONSTRAINT_PARAMETER_VERTICAL;
+    return AndroidPackage.Literals.CONSTRAINT_PARAMETER;
   }
 
-} //ConstraintParameterVerticalImpl
+} //ConstraintParameterImpl

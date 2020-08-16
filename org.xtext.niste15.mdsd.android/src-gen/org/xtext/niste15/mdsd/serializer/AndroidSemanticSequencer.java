@@ -19,8 +19,8 @@ import org.xtext.niste15.mdsd.android.Application;
 import org.xtext.niste15.mdsd.android.Bottom;
 import org.xtext.niste15.mdsd.android.BottomOf;
 import org.xtext.niste15.mdsd.android.Button;
+import org.xtext.niste15.mdsd.android.Constraint;
 import org.xtext.niste15.mdsd.android.Frame;
-import org.xtext.niste15.mdsd.android.Horizontal;
 import org.xtext.niste15.mdsd.android.Left;
 import org.xtext.niste15.mdsd.android.LeftOf;
 import org.xtext.niste15.mdsd.android.Middle;
@@ -32,7 +32,6 @@ import org.xtext.niste15.mdsd.android.RightOf;
 import org.xtext.niste15.mdsd.android.Text;
 import org.xtext.niste15.mdsd.android.Top;
 import org.xtext.niste15.mdsd.android.TopOf;
-import org.xtext.niste15.mdsd.android.Vertical;
 import org.xtext.niste15.mdsd.services.AndroidGrammarAccess;
 
 @SuppressWarnings("all")
@@ -53,28 +52,28 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_Application(context, (Application) semanticObject); 
 				return; 
 			case AndroidPackage.BOTTOM:
-				sequence_ConstraintParameterHorizontal(context, (Bottom) semanticObject); 
+				sequence_ConstraintParameter(context, (Bottom) semanticObject); 
 				return; 
 			case AndroidPackage.BOTTOM_OF:
-				sequence_ConstraintTypeHorizontal(context, (BottomOf) semanticObject); 
+				sequence_ConstraintTypeVertical(context, (BottomOf) semanticObject); 
 				return; 
 			case AndroidPackage.BUTTON:
 				sequence_Button(context, (Button) semanticObject); 
 				return; 
+			case AndroidPackage.CONSTRAINT:
+				sequence_Constraint(context, (Constraint) semanticObject); 
+				return; 
 			case AndroidPackage.FRAME:
 				sequence_Frame(context, (Frame) semanticObject); 
 				return; 
-			case AndroidPackage.HORIZONTAL:
-				sequence_Constraint(context, (Horizontal) semanticObject); 
-				return; 
 			case AndroidPackage.LEFT:
-				sequence_ConstraintParameterVertical(context, (Left) semanticObject); 
+				sequence_ConstraintParameter(context, (Left) semanticObject); 
 				return; 
 			case AndroidPackage.LEFT_OF:
 				sequence_ConstraintTypeVertical(context, (LeftOf) semanticObject); 
 				return; 
 			case AndroidPackage.MIDDLE:
-				sequence_ConstraintParameterHorizontal_ConstraintParameterVertical(context, (Middle) semanticObject); 
+				sequence_ConstraintParameter(context, (Middle) semanticObject); 
 				return; 
 			case AndroidPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -83,17 +82,10 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_Pane(context, (Pane) semanticObject); 
 				return; 
 			case AndroidPackage.PERSENTAGE:
-				if (rule == grammarAccess.getConstraintParameterHorizontalRule()) {
-					sequence_ConstraintParameterHorizontal(context, (Persentage) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getConstraintParameterVerticalRule()) {
-					sequence_ConstraintParameterVertical(context, (Persentage) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_ConstraintParameter(context, (Persentage) semanticObject); 
+				return; 
 			case AndroidPackage.RIGHT:
-				sequence_ConstraintParameterVertical(context, (Right) semanticObject); 
+				sequence_ConstraintParameter(context, (Right) semanticObject); 
 				return; 
 			case AndroidPackage.RIGHT_OF:
 				sequence_ConstraintTypeVertical(context, (RightOf) semanticObject); 
@@ -102,13 +94,10 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_Text(context, (Text) semanticObject); 
 				return; 
 			case AndroidPackage.TOP:
-				sequence_ConstraintParameterHorizontal(context, (Top) semanticObject); 
+				sequence_ConstraintParameter(context, (Top) semanticObject); 
 				return; 
 			case AndroidPackage.TOP_OF:
-				sequence_ConstraintTypeHorizontal(context, (TopOf) semanticObject); 
-				return; 
-			case AndroidPackage.VERTICAL:
-				sequence_Constraint(context, (Vertical) semanticObject); 
+				sequence_ConstraintTypeVertical(context, (TopOf) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -120,7 +109,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Application returns Application
 	 *
 	 * Constraint:
-	 *     (name=ID panes+=Pane)
+	 *     (name=ID panes+=Pane*)
 	 */
 	protected void sequence_Application(ISerializationContext context, Application semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -133,139 +122,105 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Button returns Button
 	 *
 	 * Constraint:
-	 *     (text=STRING constraint=Constraint)
+	 *     text=STRING
 	 */
 	protected void sequence_Button(ISerializationContext context, Button semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT));
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__CONSTRAINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__CONSTRAINT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getButtonAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
-		feeder.accept(grammarAccess.getButtonAccess().getConstraintConstraintParserRuleCall_3_0(), semanticObject.getConstraint());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintParameterHorizontal returns Bottom
+	 *     ConstraintParameter returns Bottom
 	 *
 	 * Constraint:
 	 *     {Bottom}
 	 */
-	protected void sequence_ConstraintParameterHorizontal(ISerializationContext context, Bottom semanticObject) {
+	protected void sequence_ConstraintParameter(ISerializationContext context, Bottom semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintParameterVertical returns Middle
-	 *     ConstraintParameterHorizontal returns Middle
-	 *
-	 * Constraint:
-	 *     {Middle}
-	 */
-	protected void sequence_ConstraintParameterHorizontal_ConstraintParameterVertical(ISerializationContext context, Middle semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConstraintParameterHorizontal returns Persentage
-	 *
-	 * Constraint:
-	 *     value=ID
-	 */
-	protected void sequence_ConstraintParameterHorizontal(ISerializationContext context, Persentage semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintParameterHorizontalAccess().getValueIDTerminalRuleCall_0_1_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConstraintParameterHorizontal returns Top
-	 *
-	 * Constraint:
-	 *     {Top}
-	 */
-	protected void sequence_ConstraintParameterHorizontal(ISerializationContext context, Top semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConstraintParameterVertical returns Left
+	 *     ConstraintParameter returns Left
 	 *
 	 * Constraint:
 	 *     {Left}
 	 */
-	protected void sequence_ConstraintParameterVertical(ISerializationContext context, Left semanticObject) {
+	protected void sequence_ConstraintParameter(ISerializationContext context, Left semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintParameterVertical returns Persentage
+	 *     ConstraintParameter returns Middle
+	 *
+	 * Constraint:
+	 *     {Middle}
+	 */
+	protected void sequence_ConstraintParameter(ISerializationContext context, Middle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ConstraintParameter returns Persentage
 	 *
 	 * Constraint:
 	 *     value=ID
 	 */
-	protected void sequence_ConstraintParameterVertical(ISerializationContext context, Persentage semanticObject) {
+	protected void sequence_ConstraintParameter(ISerializationContext context, Persentage semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintParameterVerticalAccess().getValueIDTerminalRuleCall_0_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getConstraintParameterAccess().getValueIDTerminalRuleCall_0_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintParameterVertical returns Right
+	 *     ConstraintParameter returns Right
 	 *
 	 * Constraint:
 	 *     {Right}
 	 */
-	protected void sequence_ConstraintParameterVertical(ISerializationContext context, Right semanticObject) {
+	protected void sequence_ConstraintParameter(ISerializationContext context, Right semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintTypeHorizontal returns BottomOf
+	 *     ConstraintParameter returns Top
+	 *
+	 * Constraint:
+	 *     {Top}
+	 */
+	protected void sequence_ConstraintParameter(ISerializationContext context, Top semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ConstraintTypeVertical returns BottomOf
 	 *
 	 * Constraint:
 	 *     {BottomOf}
 	 */
-	protected void sequence_ConstraintTypeHorizontal(ISerializationContext context, BottomOf semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConstraintTypeHorizontal returns TopOf
-	 *
-	 * Constraint:
-	 *     {TopOf}
-	 */
-	protected void sequence_ConstraintTypeHorizontal(ISerializationContext context, TopOf semanticObject) {
+	protected void sequence_ConstraintTypeVertical(ISerializationContext context, BottomOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -296,43 +251,25 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Constraint returns Horizontal
+	 *     ConstraintTypeVertical returns TopOf
 	 *
 	 * Constraint:
-	 *     (constraintType=ConstraintTypeHorizontal param=ConstraintParameterHorizontal)
+	 *     {TopOf}
 	 */
-	protected void sequence_Constraint(ISerializationContext context, Horizontal semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.HORIZONTAL__CONSTRAINT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.HORIZONTAL__CONSTRAINT_TYPE));
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.HORIZONTAL__PARAM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.HORIZONTAL__PARAM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeHorizontalParserRuleCall_1_2_1_0(), semanticObject.getConstraintType());
-		feeder.accept(grammarAccess.getConstraintAccess().getParamConstraintParameterHorizontalParserRuleCall_1_4_0(), semanticObject.getParam());
-		feeder.finish();
+	protected void sequence_ConstraintTypeVertical(ISerializationContext context, TopOf semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Constraint returns Vertical
+	 *     Constraint returns Constraint
 	 *
 	 * Constraint:
-	 *     (constraintType=ConstraintTypeVertical param=ConstraintParameterVertical)
+	 *     ((constraintType=ConstraintTypeVertical frame=[Frame|ID]) | param=ConstraintParameter)
 	 */
-	protected void sequence_Constraint(ISerializationContext context, Vertical semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.VERTICAL__CONSTRAINT_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.VERTICAL__CONSTRAINT_TYPE));
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.VERTICAL__PARAM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.VERTICAL__PARAM));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_1_0(), semanticObject.getConstraintType());
-		feeder.accept(grammarAccess.getConstraintAccess().getParamConstraintParameterVerticalParserRuleCall_0_4_0(), semanticObject.getParam());
-		feeder.finish();
+	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -341,7 +278,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Frame returns Frame
 	 *
 	 * Constraint:
-	 *     elements+=Elements
+	 *     (name=ID? elements+=Elements* constraint=Constraint?)
 	 */
 	protected void sequence_Frame(ISerializationContext context, Frame semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -353,10 +290,16 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     application+=Application+
+	 *     application=Application
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.MODEL__APPLICATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.MODEL__APPLICATION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModelAccess().getApplicationApplicationParserRuleCall_0(), semanticObject.getApplication());
+		feeder.finish();
 	}
 	
 	
@@ -365,7 +308,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Pane returns Pane
 	 *
 	 * Constraint:
-	 *     (name=ID frames+=Frame)
+	 *     frames+=Frame*
 	 */
 	protected void sequence_Pane(ISerializationContext context, Pane semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -378,18 +321,15 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     (text=STRING constraint=Constraint)
+	 *     text=STRING
 	 */
 	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT));
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__CONSTRAINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__CONSTRAINT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTextAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
-		feeder.accept(grammarAccess.getTextAccess().getConstraintConstraintParserRuleCall_3_0(), semanticObject.getConstraint());
 		feeder.finish();
 	}
 	

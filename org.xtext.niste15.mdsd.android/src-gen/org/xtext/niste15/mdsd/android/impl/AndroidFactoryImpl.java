@@ -74,11 +74,7 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
       case AndroidPackage.BUTTON: return createButton();
       case AndroidPackage.CONSTRAINT: return createConstraint();
       case AndroidPackage.CONSTRAINT_TYPE_VERTICAL: return createConstraintTypeVertical();
-      case AndroidPackage.CONSTRAINT_TYPE_HORIZONTAL: return createConstraintTypeHorizontal();
-      case AndroidPackage.CONSTRAINT_PARAMETER_VERTICAL: return createConstraintParameterVertical();
-      case AndroidPackage.CONSTRAINT_PARAMETER_HORIZONTAL: return createConstraintParameterHorizontal();
-      case AndroidPackage.VERTICAL: return createVertical();
-      case AndroidPackage.HORIZONTAL: return createHorizontal();
+      case AndroidPackage.CONSTRAINT_PARAMETER: return createConstraintParameter();
       case AndroidPackage.RIGHT_OF: return createRightOf();
       case AndroidPackage.LEFT_OF: return createLeftOf();
       case AndroidPackage.BOTTOM_OF: return createBottomOf();
@@ -86,9 +82,9 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
       case AndroidPackage.PERSENTAGE: return createPersentage();
       case AndroidPackage.RIGHT: return createRight();
       case AndroidPackage.LEFT: return createLeft();
-      case AndroidPackage.MIDDLE: return createMiddle();
       case AndroidPackage.TOP: return createTop();
       case AndroidPackage.BOTTOM: return createBottom();
+      case AndroidPackage.MIDDLE: return createMiddle();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -208,58 +204,10 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
    * @generated
    */
   @Override
-  public ConstraintTypeHorizontal createConstraintTypeHorizontal()
+  public ConstraintParameter createConstraintParameter()
   {
-    ConstraintTypeHorizontalImpl constraintTypeHorizontal = new ConstraintTypeHorizontalImpl();
-    return constraintTypeHorizontal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ConstraintParameterVertical createConstraintParameterVertical()
-  {
-    ConstraintParameterVerticalImpl constraintParameterVertical = new ConstraintParameterVerticalImpl();
-    return constraintParameterVertical;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ConstraintParameterHorizontal createConstraintParameterHorizontal()
-  {
-    ConstraintParameterHorizontalImpl constraintParameterHorizontal = new ConstraintParameterHorizontalImpl();
-    return constraintParameterHorizontal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Vertical createVertical()
-  {
-    VerticalImpl vertical = new VerticalImpl();
-    return vertical;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Horizontal createHorizontal()
-  {
-    HorizontalImpl horizontal = new HorizontalImpl();
-    return horizontal;
+    ConstraintParameterImpl constraintParameter = new ConstraintParameterImpl();
+    return constraintParameter;
   }
 
   /**
@@ -352,18 +300,6 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
    * @generated
    */
   @Override
-  public Middle createMiddle()
-  {
-    MiddleImpl middle = new MiddleImpl();
-    return middle;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Top createTop()
   {
     TopImpl top = new TopImpl();
@@ -380,6 +316,18 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
   {
     BottomImpl bottom = new BottomImpl();
     return bottom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Middle createMiddle()
+  {
+    MiddleImpl middle = new MiddleImpl();
+    return middle;
   }
 
   /**

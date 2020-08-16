@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.BottomOf;
  *
  * @generated
  */
-public class BottomOfImpl extends ConstraintTypeHorizontalImpl implements BottomOf
+public class BottomOfImpl extends ConstraintTypeVerticalImpl implements BottomOf
 {
   /**
    * <!-- begin-user-doc -->

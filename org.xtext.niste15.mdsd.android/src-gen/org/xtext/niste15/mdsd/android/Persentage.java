@@ -20,7 +20,7 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface Persentage extends ConstraintParameterVertical, ConstraintParameterHorizontal
+public interface Persentage extends ConstraintParameter
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

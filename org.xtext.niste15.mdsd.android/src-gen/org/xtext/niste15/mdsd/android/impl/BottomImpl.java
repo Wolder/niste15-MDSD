@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.Bottom;
  *
  * @generated
  */
-public class BottomImpl extends ConstraintParameterHorizontalImpl implements Bottom
+public class BottomImpl extends ConstraintParameterImpl implements Bottom
 {
   /**
    * <!-- begin-user-doc -->

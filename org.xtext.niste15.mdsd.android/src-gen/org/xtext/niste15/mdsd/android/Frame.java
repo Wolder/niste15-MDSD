@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Frame#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.niste15.mdsd.android.Frame#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Frame#getConstraint <em>Constraint</em>}</li>
  * </ul>
  *
  * @see org.xtext.niste15.mdsd.android.AndroidPackage#getFrame()
@@ -25,6 +27,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Frame extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getFrame_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Frame#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.niste15.mdsd.android.Elements}.
@@ -36,5 +60,27 @@ public interface Frame extends EObject
    * @generated
    */
   EList<Elements> getElements();
+
+  /**
+   * Returns the value of the '<em><b>Constraint</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constraint</em>' containment reference.
+   * @see #setConstraint(Constraint)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getFrame_Constraint()
+   * @model containment="true"
+   * @generated
+   */
+  Constraint getConstraint();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Frame#getConstraint <em>Constraint</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Constraint</em>' containment reference.
+   * @see #getConstraint()
+   * @generated
+   */
+  void setConstraint(Constraint value);
 
 } // Frame

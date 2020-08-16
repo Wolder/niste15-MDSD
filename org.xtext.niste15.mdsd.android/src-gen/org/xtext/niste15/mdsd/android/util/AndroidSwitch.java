@@ -138,40 +138,10 @@ public class AndroidSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AndroidPackage.CONSTRAINT_TYPE_HORIZONTAL:
+      case AndroidPackage.CONSTRAINT_PARAMETER:
       {
-        ConstraintTypeHorizontal constraintTypeHorizontal = (ConstraintTypeHorizontal)theEObject;
-        T result = caseConstraintTypeHorizontal(constraintTypeHorizontal);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AndroidPackage.CONSTRAINT_PARAMETER_VERTICAL:
-      {
-        ConstraintParameterVertical constraintParameterVertical = (ConstraintParameterVertical)theEObject;
-        T result = caseConstraintParameterVertical(constraintParameterVertical);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AndroidPackage.CONSTRAINT_PARAMETER_HORIZONTAL:
-      {
-        ConstraintParameterHorizontal constraintParameterHorizontal = (ConstraintParameterHorizontal)theEObject;
-        T result = caseConstraintParameterHorizontal(constraintParameterHorizontal);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AndroidPackage.VERTICAL:
-      {
-        Vertical vertical = (Vertical)theEObject;
-        T result = caseVertical(vertical);
-        if (result == null) result = caseConstraint(vertical);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AndroidPackage.HORIZONTAL:
-      {
-        Horizontal horizontal = (Horizontal)theEObject;
-        T result = caseHorizontal(horizontal);
-        if (result == null) result = caseConstraint(horizontal);
+        ConstraintParameter constraintParameter = (ConstraintParameter)theEObject;
+        T result = caseConstraintParameter(constraintParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -195,7 +165,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         BottomOf bottomOf = (BottomOf)theEObject;
         T result = caseBottomOf(bottomOf);
-        if (result == null) result = caseConstraintTypeHorizontal(bottomOf);
+        if (result == null) result = caseConstraintTypeVertical(bottomOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,7 +173,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         TopOf topOf = (TopOf)theEObject;
         T result = caseTopOf(topOf);
-        if (result == null) result = caseConstraintTypeHorizontal(topOf);
+        if (result == null) result = caseConstraintTypeVertical(topOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -211,8 +181,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         Persentage persentage = (Persentage)theEObject;
         T result = casePersentage(persentage);
-        if (result == null) result = caseConstraintParameterVertical(persentage);
-        if (result == null) result = caseConstraintParameterHorizontal(persentage);
+        if (result == null) result = caseConstraintParameter(persentage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -220,7 +189,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         Right right = (Right)theEObject;
         T result = caseRight(right);
-        if (result == null) result = caseConstraintParameterVertical(right);
+        if (result == null) result = caseConstraintParameter(right);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -228,16 +197,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         Left left = (Left)theEObject;
         T result = caseLeft(left);
-        if (result == null) result = caseConstraintParameterVertical(left);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AndroidPackage.MIDDLE:
-      {
-        Middle middle = (Middle)theEObject;
-        T result = caseMiddle(middle);
-        if (result == null) result = caseConstraintParameterVertical(middle);
-        if (result == null) result = caseConstraintParameterHorizontal(middle);
+        if (result == null) result = caseConstraintParameter(left);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -245,7 +205,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         Top top = (Top)theEObject;
         T result = caseTop(top);
-        if (result == null) result = caseConstraintParameterHorizontal(top);
+        if (result == null) result = caseConstraintParameter(top);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -253,7 +213,15 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         Bottom bottom = (Bottom)theEObject;
         T result = caseBottom(bottom);
-        if (result == null) result = caseConstraintParameterHorizontal(bottom);
+        if (result == null) result = caseConstraintParameter(bottom);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AndroidPackage.MIDDLE:
+      {
+        Middle middle = (Middle)theEObject;
+        T result = caseMiddle(middle);
+        if (result == null) result = caseConstraintParameter(middle);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -406,81 +374,17 @@ public class AndroidSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constraint Type Horizontal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Constraint Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constraint Type Horizontal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Constraint Parameter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConstraintTypeHorizontal(ConstraintTypeHorizontal object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Constraint Parameter Vertical</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constraint Parameter Vertical</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstraintParameterVertical(ConstraintParameterVertical object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Constraint Parameter Horizontal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constraint Parameter Horizontal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConstraintParameterHorizontal(ConstraintParameterHorizontal object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Vertical</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vertical</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVertical(Vertical object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Horizontal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Horizontal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHorizontal(Horizontal object)
+  public T caseConstraintParameter(ConstraintParameter object)
   {
     return null;
   }
@@ -598,22 +502,6 @@ public class AndroidSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Middle</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Middle</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMiddle(Middle object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Top</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -641,6 +529,22 @@ public class AndroidSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBottom(Bottom object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Middle</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Middle</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMiddle(Middle object)
   {
     return null;
   }

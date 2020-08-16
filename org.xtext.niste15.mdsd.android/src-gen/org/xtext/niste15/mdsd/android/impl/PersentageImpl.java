@@ -25,7 +25,7 @@ import org.xtext.niste15.mdsd.android.Persentage;
  *
  * @generated
  */
-public class PersentageImpl extends ConstraintParameterVerticalImpl implements Persentage
+public class PersentageImpl extends ConstraintParameterImpl implements Persentage
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

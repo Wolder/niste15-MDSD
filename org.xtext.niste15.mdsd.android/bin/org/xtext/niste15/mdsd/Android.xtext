@@ -3,18 +3,18 @@ grammar org.xtext.niste15.mdsd.Android with org.eclipse.xtext.common.Terminals
 generate android 'http://www.xtext.org/niste15/mdsd/Android'
 
 Model:
-	application+=Application*;
+	application=Application;
 	
 Application:
-	'Application' name=ID '{' panes+=Pane '}' //NavigationBar
+	'Application' name=ID '{' (panes+=Pane)* '}' //NavigationBar
 ;
 
 Pane:
-	'Pane' name=ID '{' frames+=Frame '}'
+	{Pane} 'Pane' '{' (frames+=Frame)* '}'
 ;
 
 Frame:
-	'Frame' '{' elements+=Elements '}'
+	{Frame} 'Frame' (name=ID)? '{' (elements+=Elements)* (constraint=Constraint)? '}'
 ;
 
 Elements:
@@ -23,38 +23,31 @@ Elements:
 ;
 
 Text:
-	'Text' '(' text=STRING (constraint=Constraint) ')'  //More Params
+	'Text' '(' text=STRING ')'  //More Params
 ;
 
 Button:
-	'Button' '(' text=STRING (constraint=Constraint) ')' 
+	'Button' '(' text=STRING ')' 
 ;
 
 Constraint:
-	{Vertical} 'constraintsVertical' (':' constraintType=ConstraintTypeVertical) '=' param=ConstraintParameterVertical |
-	{Horizontal} 'constraintsHorizontal' (':' constraintType=ConstraintTypeHorizontal) '=' param=ConstraintParameterHorizontal
+	'constraint' (':' constraintType=ConstraintTypeVertical '=' frame=[Frame]) |
+	'constraint' '=' param=ConstraintParameter
 ;
 
 ConstraintTypeVertical: 
 	{RightOf} 'rightOf' |
-	{LeftOf} 'leftOf'
-;
-
-ConstraintTypeHorizontal:
+	{LeftOf} 'leftOf' |
 	{BottomOf} 'bottomOf' |
 	{TopOf} 'topOf' 
 ;
 
-ConstraintParameterVertical:
+ConstraintParameter:
 	{Persentage} value=ID '%' |
 	{Right} 'right' |
 	{Left} 'left' |
-	{Middle} 'middle'
-;
-
-ConstraintParameterHorizontal:
-	{Persentage} value=ID '%' |
 	{Top} 'top' |
 	{Bottom} 'bottom' |
 	{Middle} 'middle'
 ;
+

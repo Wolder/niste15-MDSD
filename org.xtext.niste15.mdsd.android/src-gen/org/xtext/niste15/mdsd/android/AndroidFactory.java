@@ -105,49 +105,13 @@ public interface AndroidFactory extends EFactory
   ConstraintTypeVertical createConstraintTypeVertical();
 
   /**
-   * Returns a new object of class '<em>Constraint Type Horizontal</em>'.
+   * Returns a new object of class '<em>Constraint Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraint Type Horizontal</em>'.
+   * @return a new object of class '<em>Constraint Parameter</em>'.
    * @generated
    */
-  ConstraintTypeHorizontal createConstraintTypeHorizontal();
-
-  /**
-   * Returns a new object of class '<em>Constraint Parameter Vertical</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraint Parameter Vertical</em>'.
-   * @generated
-   */
-  ConstraintParameterVertical createConstraintParameterVertical();
-
-  /**
-   * Returns a new object of class '<em>Constraint Parameter Horizontal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraint Parameter Horizontal</em>'.
-   * @generated
-   */
-  ConstraintParameterHorizontal createConstraintParameterHorizontal();
-
-  /**
-   * Returns a new object of class '<em>Vertical</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vertical</em>'.
-   * @generated
-   */
-  Vertical createVertical();
-
-  /**
-   * Returns a new object of class '<em>Horizontal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Horizontal</em>'.
-   * @generated
-   */
-  Horizontal createHorizontal();
+  ConstraintParameter createConstraintParameter();
 
   /**
    * Returns a new object of class '<em>Right Of</em>'.
@@ -213,15 +177,6 @@ public interface AndroidFactory extends EFactory
   Left createLeft();
 
   /**
-   * Returns a new object of class '<em>Middle</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Middle</em>'.
-   * @generated
-   */
-  Middle createMiddle();
-
-  /**
    * Returns a new object of class '<em>Top</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -238,6 +193,15 @@ public interface AndroidFactory extends EFactory
    * @generated
    */
   Bottom createBottom();
+
+  /**
+   * Returns a new object of class '<em>Middle</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Middle</em>'.
+   * @generated
+   */
+  Middle createMiddle();
 
   /**
    * Returns the package supported by this factory.

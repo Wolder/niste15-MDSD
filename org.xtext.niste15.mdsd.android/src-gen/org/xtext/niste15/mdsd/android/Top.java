@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface Top extends ConstraintParameterHorizontal
+public interface Top extends ConstraintParameter
 {
 } // Top

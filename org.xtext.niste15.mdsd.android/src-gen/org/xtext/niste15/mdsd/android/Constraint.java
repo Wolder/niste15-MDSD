@@ -10,6 +10,14 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Constraint</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Constraint#getConstraintType <em>Constraint Type</em>}</li>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Constraint#getFrame <em>Frame</em>}</li>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Constraint#getParam <em>Param</em>}</li>
+ * </ul>
  *
  * @see org.xtext.niste15.mdsd.android.AndroidPackage#getConstraint()
  * @model
@@ -17,4 +25,70 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Constraint extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Constraint Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constraint Type</em>' containment reference.
+   * @see #setConstraintType(ConstraintTypeVertical)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getConstraint_ConstraintType()
+   * @model containment="true"
+   * @generated
+   */
+  ConstraintTypeVertical getConstraintType();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Constraint#getConstraintType <em>Constraint Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Constraint Type</em>' containment reference.
+   * @see #getConstraintType()
+   * @generated
+   */
+  void setConstraintType(ConstraintTypeVertical value);
+
+  /**
+   * Returns the value of the '<em><b>Frame</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Frame</em>' reference.
+   * @see #setFrame(Frame)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getConstraint_Frame()
+   * @model
+   * @generated
+   */
+  Frame getFrame();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Constraint#getFrame <em>Frame</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Frame</em>' reference.
+   * @see #getFrame()
+   * @generated
+   */
+  void setFrame(Frame value);
+
+  /**
+   * Returns the value of the '<em><b>Param</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Param</em>' containment reference.
+   * @see #setParam(ConstraintParameter)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getConstraint_Param()
+   * @model containment="true"
+   * @generated
+   */
+  ConstraintParameter getParam();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Constraint#getParam <em>Param</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Param</em>' containment reference.
+   * @see #getParam()
+   * @generated
+   */
+  void setParam(ConstraintParameter value);
+
 } // Constraint

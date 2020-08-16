@@ -41,7 +41,7 @@ Application TestApp
     Pane MainPane {
         Frame{ Button("Hello!"), Text("Hello World", Text("Hello Again!")), constraintsHorizontal=top}
         Frame{ Text("This is another frame") , constraintsHorizontal=60%}
-        Frame{ Text("This is another frame") , constraintsHorizontal=middle%}
+        Frame{ Text("This is another frame") , constraintsHorizontal=middle}
     }
     Pane OtherPane {
         Frame TopFrame{ Text("This is another pane!")) , constraintsHorizontal=top}

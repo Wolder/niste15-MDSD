@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.Left;
  *
  * @generated
  */
-public class LeftImpl extends ConstraintParameterVerticalImpl implements Left
+public class LeftImpl extends ConstraintParameterImpl implements Left
 {
   /**
    * <!-- begin-user-doc -->

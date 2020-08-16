@@ -3,22 +3,68 @@
  */
 package org.xtext.niste15.mdsd.android.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.niste15.mdsd.android.AndroidPackage;
 import org.xtext.niste15.mdsd.android.Constraint;
+import org.xtext.niste15.mdsd.android.ConstraintParameter;
+import org.xtext.niste15.mdsd.android.ConstraintTypeVertical;
+import org.xtext.niste15.mdsd.android.Frame;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Constraint</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl#getConstraintType <em>Constraint Type</em>}</li>
+ *   <li>{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl#getFrame <em>Frame</em>}</li>
+ *   <li>{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl#getParam <em>Param</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class ConstraintImpl extends MinimalEObjectImpl.Container implements Constraint
 {
+  /**
+   * The cached value of the '{@link #getConstraintType() <em>Constraint Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstraintType()
+   * @generated
+   * @ordered
+   */
+  protected ConstraintTypeVertical constraintType;
+
+  /**
+   * The cached value of the '{@link #getFrame() <em>Frame</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFrame()
+   * @generated
+   * @ordered
+   */
+  protected Frame frame;
+
+  /**
+   * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParam()
+   * @generated
+   * @ordered
+   */
+  protected ConstraintParameter param;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +84,256 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
   protected EClass eStaticClass()
   {
     return AndroidPackage.Literals.CONSTRAINT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConstraintTypeVertical getConstraintType()
+  {
+    return constraintType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConstraintType(ConstraintTypeVertical newConstraintType, NotificationChain msgs)
+  {
+    ConstraintTypeVertical oldConstraintType = constraintType;
+    constraintType = newConstraintType;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE, oldConstraintType, newConstraintType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConstraintType(ConstraintTypeVertical newConstraintType)
+  {
+    if (newConstraintType != constraintType)
+    {
+      NotificationChain msgs = null;
+      if (constraintType != null)
+        msgs = ((InternalEObject)constraintType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE, null, msgs);
+      if (newConstraintType != null)
+        msgs = ((InternalEObject)newConstraintType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE, null, msgs);
+      msgs = basicSetConstraintType(newConstraintType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE, newConstraintType, newConstraintType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Frame getFrame()
+  {
+    if (frame != null && frame.eIsProxy())
+    {
+      InternalEObject oldFrame = (InternalEObject)frame;
+      frame = (Frame)eResolveProxy(oldFrame);
+      if (frame != oldFrame)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AndroidPackage.CONSTRAINT__FRAME, oldFrame, frame));
+      }
+    }
+    return frame;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Frame basicGetFrame()
+  {
+    return frame;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFrame(Frame newFrame)
+  {
+    Frame oldFrame = frame;
+    frame = newFrame;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AndroidPackage.CONSTRAINT__FRAME, oldFrame, frame));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConstraintParameter getParam()
+  {
+    return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParam(ConstraintParameter newParam, NotificationChain msgs)
+  {
+    ConstraintParameter oldParam = param;
+    param = newParam;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AndroidPackage.CONSTRAINT__PARAM, oldParam, newParam);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setParam(ConstraintParameter newParam)
+  {
+    if (newParam != param)
+    {
+      NotificationChain msgs = null;
+      if (param != null)
+        msgs = ((InternalEObject)param).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.CONSTRAINT__PARAM, null, msgs);
+      if (newParam != null)
+        msgs = ((InternalEObject)newParam).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.CONSTRAINT__PARAM, null, msgs);
+      msgs = basicSetParam(newParam, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AndroidPackage.CONSTRAINT__PARAM, newParam, newParam));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
+        return basicSetConstraintType(null, msgs);
+      case AndroidPackage.CONSTRAINT__PARAM:
+        return basicSetParam(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
+        return getConstraintType();
+      case AndroidPackage.CONSTRAINT__FRAME:
+        if (resolve) return getFrame();
+        return basicGetFrame();
+      case AndroidPackage.CONSTRAINT__PARAM:
+        return getParam();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
+        setConstraintType((ConstraintTypeVertical)newValue);
+        return;
+      case AndroidPackage.CONSTRAINT__FRAME:
+        setFrame((Frame)newValue);
+        return;
+      case AndroidPackage.CONSTRAINT__PARAM:
+        setParam((ConstraintParameter)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
+        setConstraintType((ConstraintTypeVertical)null);
+        return;
+      case AndroidPackage.CONSTRAINT__FRAME:
+        setFrame((Frame)null);
+        return;
+      case AndroidPackage.CONSTRAINT__PARAM:
+        setParam((ConstraintParameter)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
+        return constraintType != null;
+      case AndroidPackage.CONSTRAINT__FRAME:
+        return frame != null;
+      case AndroidPackage.CONSTRAINT__PARAM:
+        return param != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //ConstraintImpl

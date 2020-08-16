@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface Middle extends ConstraintParameterVertical, ConstraintParameterHorizontal
+public interface Middle extends ConstraintParameter
 {
 } // Middle

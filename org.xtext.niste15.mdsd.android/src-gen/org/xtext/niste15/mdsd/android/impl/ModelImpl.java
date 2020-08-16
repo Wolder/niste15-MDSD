@@ -3,19 +3,14 @@
  */
 package org.xtext.niste15.mdsd.android.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.niste15.mdsd.android.AndroidPackage;
 import org.xtext.niste15.mdsd.android.Application;
@@ -37,14 +32,14 @@ import org.xtext.niste15.mdsd.android.Model;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference list.
+   * The cached value of the '{@link #getApplication() <em>Application</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getApplication()
    * @generated
    * @ordered
    */
-  protected EList<Application> application;
+  protected Application application;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +68,48 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<Application> getApplication()
+  public Application getApplication()
   {
-    if (application == null)
-    {
-      application = new EObjectContainmentEList<Application>(Application.class, this, AndroidPackage.MODEL__APPLICATION);
-    }
     return application;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetApplication(Application newApplication, NotificationChain msgs)
+  {
+    Application oldApplication = application;
+    application = newApplication;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AndroidPackage.MODEL__APPLICATION, oldApplication, newApplication);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setApplication(Application newApplication)
+  {
+    if (newApplication != application)
+    {
+      NotificationChain msgs = null;
+      if (application != null)
+        msgs = ((InternalEObject)application).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.MODEL__APPLICATION, null, msgs);
+      if (newApplication != null)
+        msgs = ((InternalEObject)newApplication).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AndroidPackage.MODEL__APPLICATION, null, msgs);
+      msgs = basicSetApplication(newApplication, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AndroidPackage.MODEL__APPLICATION, newApplication, newApplication));
   }
 
   /**
@@ -93,7 +123,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case AndroidPackage.MODEL__APPLICATION:
-        return ((InternalEList<?>)getApplication()).basicRemove(otherEnd, msgs);
+        return basicSetApplication(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -119,15 +149,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case AndroidPackage.MODEL__APPLICATION:
-        getApplication().clear();
-        getApplication().addAll((Collection<? extends Application>)newValue);
+        setApplication((Application)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -144,7 +172,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case AndroidPackage.MODEL__APPLICATION:
-        getApplication().clear();
+        setApplication((Application)null);
         return;
     }
     super.eUnset(featureID);
@@ -161,7 +189,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case AndroidPackage.MODEL__APPLICATION:
-        return application != null && !application.isEmpty();
+        return application != null;
     }
     return super.eIsSet(featureID);
   }

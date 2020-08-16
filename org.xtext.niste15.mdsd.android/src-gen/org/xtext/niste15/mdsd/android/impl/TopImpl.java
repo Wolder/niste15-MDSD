@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.Top;
  *
  * @generated
  */
-public class TopImpl extends ConstraintParameterHorizontalImpl implements Top
+public class TopImpl extends ConstraintParameterImpl implements Top
 {
   /**
    * <!-- begin-user-doc -->

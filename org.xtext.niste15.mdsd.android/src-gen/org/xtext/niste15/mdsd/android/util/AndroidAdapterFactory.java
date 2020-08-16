@@ -121,29 +121,9 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
         return createConstraintTypeVerticalAdapter();
       }
       @Override
-      public Adapter caseConstraintTypeHorizontal(ConstraintTypeHorizontal object)
+      public Adapter caseConstraintParameter(ConstraintParameter object)
       {
-        return createConstraintTypeHorizontalAdapter();
-      }
-      @Override
-      public Adapter caseConstraintParameterVertical(ConstraintParameterVertical object)
-      {
-        return createConstraintParameterVerticalAdapter();
-      }
-      @Override
-      public Adapter caseConstraintParameterHorizontal(ConstraintParameterHorizontal object)
-      {
-        return createConstraintParameterHorizontalAdapter();
-      }
-      @Override
-      public Adapter caseVertical(Vertical object)
-      {
-        return createVerticalAdapter();
-      }
-      @Override
-      public Adapter caseHorizontal(Horizontal object)
-      {
-        return createHorizontalAdapter();
+        return createConstraintParameterAdapter();
       }
       @Override
       public Adapter caseRightOf(RightOf object)
@@ -181,11 +161,6 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
         return createLeftAdapter();
       }
       @Override
-      public Adapter caseMiddle(Middle object)
-      {
-        return createMiddleAdapter();
-      }
-      @Override
       public Adapter caseTop(Top object)
       {
         return createTopAdapter();
@@ -194,6 +169,11 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBottom(Bottom object)
       {
         return createBottomAdapter();
+      }
+      @Override
+      public Adapter caseMiddle(Middle object)
+      {
+        return createMiddleAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -353,76 +333,16 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintTypeHorizontal <em>Constraint Type Horizontal</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintParameter <em>Constraint Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.ConstraintTypeHorizontal
+   * @see org.xtext.niste15.mdsd.android.ConstraintParameter
    * @generated
    */
-  public Adapter createConstraintTypeHorizontalAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintParameterVertical <em>Constraint Parameter Vertical</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.ConstraintParameterVertical
-   * @generated
-   */
-  public Adapter createConstraintParameterVerticalAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintParameterHorizontal <em>Constraint Parameter Horizontal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.ConstraintParameterHorizontal
-   * @generated
-   */
-  public Adapter createConstraintParameterHorizontalAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Vertical <em>Vertical</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.Vertical
-   * @generated
-   */
-  public Adapter createVerticalAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Horizontal <em>Horizontal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.Horizontal
-   * @generated
-   */
-  public Adapter createHorizontalAdapter()
+  public Adapter createConstraintParameterAdapter()
   {
     return null;
   }
@@ -533,21 +453,6 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Middle <em>Middle</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.Middle
-   * @generated
-   */
-  public Adapter createMiddleAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Top <em>Top</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -573,6 +478,21 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBottomAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Middle <em>Middle</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.niste15.mdsd.android.Middle
+   * @generated
+   */
+  public Adapter createMiddleAdapter()
   {
     return null;
   }
