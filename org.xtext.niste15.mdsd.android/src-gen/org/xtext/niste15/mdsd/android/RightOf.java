@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface RightOf extends ConstraintTypeVertical
+public interface RightOf extends ConstraintType
 {
 } // RightOf

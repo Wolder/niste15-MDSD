@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.TopOf;
  *
  * @generated
  */
-public class TopOfImpl extends ConstraintTypeVerticalImpl implements TopOf
+public class TopOfImpl extends ConstraintTypeImpl implements TopOf
 {
   /**
    * <!-- begin-user-doc -->

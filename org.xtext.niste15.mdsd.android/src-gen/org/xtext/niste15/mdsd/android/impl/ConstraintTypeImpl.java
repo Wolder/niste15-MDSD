@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.niste15.mdsd.android.AndroidPackage;
-import org.xtext.niste15.mdsd.android.ConstraintTypeVertical;
+import org.xtext.niste15.mdsd.android.ConstraintType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Constraint Type Vertical</b></em>'.
+ * An implementation of the model object '<em><b>Constraint Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ConstraintTypeVerticalImpl extends MinimalEObjectImpl.Container implements ConstraintTypeVertical
+public class ConstraintTypeImpl extends MinimalEObjectImpl.Container implements ConstraintType
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ConstraintTypeVerticalImpl()
+  protected ConstraintTypeImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class ConstraintTypeVerticalImpl extends MinimalEObjectImpl.Container imp
   @Override
   protected EClass eStaticClass()
   {
-    return AndroidPackage.Literals.CONSTRAINT_TYPE_VERTICAL;
+    return AndroidPackage.Literals.CONSTRAINT_TYPE;
   }
 
-} //ConstraintTypeVerticalImpl
+} //ConstraintTypeImpl

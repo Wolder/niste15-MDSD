@@ -22,7 +22,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//Constraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Elements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Elements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Elements">
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//TextContent"
         containment="true"/>
@@ -35,18 +37,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="pane" eType="#//Pane"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraintType" eType="#//ConstraintTypeVertical"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraintType" eType="#//ConstraintType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="frame" eType="#//Frame"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="param" eType="#//ConstraintParameter"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstraintTypeVertical"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstraintType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConstraintParameter"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RightOf" eSuperTypes="#//ConstraintTypeVertical"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LeftOf" eSuperTypes="#//ConstraintTypeVertical"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BottomOf" eSuperTypes="#//ConstraintTypeVertical"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TopOf" eSuperTypes="#//ConstraintTypeVertical"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RightOf" eSuperTypes="#//ConstraintType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LeftOf" eSuperTypes="#//ConstraintType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BottomOf" eSuperTypes="#//ConstraintType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TopOf" eSuperTypes="#//ConstraintType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Persentage" eSuperTypes="#//ConstraintParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

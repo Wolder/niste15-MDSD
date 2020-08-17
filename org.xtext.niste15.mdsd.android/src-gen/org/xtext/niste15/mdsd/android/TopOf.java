@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface TopOf extends ConstraintTypeVertical
+public interface TopOf extends ConstraintType
 {
 } // TopOf

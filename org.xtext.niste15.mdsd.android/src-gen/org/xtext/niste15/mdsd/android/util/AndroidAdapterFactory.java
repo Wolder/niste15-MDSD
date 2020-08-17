@@ -121,9 +121,9 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
         return createConstraintAdapter();
       }
       @Override
-      public Adapter caseConstraintTypeVertical(ConstraintTypeVertical object)
+      public Adapter caseConstraintType(ConstraintType object)
       {
-        return createConstraintTypeVerticalAdapter();
+        return createConstraintTypeAdapter();
       }
       @Override
       public Adapter caseConstraintParameter(ConstraintParameter object)
@@ -338,16 +338,16 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintTypeVertical <em>Constraint Type Vertical</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.ConstraintType <em>Constraint Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.ConstraintTypeVertical
+   * @see org.xtext.niste15.mdsd.android.ConstraintType
    * @generated
    */
-  public Adapter createConstraintTypeVerticalAdapter()
+  public Adapter createConstraintTypeAdapter()
   {
     return null;
   }

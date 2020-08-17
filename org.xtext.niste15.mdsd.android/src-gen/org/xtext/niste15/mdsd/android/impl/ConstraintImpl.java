@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.xtext.niste15.mdsd.android.AndroidPackage;
 import org.xtext.niste15.mdsd.android.Constraint;
 import org.xtext.niste15.mdsd.android.ConstraintParameter;
-import org.xtext.niste15.mdsd.android.ConstraintTypeVertical;
+import org.xtext.niste15.mdsd.android.ConstraintType;
 import org.xtext.niste15.mdsd.android.Frame;
 
 /**
@@ -43,7 +43,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @generated
    * @ordered
    */
-  protected ConstraintTypeVertical constraintType;
+  protected ConstraintType constraintType;
 
   /**
    * The cached value of the '{@link #getFrame() <em>Frame</em>}' reference.
@@ -92,7 +92,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @generated
    */
   @Override
-  public ConstraintTypeVertical getConstraintType()
+  public ConstraintType getConstraintType()
   {
     return constraintType;
   }
@@ -102,9 +102,9 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConstraintType(ConstraintTypeVertical newConstraintType, NotificationChain msgs)
+  public NotificationChain basicSetConstraintType(ConstraintType newConstraintType, NotificationChain msgs)
   {
-    ConstraintTypeVertical oldConstraintType = constraintType;
+    ConstraintType oldConstraintType = constraintType;
     constraintType = newConstraintType;
     if (eNotificationRequired())
     {
@@ -120,7 +120,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @generated
    */
   @Override
-  public void setConstraintType(ConstraintTypeVertical newConstraintType)
+  public void setConstraintType(ConstraintType newConstraintType)
   {
     if (newConstraintType != constraintType)
     {
@@ -281,7 +281,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
     switch (featureID)
     {
       case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
-        setConstraintType((ConstraintTypeVertical)newValue);
+        setConstraintType((ConstraintType)newValue);
         return;
       case AndroidPackage.CONSTRAINT__FRAME:
         setFrame((Frame)newValue);
@@ -304,7 +304,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
     switch (featureID)
     {
       case AndroidPackage.CONSTRAINT__CONSTRAINT_TYPE:
-        setConstraintType((ConstraintTypeVertical)null);
+        setConstraintType((ConstraintType)null);
         return;
       case AndroidPackage.CONSTRAINT__FRAME:
         setFrame((Frame)null);

@@ -22,7 +22,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Frame/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Frame/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Android.ecore#//Elements"/>
+    <genClasses ecoreClass="Android.ecore#//Elements">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Android.ecore#//Elements/name"/>
+    </genClasses>
     <genClasses ecoreClass="Android.ecore#//Text">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Text/text"/>
     </genClasses>
@@ -38,7 +40,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Android.ecore#//Constraint/frame"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Constraint/param"/>
     </genClasses>
-    <genClasses ecoreClass="Android.ecore#//ConstraintTypeVertical"/>
+    <genClasses ecoreClass="Android.ecore#//ConstraintType"/>
     <genClasses ecoreClass="Android.ecore#//ConstraintParameter"/>
     <genClasses ecoreClass="Android.ecore#//RightOf"/>
     <genClasses ecoreClass="Android.ecore#//LeftOf"/>

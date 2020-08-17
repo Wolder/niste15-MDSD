@@ -74,7 +74,7 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
       case AndroidPackage.TEXT_CONTENT: return createTextContent();
       case AndroidPackage.BUTTON: return createButton();
       case AndroidPackage.CONSTRAINT: return createConstraint();
-      case AndroidPackage.CONSTRAINT_TYPE_VERTICAL: return createConstraintTypeVertical();
+      case AndroidPackage.CONSTRAINT_TYPE: return createConstraintType();
       case AndroidPackage.CONSTRAINT_PARAMETER: return createConstraintParameter();
       case AndroidPackage.RIGHT_OF: return createRightOf();
       case AndroidPackage.LEFT_OF: return createLeftOf();
@@ -205,10 +205,10 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
    * @generated
    */
   @Override
-  public ConstraintTypeVertical createConstraintTypeVertical()
+  public ConstraintType createConstraintType()
   {
-    ConstraintTypeVerticalImpl constraintTypeVertical = new ConstraintTypeVerticalImpl();
-    return constraintTypeVertical;
+    ConstraintTypeImpl constraintType = new ConstraintTypeImpl();
+    return constraintType;
   }
 
   /**

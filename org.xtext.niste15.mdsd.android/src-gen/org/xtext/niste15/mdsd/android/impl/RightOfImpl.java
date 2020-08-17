@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.RightOf;
  *
  * @generated
  */
-public class RightOfImpl extends ConstraintTypeVerticalImpl implements RightOf
+public class RightOfImpl extends ConstraintTypeImpl implements RightOf
 {
   /**
    * <!-- begin-user-doc -->

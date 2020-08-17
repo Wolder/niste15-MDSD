@@ -18,7 +18,7 @@ import org.xtext.niste15.mdsd.android.BottomOf;
 import org.xtext.niste15.mdsd.android.Button;
 import org.xtext.niste15.mdsd.android.Constraint;
 import org.xtext.niste15.mdsd.android.ConstraintParameter;
-import org.xtext.niste15.mdsd.android.ConstraintTypeVertical;
+import org.xtext.niste15.mdsd.android.ConstraintType;
 import org.xtext.niste15.mdsd.android.Elements;
 import org.xtext.niste15.mdsd.android.Frame;
 import org.xtext.niste15.mdsd.android.Left;
@@ -110,7 +110,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass constraintTypeVerticalEClass = null;
+  private EClass constraintTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -401,6 +401,17 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
+  public EAttribute getElements_Name()
+  {
+    return (EAttribute)elementsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getText()
   {
     return textEClass;
@@ -522,9 +533,9 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
-  public EClass getConstraintTypeVertical()
+  public EClass getConstraintType()
   {
-    return constraintTypeVerticalEClass;
+    return constraintTypeEClass;
   }
 
   /**
@@ -707,6 +718,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     createEReference(frameEClass, FRAME__CONSTRAINT);
 
     elementsEClass = createEClass(ELEMENTS);
+    createEAttribute(elementsEClass, ELEMENTS__NAME);
 
     textEClass = createEClass(TEXT);
     createEReference(textEClass, TEXT__TEXT);
@@ -723,7 +735,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     createEReference(constraintEClass, CONSTRAINT__FRAME);
     createEReference(constraintEClass, CONSTRAINT__PARAM);
 
-    constraintTypeVerticalEClass = createEClass(CONSTRAINT_TYPE_VERTICAL);
+    constraintTypeEClass = createEClass(CONSTRAINT_TYPE);
 
     constraintParameterEClass = createEClass(CONSTRAINT_PARAMETER);
 
@@ -780,10 +792,10 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     // Add supertypes to classes
     textEClass.getESuperTypes().add(this.getElements());
     buttonEClass.getESuperTypes().add(this.getElements());
-    rightOfEClass.getESuperTypes().add(this.getConstraintTypeVertical());
-    leftOfEClass.getESuperTypes().add(this.getConstraintTypeVertical());
-    bottomOfEClass.getESuperTypes().add(this.getConstraintTypeVertical());
-    topOfEClass.getESuperTypes().add(this.getConstraintTypeVertical());
+    rightOfEClass.getESuperTypes().add(this.getConstraintType());
+    leftOfEClass.getESuperTypes().add(this.getConstraintType());
+    bottomOfEClass.getESuperTypes().add(this.getConstraintType());
+    topOfEClass.getESuperTypes().add(this.getConstraintType());
     persentageEClass.getESuperTypes().add(this.getConstraintParameter());
     rightEClass.getESuperTypes().add(this.getConstraintParameter());
     leftEClass.getESuperTypes().add(this.getConstraintParameter());
@@ -809,6 +821,7 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEReference(getFrame_Constraint(), this.getConstraint(), null, "constraint", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementsEClass, Elements.class, "Elements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getElements_Name(), ecorePackage.getEString(), "name", null, 0, 1, Elements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getText_Text(), this.getTextContent(), null, "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -821,11 +834,11 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEReference(getButton_Pane(), this.getPane(), null, "pane", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstraint_ConstraintType(), this.getConstraintTypeVertical(), null, "constraintType", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstraint_ConstraintType(), this.getConstraintType(), null, "constraintType", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Frame(), this.getFrame(), null, "frame", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Param(), this.getConstraintParameter(), null, "param", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(constraintTypeVerticalEClass, ConstraintTypeVertical.class, "ConstraintTypeVertical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(constraintTypeEClass, ConstraintType.class, "ConstraintType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(constraintParameterEClass, ConstraintParameter.class, "ConstraintParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

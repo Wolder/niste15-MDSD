@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface BottomOf extends ConstraintTypeVertical
+public interface BottomOf extends ConstraintType
 {
 } // BottomOf

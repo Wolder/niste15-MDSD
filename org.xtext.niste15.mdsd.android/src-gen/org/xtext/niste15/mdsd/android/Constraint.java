@@ -30,12 +30,12 @@ public interface Constraint extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Constraint Type</em>' containment reference.
-   * @see #setConstraintType(ConstraintTypeVertical)
+   * @see #setConstraintType(ConstraintType)
    * @see org.xtext.niste15.mdsd.android.AndroidPackage#getConstraint_ConstraintType()
    * @model containment="true"
    * @generated
    */
-  ConstraintTypeVertical getConstraintType();
+  ConstraintType getConstraintType();
 
   /**
    * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Constraint#getConstraintType <em>Constraint Type</em>}' containment reference.
@@ -45,7 +45,7 @@ public interface Constraint extends EObject
    * @see #getConstraintType()
    * @generated
    */
-  void setConstraintType(ConstraintTypeVertical value);
+  void setConstraintType(ConstraintType value);
 
   /**
    * Returns the value of the '<em><b>Frame</b></em>' reference.

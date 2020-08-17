@@ -138,10 +138,10 @@ public class AndroidSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AndroidPackage.CONSTRAINT_TYPE_VERTICAL:
+      case AndroidPackage.CONSTRAINT_TYPE:
       {
-        ConstraintTypeVertical constraintTypeVertical = (ConstraintTypeVertical)theEObject;
-        T result = caseConstraintTypeVertical(constraintTypeVertical);
+        ConstraintType constraintType = (ConstraintType)theEObject;
+        T result = caseConstraintType(constraintType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -156,7 +156,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         RightOf rightOf = (RightOf)theEObject;
         T result = caseRightOf(rightOf);
-        if (result == null) result = caseConstraintTypeVertical(rightOf);
+        if (result == null) result = caseConstraintType(rightOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -164,7 +164,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         LeftOf leftOf = (LeftOf)theEObject;
         T result = caseLeftOf(leftOf);
-        if (result == null) result = caseConstraintTypeVertical(leftOf);
+        if (result == null) result = caseConstraintType(leftOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,7 +172,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         BottomOf bottomOf = (BottomOf)theEObject;
         T result = caseBottomOf(bottomOf);
-        if (result == null) result = caseConstraintTypeVertical(bottomOf);
+        if (result == null) result = caseConstraintType(bottomOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -180,7 +180,7 @@ public class AndroidSwitch<T> extends Switch<T>
       {
         TopOf topOf = (TopOf)theEObject;
         T result = caseTopOf(topOf);
-        if (result == null) result = caseConstraintTypeVertical(topOf);
+        if (result == null) result = caseConstraintType(topOf);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -381,17 +381,17 @@ public class AndroidSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Constraint Type Vertical</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Constraint Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Constraint Type Vertical</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Constraint Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseConstraintTypeVertical(ConstraintTypeVertical object)
+  public T caseConstraintType(ConstraintType object)
   {
     return null;
   }

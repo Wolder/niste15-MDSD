@@ -15,7 +15,7 @@ import org.xtext.niste15.mdsd.android.LeftOf;
  *
  * @generated
  */
-public class LeftOfImpl extends ConstraintTypeVerticalImpl implements LeftOf
+public class LeftOfImpl extends ConstraintTypeImpl implements LeftOf
 {
   /**
    * <!-- begin-user-doc -->

@@ -208,7 +208,7 @@ rulePane returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-		)?
+		)
 		otherlv_3='{'
 		{
 			newLeafNode(otherlv_3, grammarAccess.getPaneAccess().getLeftCurlyBracketKeyword_3());
@@ -389,16 +389,34 @@ ruleText returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getTextAccess().getTextKeyword_0());
 		}
-		otherlv_1='('
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getTextAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTextRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getTextAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getTextAccess().getLeftParenthesisKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_3_0());
 				}
-				lv_text_2_0=ruleTextContent
+				lv_text_3_0=ruleTextContent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTextRule());
@@ -406,15 +424,15 @@ ruleText returns [EObject current=null]
 					set(
 						$current,
 						"text",
-						lv_text_2_0,
+						lv_text_3_0,
 						"org.xtext.niste15.mdsd.Android.TextContent");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3=')'
+		otherlv_4=')'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getTextAccess().getRightParenthesisKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getTextAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;
@@ -474,15 +492,33 @@ ruleButton returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getButtonAccess().getButtonKeyword_0());
 		}
-		otherlv_1='('
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getButtonAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getButtonRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getButtonAccess().getLeftParenthesisKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getButtonAccess().getLeftParenthesisKeyword_2());
 		}
 		(
 			(
-				lv_text_2_0=RULE_STRING
+				lv_text_3_0=RULE_STRING
 				{
-					newLeafNode(lv_text_2_0, grammarAccess.getButtonAccess().getTextSTRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_text_3_0, grammarAccess.getButtonAccess().getTextSTRINGTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -491,19 +527,19 @@ ruleButton returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"text",
-						lv_text_2_0,
+						lv_text_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
 		(
-			otherlv_3='navigate'
+			otherlv_4='navigate'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getButtonAccess().getNavigateKeyword_3_0());
+				newLeafNode(otherlv_4, grammarAccess.getButtonAccess().getNavigateKeyword_4_0());
 			}
-			otherlv_4='->'
+			otherlv_5='->'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getButtonAccess().getHyphenMinusGreaterThanSignKeyword_3_1());
+				newLeafNode(otherlv_5, grammarAccess.getButtonAccess().getHyphenMinusGreaterThanSignKeyword_4_1());
 			}
 			(
 				(
@@ -512,16 +548,16 @@ ruleButton returns [EObject current=null]
 							$current = createModelElement(grammarAccess.getButtonRule());
 						}
 					}
-					otherlv_5=RULE_ID
+					otherlv_6=RULE_ID
 					{
-						newLeafNode(otherlv_5, grammarAccess.getButtonAccess().getPanePaneCrossReference_3_2_0());
+						newLeafNode(otherlv_6, grammarAccess.getButtonAccess().getPanePaneCrossReference_4_2_0());
 					}
 				)
 			)
 		)?
-		otherlv_6=')'
+		otherlv_7=')'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getButtonAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getButtonAccess().getRightParenthesisKeyword_5());
 		}
 	)
 ;
@@ -554,9 +590,9 @@ ruleConstraint returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeVerticalParserRuleCall_0_2_0());
+						newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeParserRuleCall_0_2_0());
 					}
-					lv_constraintType_2_0=ruleConstraintTypeVertical
+					lv_constraintType_2_0=ruleConstraintType
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getConstraintRule());
@@ -565,7 +601,7 @@ ruleConstraint returns [EObject current=null]
 							$current,
 							"constraintType",
 							lv_constraintType_2_0,
-							"org.xtext.niste15.mdsd.Android.ConstraintTypeVertical");
+							"org.xtext.niste15.mdsd.Android.ConstraintType");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -621,15 +657,15 @@ ruleConstraint returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleConstraintTypeVertical
-entryRuleConstraintTypeVertical returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConstraintTypeVerticalRule()); }
-	iv_ruleConstraintTypeVertical=ruleConstraintTypeVertical
-	{ $current=$iv_ruleConstraintTypeVertical.current; }
+// Entry rule entryRuleConstraintType
+entryRuleConstraintType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConstraintTypeRule()); }
+	iv_ruleConstraintType=ruleConstraintType
+	{ $current=$iv_ruleConstraintType.current; }
 	EOF;
 
-// Rule ConstraintTypeVertical
-ruleConstraintTypeVertical returns [EObject current=null]
+// Rule ConstraintType
+ruleConstraintType returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -641,13 +677,13 @@ ruleConstraintTypeVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeVerticalAccess().getRightOfAction_0_0(),
+						grammarAccess.getConstraintTypeAccess().getRightOfAction_0_0(),
 						$current);
 				}
 			)
 			otherlv_1='rightOf'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getConstraintTypeVerticalAccess().getRightOfKeyword_0_1());
+				newLeafNode(otherlv_1, grammarAccess.getConstraintTypeAccess().getRightOfKeyword_0_1());
 			}
 		)
 		    |
@@ -655,13 +691,13 @@ ruleConstraintTypeVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeVerticalAccess().getLeftOfAction_1_0(),
+						grammarAccess.getConstraintTypeAccess().getLeftOfAction_1_0(),
 						$current);
 				}
 			)
 			otherlv_3='leftOf'
 			{
-				newLeafNode(otherlv_3, grammarAccess.getConstraintTypeVerticalAccess().getLeftOfKeyword_1_1());
+				newLeafNode(otherlv_3, grammarAccess.getConstraintTypeAccess().getLeftOfKeyword_1_1());
 			}
 		)
 		    |
@@ -669,13 +705,13 @@ ruleConstraintTypeVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeVerticalAccess().getBottomOfAction_2_0(),
+						grammarAccess.getConstraintTypeAccess().getBottomOfAction_2_0(),
 						$current);
 				}
 			)
 			otherlv_5='bottomOf'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getConstraintTypeVerticalAccess().getBottomOfKeyword_2_1());
+				newLeafNode(otherlv_5, grammarAccess.getConstraintTypeAccess().getBottomOfKeyword_2_1());
 			}
 		)
 		    |
@@ -683,13 +719,13 @@ ruleConstraintTypeVertical returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintTypeVerticalAccess().getTopOfAction_3_0(),
+						grammarAccess.getConstraintTypeAccess().getTopOfAction_3_0(),
 						$current);
 				}
 			)
 			otherlv_7='topOf'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getConstraintTypeVerticalAccess().getTopOfKeyword_3_1());
+				newLeafNode(otherlv_7, grammarAccess.getConstraintTypeAccess().getTopOfKeyword_3_1());
 			}
 		)
 	)

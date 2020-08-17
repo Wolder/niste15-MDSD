@@ -3,10 +3,36 @@
  */
 package org.xtext.niste15.mdsd.generator;
 
+import com.google.common.collect.Iterables;
+import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.niste15.mdsd.android.Bottom;
+import org.xtext.niste15.mdsd.android.BottomOf;
+import org.xtext.niste15.mdsd.android.Button;
+import org.xtext.niste15.mdsd.android.Constraint;
+import org.xtext.niste15.mdsd.android.ConstraintParameter;
+import org.xtext.niste15.mdsd.android.ConstraintType;
+import org.xtext.niste15.mdsd.android.Elements;
+import org.xtext.niste15.mdsd.android.Frame;
+import org.xtext.niste15.mdsd.android.Left;
+import org.xtext.niste15.mdsd.android.LeftOf;
+import org.xtext.niste15.mdsd.android.Middle;
+import org.xtext.niste15.mdsd.android.Pane;
+import org.xtext.niste15.mdsd.android.Right;
+import org.xtext.niste15.mdsd.android.RightOf;
+import org.xtext.niste15.mdsd.android.Text;
+import org.xtext.niste15.mdsd.android.Top;
+import org.xtext.niste15.mdsd.android.TopOf;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +41,439 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class AndroidGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Pane> _filter = Iterables.<Pane>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Pane.class);
+    for (final Pane e : _filter) {
+      {
+        String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
+        String _plus = (_string + ".java");
+        fsa.generateFile(_plus, 
+          this.compile(e));
+        String _string_1 = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
+        String _plus_1 = (_string_1 + ".xml");
+        fsa.generateFile(_plus_1, 
+          this.compileXML(e));
+      }
+    }
+  }
+  
+  private CharSequence compile(final Pane e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(e.eContainer());
+      boolean _tripleNotEquals = (_fullyQualifiedName != null);
+      if (_tripleNotEquals) {
+        _builder.append("package ");
+        QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(e.eContainer());
+        _builder.append(_fullyQualifiedName_1);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" extends AppCompatActivity{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Frame> _frames = e.getFrames();
+      for(final Frame frame : _frames) {
+        {
+          EList<Elements> _elements = frame.getElements();
+          for(final Elements element : _elements) {
+            _builder.append("\t");
+            _builder.append("private ");
+            {
+              if ((element instanceof Button)) {
+                _builder.append("Button");
+              }
+            }
+            {
+              if ((element instanceof Text)) {
+                _builder.append("TextView");
+              }
+            }
+            _builder.append(" ");
+            String _name_1 = element.getName();
+            _builder.append(_name_1, "\t");
+            _builder.append(";");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("    ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("@Override");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("protected void onCreate(Bundle savedInstanceState) {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("super.onCreate(savedInstanceState);");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("setContentView(R.layout.");
+    String _name_2 = e.getName();
+    _builder.append(_name_2, "        ");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Frame> _frames_1 = e.getFrames();
+      for(final Frame frame_1 : _frames_1) {
+        {
+          EList<Elements> _elements_1 = frame_1.getElements();
+          for(final Elements element_1 : _elements_1) {
+            _builder.newLine();
+            _builder.append("\t\t");
+            String _name_3 = element_1.getName();
+            _builder.append(_name_3, "\t\t");
+            _builder.append(" = findViewById(R.id.");
+            String _name_4 = element_1.getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append(");");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileXML(final Pane e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+    _builder.newLine();
+    _builder.append("<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("xmlns:app=\"http://schemas.android.com/apk/res-auto\"");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("xmlns:tools=\"http://schemas.android.com/tools\"");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("android:layout_width=\"match_parent\"");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("android:layout_height=\"match_parent\"");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("tools:context=\".");
+    String _name = e.getName();
+    _builder.append(_name, "    ");
+    _builder.append("\"> ");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Frame> _frames = e.getFrames();
+      for(final Frame frame : _frames) {
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("<LinearLayout");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("android:id=\"@+id/");
+        String _name_1 = frame.getName();
+        _builder.append(_name_1, "\t\t");
+        _builder.append("\"");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("android:layout_width=\"wrap_content\"");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("android:layout_height=\"wrap_content\"");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("android:orientation=\"horizontal\"");
+        _builder.newLine();
+        {
+          Frame _frame = frame.getConstraint().getFrame();
+          boolean _tripleNotEquals = (_frame != null);
+          if (_tripleNotEquals) {
+            _builder.append("\t\t");
+            CharSequence _constraintsFromConstraintType = this.getConstraintsFromConstraintType(frame);
+            _builder.append(_constraintsFromConstraintType, "\t\t");
+            _builder.newLineIfNotEmpty();
+          } else {
+            Constraint _constraint = frame.getConstraint();
+            boolean _tripleNotEquals_1 = (_constraint != null);
+            if (_tripleNotEquals_1) {
+              _builder.append("\t\t");
+              CharSequence _constraintsFromConstraintParameter = this.getConstraintsFromConstraintParameter(frame);
+              _builder.append(_constraintsFromConstraintParameter, "\t\t");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+        }
+        {
+          EList<Elements> _elements = frame.getElements();
+          for(final Elements element : _elements) {
+            {
+              if ((element instanceof Text)) {
+                _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("<TextView");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:id=\"@+id/");
+                String _name_2 = ((Text)element).getName();
+                _builder.append(_name_2, "\t\t\t");
+                _builder.append("\"");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t\t");
+                _builder.append("android:layout_width=\"wrap_content\"");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:layout_height=\"wrap_content\"");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:text=\"");
+                String _text = ((Text)element).getText().getText();
+                _builder.append(_text, "\t\t\t");
+                _builder.append("\" />");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+            {
+              if ((element instanceof Button)) {
+                _builder.newLine();
+                _builder.append("\t\t");
+                _builder.append("<Button");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:id=\"@+id/");
+                String _name_3 = ((Button)element).getName();
+                _builder.append(_name_3, "\t\t\t");
+                _builder.append("\"");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t\t");
+                _builder.append("android:layout_width=\"wrap_content\"");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:layout_height=\"wrap_content\"");
+                _builder.newLine();
+                _builder.append("\t\t\t");
+                _builder.append("android:text=\"");
+                String _text_1 = ((Button)element).getText();
+                _builder.append(_text_1, "\t\t\t");
+                _builder.append("\" /> ");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+        _builder.append("\t");
+        _builder.append("</LinearLayout>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("</androidx.constraintlayout.widget.ConstraintLayout>");
+    _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence getConstraintsFromConstraintParameter(final Frame frame) {
+    CharSequence _switchResult = null;
+    Constraint _constraint = frame.getConstraint();
+    boolean _matched = false;
+    ConstraintParameter _param = frame.getConstraint().getParam();
+    if ((_param instanceof Right)) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("app:layout_constraintTop_toTopOf=\"parent\"");
+      _builder.newLine();
+      _builder.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+      _builder.newLine();
+      _builder.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+      _builder.newLine();
+      _switchResult = _builder;
+    }
+    if (!_matched) {
+      ConstraintParameter _param_1 = frame.getConstraint().getParam();
+      if ((_param_1 instanceof Left)) {
+        _matched=true;
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("app:layout_constraintTop_toTopOf=\"parent\"");
+        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+        _builder_1.newLine();
+        _switchResult = _builder_1;
+      }
+    }
+    if (!_matched) {
+      ConstraintParameter _param_2 = frame.getConstraint().getParam();
+      if ((_param_2 instanceof Top)) {
+        _matched=true;
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("app:layout_constraintTop_toTopOf=\"parent\"");
+        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintEnd_toEndOf=\"parent\">");
+        _builder_2.newLine();
+        _switchResult = _builder_2;
+      }
+    }
+    if (!_matched) {
+      ConstraintParameter _param_3 = frame.getConstraint().getParam();
+      if ((_param_3 instanceof Bottom)) {
+        _matched=true;
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+        _builder_3.newLine();
+        _switchResult = _builder_3;
+      }
+    }
+    if (!_matched) {
+      ConstraintParameter _param_4 = frame.getConstraint().getParam();
+      if ((_param_4 instanceof Middle)) {
+        _matched=true;
+        StringConcatenation _builder_4 = new StringConcatenation();
+        _builder_4.append("app:layout_constraintTop_toTopOf=\"parent\"");
+        _builder_4.newLine();
+        _builder_4.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_4.newLine();
+        _builder_4.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+        _builder_4.newLine();
+        _builder_4.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+        _builder_4.newLine();
+        _switchResult = _builder_4;
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder_5 = new StringConcatenation();
+      _builder_5.append("app:layout_constraintTop_toTopOf=\"parent\"");
+      _builder_5.newLine();
+      _builder_5.append("app:layout_constraintStart_toStartOf=\"parent\"");
+      _builder_5.newLine();
+      _builder_5.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+      _builder_5.newLine();
+      _builder_5.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+      _builder_5.newLine();
+      _switchResult = _builder_5;
+    }
+    return _switchResult;
+  }
+  
+  public CharSequence getConstraintsFromConstraintType(final Frame frame) {
+    CharSequence _switchResult = null;
+    Constraint _constraint = frame.getConstraint();
+    boolean _matched = false;
+    ConstraintType _constraintType = frame.getConstraint().getConstraintType();
+    if ((_constraintType instanceof TopOf)) {
+      _matched=true;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("app:layout_constraintTop_toTopOf=\"parent\"");
+      _builder.newLine();
+      _builder.append("app:layout_constraintStart_toStartOf=\"parent\"");
+      _builder.newLine();
+      _builder.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+      _builder.newLine();
+      _builder.append("app:layout_constraintBottom_toTopOf=\"@+id/");
+      String _name = frame.getConstraint().getFrame().getName();
+      _builder.append(_name);
+      _builder.append("\"");
+      _builder.newLineIfNotEmpty();
+      _builder.append("app:layout_constraintVertical_bias=\"100.0\">");
+      _builder.newLine();
+      _switchResult = _builder;
+    }
+    if (!_matched) {
+      ConstraintType _constraintType_1 = frame.getConstraint().getConstraintType();
+      if ((_constraintType_1 instanceof BottomOf)) {
+        _matched=true;
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("app:layout_constraintTop_toBottomOf=\"@+id/");
+        String _name_1 = frame.getConstraint().getFrame().getName();
+        _builder_1.append(_name_1);
+        _builder_1.append("\"");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
+        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintVertical_bias=\"0.0\">");
+        _builder_1.newLine();
+        _switchResult = _builder_1;
+      }
+    }
+    if (!_matched) {
+      ConstraintType _constraintType_2 = frame.getConstraint().getConstraintType();
+      if ((_constraintType_2 instanceof LeftOf)) {
+        _matched=true;
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("app:layout_constraintTop_toTopOf=\"parent\"");
+        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintStart_toStartOf=\"parent\"");
+        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintEnd_toStartOf=\"\"@+id/");
+        String _name_2 = frame.getConstraint().getFrame().getName();
+        _builder_2.append(_name_2);
+        _builder_2.append("\"");
+        _builder_2.newLineIfNotEmpty();
+        _builder_2.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
+        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintHorizontal_bias=\"0.0\">");
+        _builder_2.newLine();
+        _switchResult = _builder_2;
+      }
+    }
+    if (!_matched) {
+      ConstraintType _constraintType_3 = frame.getConstraint().getConstraintType();
+      if ((_constraintType_3 instanceof RightOf)) {
+        _matched=true;
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append("app:layout_constraintTop_toTopOf=\"parent\"");
+        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintStart_toEndOf=\"@+id/");
+        String _name_3 = frame.getConstraint().getFrame().getName();
+        _builder_3.append(_name_3);
+        _builder_3.append("\"");
+        _builder_3.newLineIfNotEmpty();
+        _builder_3.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
+        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintHorizontal_bias=\"100.0\">");
+        _builder_3.newLine();
+        _switchResult = _builder_3;
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder_4 = new StringConcatenation();
+      _builder_4.append("app:layout_constraintTop_toTopOf=\"parent\"");
+      _builder_4.newLine();
+      _builder_4.append("app:layout_constraintStart_toStartOf=\"parent\"");
+      _builder_4.newLine();
+      _builder_4.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+      _builder_4.newLine();
+      _builder_4.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
+      _builder_4.newLine();
+      _switchResult = _builder_4;
+    }
+    return _switchResult;
   }
 }

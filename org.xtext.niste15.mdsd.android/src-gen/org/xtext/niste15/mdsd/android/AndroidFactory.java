@@ -105,13 +105,13 @@ public interface AndroidFactory extends EFactory
   Constraint createConstraint();
 
   /**
-   * Returns a new object of class '<em>Constraint Type Vertical</em>'.
+   * Returns a new object of class '<em>Constraint Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constraint Type Vertical</em>'.
+   * @return a new object of class '<em>Constraint Type</em>'.
    * @generated
    */
-  ConstraintTypeVertical createConstraintTypeVertical();
+  ConstraintType createConstraintType();
 
   /**
    * Returns a new object of class '<em>Constraint Parameter</em>'.

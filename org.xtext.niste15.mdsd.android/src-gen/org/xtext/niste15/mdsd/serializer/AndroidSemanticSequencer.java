@@ -56,7 +56,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_ConstraintParameter(context, (Bottom) semanticObject); 
 				return; 
 			case AndroidPackage.BOTTOM_OF:
-				sequence_ConstraintTypeVertical(context, (BottomOf) semanticObject); 
+				sequence_ConstraintType(context, (BottomOf) semanticObject); 
 				return; 
 			case AndroidPackage.BUTTON:
 				sequence_Button(context, (Button) semanticObject); 
@@ -71,7 +71,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_ConstraintParameter(context, (Left) semanticObject); 
 				return; 
 			case AndroidPackage.LEFT_OF:
-				sequence_ConstraintTypeVertical(context, (LeftOf) semanticObject); 
+				sequence_ConstraintType(context, (LeftOf) semanticObject); 
 				return; 
 			case AndroidPackage.MIDDLE:
 				sequence_ConstraintParameter(context, (Middle) semanticObject); 
@@ -89,7 +89,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_ConstraintParameter(context, (Right) semanticObject); 
 				return; 
 			case AndroidPackage.RIGHT_OF:
-				sequence_ConstraintTypeVertical(context, (RightOf) semanticObject); 
+				sequence_ConstraintType(context, (RightOf) semanticObject); 
 				return; 
 			case AndroidPackage.TEXT:
 				sequence_Text(context, (Text) semanticObject); 
@@ -101,7 +101,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				sequence_ConstraintParameter(context, (Top) semanticObject); 
 				return; 
 			case AndroidPackage.TOP_OF:
-				sequence_ConstraintTypeVertical(context, (TopOf) semanticObject); 
+				sequence_ConstraintType(context, (TopOf) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -126,7 +126,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Button returns Button
 	 *
 	 * Constraint:
-	 *     (text=STRING pane=[Pane|ID]?)
+	 *     (name=ID text=STRING pane=[Pane|ID]?)
 	 */
 	protected void sequence_Button(ISerializationContext context, Button semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -213,48 +213,48 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     ConstraintTypeVertical returns BottomOf
+	 *     ConstraintType returns BottomOf
 	 *
 	 * Constraint:
 	 *     {BottomOf}
 	 */
-	protected void sequence_ConstraintTypeVertical(ISerializationContext context, BottomOf semanticObject) {
+	protected void sequence_ConstraintType(ISerializationContext context, BottomOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintTypeVertical returns LeftOf
+	 *     ConstraintType returns LeftOf
 	 *
 	 * Constraint:
 	 *     {LeftOf}
 	 */
-	protected void sequence_ConstraintTypeVertical(ISerializationContext context, LeftOf semanticObject) {
+	protected void sequence_ConstraintType(ISerializationContext context, LeftOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintTypeVertical returns RightOf
+	 *     ConstraintType returns RightOf
 	 *
 	 * Constraint:
 	 *     {RightOf}
 	 */
-	protected void sequence_ConstraintTypeVertical(ISerializationContext context, RightOf semanticObject) {
+	protected void sequence_ConstraintType(ISerializationContext context, RightOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     ConstraintTypeVertical returns TopOf
+	 *     ConstraintType returns TopOf
 	 *
 	 * Constraint:
 	 *     {TopOf}
 	 */
-	protected void sequence_ConstraintTypeVertical(ISerializationContext context, TopOf semanticObject) {
+	protected void sequence_ConstraintType(ISerializationContext context, TopOf semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -264,7 +264,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Constraint returns Constraint
 	 *
 	 * Constraint:
-	 *     ((constraintType=ConstraintTypeVertical frame=[Frame|ID]) | param=ConstraintParameter)
+	 *     ((constraintType=ConstraintType frame=[Frame|ID]) | param=ConstraintParameter)
 	 */
 	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -306,7 +306,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Pane returns Pane
 	 *
 	 * Constraint:
-	 *     (name=ID? frames+=Frame*)
+	 *     (name=ID frames+=Frame*)
 	 */
 	protected void sequence_Pane(ISerializationContext context, Pane semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -337,15 +337,18 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     text=TextContent
+	 *     (name=ID text=TextContent)
 	 */
 	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__NAME));
 			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.TEXT__TEXT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.TEXT__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_2_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getTextAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_3_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	

@@ -14,6 +14,6 @@ package org.xtext.niste15.mdsd.android;
  * @model
  * @generated
  */
-public interface LeftOf extends ConstraintTypeVertical
+public interface LeftOf extends ConstraintType
 {
 } // LeftOf

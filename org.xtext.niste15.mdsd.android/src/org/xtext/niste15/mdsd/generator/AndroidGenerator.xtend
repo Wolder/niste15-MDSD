@@ -3,10 +3,27 @@
  */
 package org.xtext.niste15.mdsd.generator
 
+import javax.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.xtext.niste15.mdsd.android.Button
+import org.xtext.niste15.mdsd.android.ConstraintType
+import org.xtext.niste15.mdsd.android.Pane
+import org.xtext.niste15.mdsd.android.Text
+import org.xtext.niste15.mdsd.android.Frame
+import org.xtext.niste15.mdsd.android.RightOf
+import org.xtext.niste15.mdsd.android.Constraint
+import org.xtext.niste15.mdsd.android.BottomOf
+import org.xtext.niste15.mdsd.android.TopOf
+import org.xtext.niste15.mdsd.android.LeftOf
+import org.xtext.niste15.mdsd.android.Right
+import org.xtext.niste15.mdsd.android.Left
+import org.xtext.niste15.mdsd.android.Top
+import org.xtext.niste15.mdsd.android.Bottom
+import org.xtext.niste15.mdsd.android.Middle
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +31,178 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class AndroidGenerator extends AbstractGenerator {
-
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+	
+	@Inject extension IQualifiedNameProvider
+ 
+    override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+        for (e : resource.allContents.toIterable.filter(Pane)) {
+            fsa.generateFile(
+                e.fullyQualifiedName.toString("/") + ".java",
+                e.compile)
+                
+            fsa.generateFile(
+                e.fullyQualifiedName.toString("/") + ".xml",
+                e.compileXML)
+        }
+    }
+ 
+    private def compile(Pane e) '''
+        «IF e.eContainer.fullyQualifiedName !== null»
+        package «e.eContainer.fullyQualifiedName»;
+        «ENDIF»
+        
+        public class «e.name» extends AppCompatActivity{
+        	
+        	«FOR frame : e.frames»
+        	«FOR element : frame.elements»
+        	private «IF element instanceof Button»Button«ENDIF»«IF element instanceof Text»TextView«ENDIF» «element.name»;
+        	«ENDFOR»
+        	«ENDFOR»
+            
+        	@Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.«e.name»);
+                «FOR frame : e.frames»
+        		«FOR element : frame.elements»
+		
+				«element.name» = findViewById(R.id.«element.name»);
+        		«ENDFOR»
+        		«ENDFOR»
+            }
+        }
+    '''
+    
+    private def compileXML(Pane e) '''
+        <?xml version="1.0" encoding="utf-8"?>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".«e.name»"> 
+            «FOR frame : e.frames»
+    		
+    			<LinearLayout
+    				android:id="@+id/«frame.name»"
+    				android:layout_width="wrap_content"
+    				android:layout_height="wrap_content"
+    				android:orientation="horizontal"
+    				«IF frame.constraint.frame !== null»
+    				«getConstraintsFromConstraintType(frame)»
+    				«ELSEIF frame.constraint !== null»
+    				«getConstraintsFromConstraintParameter(frame)»
+    				«ENDIF»
+    		«FOR element : frame.elements»
+    		«IF element instanceof Text»
+    		
+    				<TextView
+    					android:id="@+id/«element.name»"
+    					android:layout_width="wrap_content"
+    					android:layout_height="wrap_content"
+    					android:text="«element.text.text»" />
+    		«ENDIF»
+    		«IF element instanceof Button»
+    		
+    				<Button
+    					android:id="@+id/«element.name»"
+    					android:layout_width="wrap_content"
+    					android:layout_height="wrap_content"
+    					android:text="«element.text»" /> 
+    		«ENDIF»
+    		«ENDFOR»
+    			</LinearLayout>
+    		«ENDFOR»
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    '''
+		
+	def getConstraintsFromConstraintParameter(Frame frame) {
+		switch frame.constraint {
+			case frame.constraint.param instanceof Right:
+			'''
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+			'''
+			case frame.constraint.param instanceof Left:
+			'''
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+			'''
+			case frame.constraint.param instanceof Top:
+			'''
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent">
+			'''
+			case frame.constraint.param instanceof Bottom:
+			'''
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+			'''
+			case frame.constraint.param instanceof Middle:
+			'''
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+			'''
+			default:
+			'''
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent">
+			'''
+			
+		}
 	}
+		
+	def getConstraintsFromConstraintType(Frame frame) {
+		switch frame.constraint {
+			case frame.constraint.constraintType instanceof TopOf: 
+				'''
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toTopOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintVertical_bias="100.0">
+				'''
+			case frame.constraint.constraintType instanceof BottomOf: 
+				'''
+					app:layout_constraintTop_toBottomOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintVertical_bias="0.0">
+				'''
+			case frame.constraint.constraintType instanceof LeftOf: 
+				'''
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toStartOf=""@+id/«frame.constraint.frame.name»"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintHorizontal_bias="0.0">
+				'''
+			case frame.constraint.constraintType instanceof RightOf: 
+				'''
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintStart_toEndOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintHorizontal_bias="100.0">
+				'''
+			default : 
+				'''
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent">
+				'''
+		}
+	}
+    
 }
