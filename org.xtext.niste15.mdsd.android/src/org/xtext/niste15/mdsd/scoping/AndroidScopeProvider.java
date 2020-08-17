@@ -12,6 +12,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.xtext.niste15.mdsd.android.AndroidPackage;
 import org.xtext.niste15.mdsd.android.Button;
+import org.xtext.niste15.mdsd.android.Constraint;
 import org.xtext.niste15.mdsd.android.Frame;
 import org.xtext.niste15.mdsd.android.Pane;
 
@@ -35,6 +36,19 @@ public class AndroidScopeProvider extends AbstractAndroidScopeProvider {
 	        		if (frame.eContents().contains(context)) {
 		        		candidates.remove(i);
 	        		}
+	        	}
+	        }
+	        
+	        // Create IEObjectDescriptions and puts them into an IScope instance
+	        return Scopes.scopeFor(candidates);
+	    }
+	    else if (context instanceof Constraint && reference == AndroidPackage.Literals.CONSTRAINT__FRAME) {
+	        EObject rootElement = EcoreUtil2.getRootContainer(context);
+	        List<Frame> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Frame.class);
+	        
+	        for (int i = 0; i < candidates.size(); i++) {
+	        	if (candidates.get(i).getConstraint() == context) {
+	        		candidates.remove(i);
 	        	}
 	        }
 	        

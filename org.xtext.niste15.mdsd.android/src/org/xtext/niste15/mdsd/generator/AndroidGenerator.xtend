@@ -51,7 +51,7 @@ class AndroidGenerator extends AbstractGenerator {
         package «e.eContainer.fullyQualifiedName»;
         «ENDIF»
         
-        public class «e.name» extends AppCompatActivity{
+        public class «e.name» extends AppCompatActivity {
         	
         	«FOR frame : e.frames»
         	«FOR element : frame.elements»
@@ -88,10 +88,12 @@ class AndroidGenerator extends AbstractGenerator {
     				android:layout_width="wrap_content"
     				android:layout_height="wrap_content"
     				android:orientation="horizontal"
-    				«IF frame.constraint.frame !== null»
+    				«IF frame.constraint === null»
+    				«getDefaultConstraints(frame)»
+    				«ELSEIF frame.constraint.frame !== null»
     				«getConstraintsFromConstraintType(frame)»
     				«ELSEIF frame.constraint !== null»
-    				«getConstraintsFromConstraintParameter(frame)»
+					«getConstraintsFromConstraintParameter(frame)»
     				«ENDIF»
     		«FOR element : frame.elements»
     		«IF element instanceof Text»
@@ -117,6 +119,16 @@ class AndroidGenerator extends AbstractGenerator {
         
     '''
 		
+		
+	def getDefaultConstraints(Frame frame) {
+		'''
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent">
+		'''
+	}
+	
 	def getConstraintsFromConstraintParameter(Frame frame) {
 		switch frame.constraint {
 			case frame.constraint.param instanceof Right:

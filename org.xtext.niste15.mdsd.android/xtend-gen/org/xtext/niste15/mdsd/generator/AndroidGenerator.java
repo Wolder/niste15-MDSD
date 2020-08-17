@@ -79,7 +79,7 @@ public class AndroidGenerator extends AbstractGenerator {
     _builder.append("public class ");
     String _name = e.getName();
     _builder.append(_name);
-    _builder.append(" extends AppCompatActivity{");
+    _builder.append(" extends AppCompatActivity {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -201,21 +201,29 @@ public class AndroidGenerator extends AbstractGenerator {
         _builder.append("android:orientation=\"horizontal\"");
         _builder.newLine();
         {
-          Frame _frame = frame.getConstraint().getFrame();
-          boolean _tripleNotEquals = (_frame != null);
-          if (_tripleNotEquals) {
+          Constraint _constraint = frame.getConstraint();
+          boolean _tripleEquals = (_constraint == null);
+          if (_tripleEquals) {
             _builder.append("\t\t");
-            CharSequence _constraintsFromConstraintType = this.getConstraintsFromConstraintType(frame);
-            _builder.append(_constraintsFromConstraintType, "\t\t");
+            CharSequence _defaultConstraints = this.getDefaultConstraints(frame);
+            _builder.append(_defaultConstraints, "\t\t");
             _builder.newLineIfNotEmpty();
           } else {
-            Constraint _constraint = frame.getConstraint();
-            boolean _tripleNotEquals_1 = (_constraint != null);
-            if (_tripleNotEquals_1) {
+            Frame _frame = frame.getConstraint().getFrame();
+            boolean _tripleNotEquals = (_frame != null);
+            if (_tripleNotEquals) {
               _builder.append("\t\t");
-              CharSequence _constraintsFromConstraintParameter = this.getConstraintsFromConstraintParameter(frame);
-              _builder.append(_constraintsFromConstraintParameter, "\t\t");
+              CharSequence _constraintsFromConstraintType = this.getConstraintsFromConstraintType(frame);
+              _builder.append(_constraintsFromConstraintType, "\t\t");
               _builder.newLineIfNotEmpty();
+            } else {
+              Constraint _constraint_1 = frame.getConstraint();
+              boolean _tripleNotEquals_1 = (_constraint_1 != null);
+              if (_tripleNotEquals_1) {
+                CharSequence _constraintsFromConstraintParameter = this.getConstraintsFromConstraintParameter(frame);
+                _builder.append(_constraintsFromConstraintParameter);
+                _builder.newLineIfNotEmpty();
+              }
             }
           }
         }
@@ -283,6 +291,19 @@ public class AndroidGenerator extends AbstractGenerator {
     }
     _builder.append("</androidx.constraintlayout.widget.ConstraintLayout>");
     _builder.newLine();
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence getDefaultConstraints(final Frame frame) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("app:layout_constraintTop_toTopOf=\"parent\"");
+    _builder.newLine();
+    _builder.append("app:layout_constraintStart_toStartOf=\"parent\"");
+    _builder.newLine();
+    _builder.append("app:layout_constraintEnd_toEndOf=\"parent\"");
+    _builder.newLine();
+    _builder.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
     _builder.newLine();
     return _builder;
   }
