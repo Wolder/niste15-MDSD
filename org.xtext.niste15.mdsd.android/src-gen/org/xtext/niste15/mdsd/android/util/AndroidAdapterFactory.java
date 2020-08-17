@@ -106,6 +106,11 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
         return createTextAdapter();
       }
       @Override
+      public Adapter caseTextContent(TextContent object)
+      {
+        return createTextContentAdapter();
+      }
+      @Override
       public Adapter caseButton(Button object)
       {
         return createButtonAdapter();
@@ -283,6 +288,21 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.TextContent <em>Text Content</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.niste15.mdsd.android.TextContent
+   * @generated
+   */
+  public Adapter createTextContentAdapter()
   {
     return null;
   }

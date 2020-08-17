@@ -560,10 +560,10 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:782:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalAndroid.g:782:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAndroid.g:818:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalAndroid.g:818:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalAndroid.g:782:11: ( '^' )?
+            // InternalAndroid.g:818:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -572,7 +572,7 @@ public class InternalAndroidLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalAndroid.g:782:11: '^'
+                    // InternalAndroid.g:818:11: '^'
                     {
                     match('^'); 
 
@@ -590,7 +590,7 @@ public class InternalAndroidLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalAndroid.g:782:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalAndroid.g:818:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -639,10 +639,10 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:784:10: ( ( '0' .. '9' )+ )
-            // InternalAndroid.g:784:12: ( '0' .. '9' )+
+            // InternalAndroid.g:820:10: ( ( '0' .. '9' )+ )
+            // InternalAndroid.g:820:12: ( '0' .. '9' )+
             {
-            // InternalAndroid.g:784:12: ( '0' .. '9' )+
+            // InternalAndroid.g:820:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -656,7 +656,7 @@ public class InternalAndroidLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalAndroid.g:784:13: '0' .. '9'
+            	    // InternalAndroid.g:820:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -688,10 +688,10 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:786:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalAndroid.g:786:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAndroid.g:822:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalAndroid.g:822:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalAndroid.g:786:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalAndroid.g:822:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -709,10 +709,10 @@ public class InternalAndroidLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalAndroid.g:786:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalAndroid.g:822:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalAndroid.g:786:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalAndroid.g:822:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -728,7 +728,7 @@ public class InternalAndroidLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalAndroid.g:786:21: '\\\\' .
+                    	    // InternalAndroid.g:822:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -736,7 +736,7 @@ public class InternalAndroidLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAndroid.g:786:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalAndroid.g:822:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -761,10 +761,10 @@ public class InternalAndroidLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalAndroid.g:786:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalAndroid.g:822:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalAndroid.g:786:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalAndroid.g:822:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -780,7 +780,7 @@ public class InternalAndroidLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalAndroid.g:786:54: '\\\\' .
+                    	    // InternalAndroid.g:822:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -788,7 +788,7 @@ public class InternalAndroidLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalAndroid.g:786:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalAndroid.g:822:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -831,12 +831,12 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:788:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalAndroid.g:788:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAndroid.g:824:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAndroid.g:824:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalAndroid.g:788:24: ( options {greedy=false; } : . )*
+            // InternalAndroid.g:824:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -861,7 +861,7 @@ public class InternalAndroidLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalAndroid.g:788:52: .
+            	    // InternalAndroid.g:824:52: .
             	    {
             	    matchAny(); 
 
@@ -891,12 +891,12 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:790:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalAndroid.g:790:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAndroid.g:826:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAndroid.g:826:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalAndroid.g:790:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAndroid.g:826:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -909,7 +909,7 @@ public class InternalAndroidLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAndroid.g:790:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAndroid.g:826:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -929,7 +929,7 @@ public class InternalAndroidLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalAndroid.g:790:40: ( ( '\\r' )? '\\n' )?
+            // InternalAndroid.g:826:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -938,9 +938,9 @@ public class InternalAndroidLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalAndroid.g:790:41: ( '\\r' )? '\\n'
+                    // InternalAndroid.g:826:41: ( '\\r' )? '\\n'
                     {
-                    // InternalAndroid.g:790:41: ( '\\r' )?
+                    // InternalAndroid.g:826:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -949,7 +949,7 @@ public class InternalAndroidLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalAndroid.g:790:41: '\\r'
+                            // InternalAndroid.g:826:41: '\\r'
                             {
                             match('\r'); 
 
@@ -981,10 +981,10 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:792:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalAndroid.g:792:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAndroid.g:828:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAndroid.g:828:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalAndroid.g:792:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAndroid.g:828:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1038,8 +1038,8 @@ public class InternalAndroidLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalAndroid.g:794:16: ( . )
-            // InternalAndroid.g:794:18: .
+            // InternalAndroid.g:830:16: ( . )
+            // InternalAndroid.g:830:18: .
             {
             matchAny(); 
 

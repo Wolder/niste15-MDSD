@@ -199,15 +199,15 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cTextKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
+		private final RuleCall cTextTextContentParserRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Text:
-		//	'Text' '(' text=STRING ')' //More Params
+		//	'Text' '(' text=TextContent ')' //More Params
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Text' '(' text=STRING ')'
+		//'Text' '(' text=TextContent ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'Text'
@@ -216,14 +216,29 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//text=STRING
+		//text=TextContent
 		public Assignment getTextAssignment_2() { return cTextAssignment_2; }
 		
-		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_2_0() { return cTextSTRINGTerminalRuleCall_2_0; }
+		//TextContent
+		public RuleCall getTextTextContentParserRuleCall_2_0() { return cTextTextContentParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
+	public class TextContentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.niste15.mdsd.Android.TextContent");
+		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTextSTRINGTerminalRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
+		
+		//TextContent:
+		//	text=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//text=STRING
+		public Assignment getTextAssignment() { return cTextAssignment; }
+		
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_0() { return cTextSTRINGTerminalRuleCall_0; }
 	}
 	public class ButtonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.niste15.mdsd.Android.Button");
@@ -506,6 +521,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final FrameElements pFrame;
 	private final ElementsElements pElements;
 	private final TextElements pText;
+	private final TextContentElements pTextContent;
 	private final ButtonElements pButton;
 	private final ConstraintElements pConstraint;
 	private final ConstraintTypeVerticalElements pConstraintTypeVertical;
@@ -526,6 +542,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pFrame = new FrameElements();
 		this.pElements = new ElementsElements();
 		this.pText = new TextElements();
+		this.pTextContent = new TextContentElements();
 		this.pButton = new ButtonElements();
 		this.pConstraint = new ConstraintElements();
 		this.pConstraintTypeVertical = new ConstraintTypeVerticalElements();
@@ -612,7 +629,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Text:
-	//	'Text' '(' text=STRING ')' //More Params
+	//	'Text' '(' text=TextContent ')' //More Params
 	//;
 	public TextElements getTextAccess() {
 		return pText;
@@ -620,6 +637,16 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getTextRule() {
 		return getTextAccess().getRule();
+	}
+	
+	//TextContent:
+	//	text=STRING;
+	public TextContentElements getTextContentAccess() {
+		return pTextContent;
+	}
+	
+	public ParserRule getTextContentRule() {
+		return getTextContentAccess().getRule();
 	}
 	
 	//Button:

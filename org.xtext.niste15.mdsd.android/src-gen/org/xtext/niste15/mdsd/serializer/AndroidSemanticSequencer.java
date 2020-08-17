@@ -30,6 +30,7 @@ import org.xtext.niste15.mdsd.android.Persentage;
 import org.xtext.niste15.mdsd.android.Right;
 import org.xtext.niste15.mdsd.android.RightOf;
 import org.xtext.niste15.mdsd.android.Text;
+import org.xtext.niste15.mdsd.android.TextContent;
 import org.xtext.niste15.mdsd.android.Top;
 import org.xtext.niste15.mdsd.android.TopOf;
 import org.xtext.niste15.mdsd.services.AndroidGrammarAccess;
@@ -92,6 +93,9 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case AndroidPackage.TEXT:
 				sequence_Text(context, (Text) semanticObject); 
+				return; 
+			case AndroidPackage.TEXT_CONTENT:
+				sequence_TextContent(context, (TextContent) semanticObject); 
 				return; 
 			case AndroidPackage.TOP:
 				sequence_ConstraintParameter(context, (Top) semanticObject); 
@@ -311,19 +315,37 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Contexts:
-	 *     Elements returns Text
-	 *     Text returns Text
+	 *     TextContent returns TextContent
 	 *
 	 * Constraint:
 	 *     text=STRING
 	 */
-	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
+	protected void sequence_TextContent(ISerializationContext context, TextContent semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.ELEMENTS__TEXT));
+			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.TEXT_CONTENT__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.TEXT_CONTENT__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getTextContentAccess().getTextSTRINGTerminalRuleCall_0(), semanticObject.getText());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Elements returns Text
+	 *     Text returns Text
+	 *
+	 * Constraint:
+	 *     text=TextContent
+	 */
+	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.TEXT__TEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.TEXT__TEXT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_2_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	

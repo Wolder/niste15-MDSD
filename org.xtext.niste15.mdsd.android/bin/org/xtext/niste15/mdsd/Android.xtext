@@ -23,7 +23,11 @@ Elements:
 ;
 
 Text:
-	'Text' '(' text=STRING ')'  //More Params
+	'Text' '(' text=TextContent ')'  //More Params
+;
+
+TextContent:
+	text=STRING
 ;
 
 Button:

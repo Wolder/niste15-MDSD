@@ -22,11 +22,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Frame/elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Frame/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="Android.ecore#//Elements">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Android.ecore#//Elements/text"/>
+    <genClasses ecoreClass="Android.ecore#//Elements"/>
+    <genClasses ecoreClass="Android.ecore#//Text">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Android.ecore#//Text/text"/>
     </genClasses>
-    <genClasses ecoreClass="Android.ecore#//Text"/>
+    <genClasses ecoreClass="Android.ecore#//TextContent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Android.ecore#//TextContent/text"/>
+    </genClasses>
     <genClasses ecoreClass="Android.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Android.ecore#//Button/text"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Android.ecore#//Button/pane"/>
     </genClasses>
     <genClasses ecoreClass="Android.ecore#//Constraint">

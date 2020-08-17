@@ -216,22 +216,13 @@ public interface AndroidPackage extends EPackage
   int ELEMENTS = 4;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENTS__TEXT = 0;
-
-  /**
    * The number of structural features of the '<em>Elements</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENTS_FEATURE_COUNT = 1;
+  int ELEMENTS_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.TextImpl <em>Text</em>}' class.
@@ -244,13 +235,13 @@ public interface AndroidPackage extends EPackage
   int TEXT = 5;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * The feature id for the '<em><b>Text</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEXT__TEXT = ELEMENTS__TEXT;
+  int TEXT__TEXT = ELEMENTS_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Text</em>' class.
@@ -259,7 +250,35 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXT_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 0;
+  int TEXT_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.TextContentImpl <em>Text Content</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.niste15.mdsd.android.impl.TextContentImpl
+   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTextContent()
+   * @generated
+   */
+  int TEXT_CONTENT = 6;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_CONTENT__TEXT = 0;
+
+  /**
+   * The number of structural features of the '<em>Text Content</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_CONTENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ButtonImpl <em>Button</em>}' class.
@@ -269,7 +288,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 6;
+  int BUTTON = 7;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -278,7 +297,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__TEXT = ELEMENTS__TEXT;
+  int BUTTON__TEXT = ELEMENTS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Pane</b></em>' reference.
@@ -287,7 +306,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__PANE = ELEMENTS_FEATURE_COUNT + 0;
+  int BUTTON__PANE = ELEMENTS_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Button</em>' class.
@@ -296,7 +315,7 @@ public interface AndroidPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 1;
+  int BUTTON_FEATURE_COUNT = ELEMENTS_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -306,7 +325,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 7;
+  int CONSTRAINT = 8;
 
   /**
    * The feature id for the '<em><b>Constraint Type</b></em>' containment reference.
@@ -352,7 +371,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintTypeVertical()
    * @generated
    */
-  int CONSTRAINT_TYPE_VERTICAL = 8;
+  int CONSTRAINT_TYPE_VERTICAL = 9;
 
   /**
    * The number of structural features of the '<em>Constraint Type Vertical</em>' class.
@@ -371,7 +390,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getConstraintParameter()
    * @generated
    */
-  int CONSTRAINT_PARAMETER = 9;
+  int CONSTRAINT_PARAMETER = 10;
 
   /**
    * The number of structural features of the '<em>Constraint Parameter</em>' class.
@@ -390,7 +409,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getRightOf()
    * @generated
    */
-  int RIGHT_OF = 10;
+  int RIGHT_OF = 11;
 
   /**
    * The number of structural features of the '<em>Right Of</em>' class.
@@ -409,7 +428,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getLeftOf()
    * @generated
    */
-  int LEFT_OF = 11;
+  int LEFT_OF = 12;
 
   /**
    * The number of structural features of the '<em>Left Of</em>' class.
@@ -428,7 +447,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getBottomOf()
    * @generated
    */
-  int BOTTOM_OF = 12;
+  int BOTTOM_OF = 13;
 
   /**
    * The number of structural features of the '<em>Bottom Of</em>' class.
@@ -447,7 +466,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTopOf()
    * @generated
    */
-  int TOP_OF = 13;
+  int TOP_OF = 14;
 
   /**
    * The number of structural features of the '<em>Top Of</em>' class.
@@ -466,7 +485,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getPersentage()
    * @generated
    */
-  int PERSENTAGE = 14;
+  int PERSENTAGE = 15;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -494,7 +513,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getRight()
    * @generated
    */
-  int RIGHT = 15;
+  int RIGHT = 16;
 
   /**
    * The number of structural features of the '<em>Right</em>' class.
@@ -513,7 +532,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getLeft()
    * @generated
    */
-  int LEFT = 16;
+  int LEFT = 17;
 
   /**
    * The number of structural features of the '<em>Left</em>' class.
@@ -532,7 +551,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTop()
    * @generated
    */
-  int TOP = 17;
+  int TOP = 18;
 
   /**
    * The number of structural features of the '<em>Top</em>' class.
@@ -551,7 +570,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getBottom()
    * @generated
    */
-  int BOTTOM = 18;
+  int BOTTOM = 19;
 
   /**
    * The number of structural features of the '<em>Bottom</em>' class.
@@ -570,7 +589,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
    * @generated
    */
-  int MIDDLE = 19;
+  int MIDDLE = 20;
 
   /**
    * The number of structural features of the '<em>Middle</em>' class.
@@ -721,17 +740,6 @@ public interface AndroidPackage extends EPackage
   EClass getElements();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Elements#getText <em>Text</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Text</em>'.
-   * @see org.xtext.niste15.mdsd.android.Elements#getText()
-   * @see #getElements()
-   * @generated
-   */
-  EAttribute getElements_Text();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Text <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -742,6 +750,38 @@ public interface AndroidPackage extends EPackage
   EClass getText();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.niste15.mdsd.android.Text#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Text</em>'.
+   * @see org.xtext.niste15.mdsd.android.Text#getText()
+   * @see #getText()
+   * @generated
+   */
+  EReference getText_Text();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.TextContent <em>Text Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text Content</em>'.
+   * @see org.xtext.niste15.mdsd.android.TextContent
+   * @generated
+   */
+  EClass getTextContent();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.TextContent#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Text</em>'.
+   * @see org.xtext.niste15.mdsd.android.TextContent#getText()
+   * @see #getTextContent()
+   * @generated
+   */
+  EAttribute getTextContent_Text();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Button <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -750,6 +790,17 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EClass getButton();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Button#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Text</em>'.
+   * @see org.xtext.niste15.mdsd.android.Button#getText()
+   * @see #getButton()
+   * @generated
+   */
+  EAttribute getButton_Text();
 
   /**
    * Returns the meta object for the reference '{@link org.xtext.niste15.mdsd.android.Button#getPane <em>Pane</em>}'.
@@ -1074,14 +1125,6 @@ public interface AndroidPackage extends EPackage
     EClass ELEMENTS = eINSTANCE.getElements();
 
     /**
-     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENTS__TEXT = eINSTANCE.getElements_Text();
-
-    /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.TextImpl <em>Text</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1092,6 +1135,32 @@ public interface AndroidPackage extends EPackage
     EClass TEXT = eINSTANCE.getText();
 
     /**
+     * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEXT__TEXT = eINSTANCE.getText_Text();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.TextContentImpl <em>Text Content</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.niste15.mdsd.android.impl.TextContentImpl
+     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTextContent()
+     * @generated
+     */
+    EClass TEXT_CONTENT = eINSTANCE.getTextContent();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEXT_CONTENT__TEXT = eINSTANCE.getTextContent_Text();
+
+    /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.ButtonImpl <em>Button</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1100,6 +1169,14 @@ public interface AndroidPackage extends EPackage
      * @generated
      */
     EClass BUTTON = eINSTANCE.getButton();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUTTON__TEXT = eINSTANCE.getButton_Text();
 
     /**
      * The meta object literal for the '<em><b>Pane</b></em>' reference feature.

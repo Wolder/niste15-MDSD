@@ -22,11 +22,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" eType="#//Constraint"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Elements">
+  <eClassifiers xsi:type="ecore:EClass" name="Elements"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//TextContent"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextContent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Elements"/>
   <eClassifiers xsi:type="ecore:EClass" name="Button" eSuperTypes="#//Elements">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pane" eType="#//Pane"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constraint">

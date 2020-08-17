@@ -395,19 +395,20 @@ ruleText returns [EObject current=null]
 		}
 		(
 			(
-				lv_text_2_0=RULE_STRING
 				{
-					newLeafNode(lv_text_2_0, grammarAccess.getTextAccess().getTextSTRINGTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_2_0());
 				}
+				lv_text_2_0=ruleTextContent
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getTextRule());
+						$current = createModelElementForParent(grammarAccess.getTextRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"text",
 						lv_text_2_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.xtext.niste15.mdsd.Android.TextContent");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -415,6 +416,41 @@ ruleText returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getTextAccess().getRightParenthesisKeyword_3());
 		}
+	)
+;
+
+// Entry rule entryRuleTextContent
+entryRuleTextContent returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTextContentRule()); }
+	iv_ruleTextContent=ruleTextContent
+	{ $current=$iv_ruleTextContent.current; }
+	EOF;
+
+// Rule TextContent
+ruleTextContent returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_text_0_0=RULE_STRING
+			{
+				newLeafNode(lv_text_0_0, grammarAccess.getTextContentAccess().getTextSTRINGTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getTextContentRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"text",
+					lv_text_0_0,
+					"org.eclipse.xtext.common.Terminals.STRING");
+			}
+		)
 	)
 ;
 

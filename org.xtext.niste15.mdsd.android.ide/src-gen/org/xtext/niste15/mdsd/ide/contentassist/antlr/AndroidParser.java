@@ -62,6 +62,7 @@ public class AndroidParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFrameAccess().getElementsAssignment_4(), "rule__Frame__ElementsAssignment_4");
 			builder.put(grammarAccess.getFrameAccess().getConstraintAssignment_5(), "rule__Frame__ConstraintAssignment_5");
 			builder.put(grammarAccess.getTextAccess().getTextAssignment_2(), "rule__Text__TextAssignment_2");
+			builder.put(grammarAccess.getTextContentAccess().getTextAssignment(), "rule__TextContent__TextAssignment");
 			builder.put(grammarAccess.getButtonAccess().getTextAssignment_2(), "rule__Button__TextAssignment_2");
 			builder.put(grammarAccess.getButtonAccess().getPaneAssignment_3_2(), "rule__Button__PaneAssignment_3_2");
 			builder.put(grammarAccess.getConstraintAccess().getConstraintTypeAssignment_0_2(), "rule__Constraint__ConstraintTypeAssignment_0_2");

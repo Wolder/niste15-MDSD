@@ -3,6 +3,12 @@
  */
 package org.xtext.niste15.mdsd.validation;
 
+import org.eclipse.xtext.validation.Check;
+import org.xtext.niste15.mdsd.android.AndroidPackage;
+import org.xtext.niste15.mdsd.android.Button;
+import org.xtext.niste15.mdsd.android.Pane;
+import org.xtext.niste15.mdsd.android.Text;
+import org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +17,21 @@ package org.xtext.niste15.mdsd.validation;
  */
 public class AndroidValidator extends AbstractAndroidValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					AndroidPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	public static final String INVALID_NAME = "invalidName";
+	public static final String NO_NAVIGATION = "noButtonNavigation";
+
+	@Check
+	public void checkTextNameIsNotEmpty(Text text) {
+		if (text.getText().getText().isEmpty()) {
+			warning("Text should not be empty", AndroidPackage.Literals.TEXT__TEXT, INVALID_NAME);
+		}
+	}
+	
+	@Check
+	public void checkIfButtonHasNoNavigation(Button button) {
+		if (button.getPane() == null) {
+			warning("Without navigation, the button has no function", AndroidPackage.Literals.BUTTON__PANE, NO_NAVIGATION);
+		}
+	}
 	
 }

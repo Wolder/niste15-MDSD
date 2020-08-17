@@ -30,6 +30,7 @@ import org.xtext.niste15.mdsd.android.Persentage;
 import org.xtext.niste15.mdsd.android.Right;
 import org.xtext.niste15.mdsd.android.RightOf;
 import org.xtext.niste15.mdsd.android.Text;
+import org.xtext.niste15.mdsd.android.TextContent;
 import org.xtext.niste15.mdsd.android.Top;
 import org.xtext.niste15.mdsd.android.TopOf;
 
@@ -82,6 +83,13 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   private EClass textEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textContentEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -393,9 +401,9 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
-  public EAttribute getElements_Text()
+  public EClass getText()
   {
-    return (EAttribute)elementsEClass.getEStructuralFeatures().get(0);
+    return textEClass;
   }
 
   /**
@@ -404,9 +412,31 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
-  public EClass getText()
+  public EReference getText_Text()
   {
-    return textEClass;
+    return (EReference)textEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTextContent()
+  {
+    return textContentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getTextContent_Text()
+  {
+    return (EAttribute)textContentEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -426,9 +456,20 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
+  public EAttribute getButton_Text()
+  {
+    return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getButton_Pane()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(0);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -666,11 +707,15 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     createEReference(frameEClass, FRAME__CONSTRAINT);
 
     elementsEClass = createEClass(ELEMENTS);
-    createEAttribute(elementsEClass, ELEMENTS__TEXT);
 
     textEClass = createEClass(TEXT);
+    createEReference(textEClass, TEXT__TEXT);
+
+    textContentEClass = createEClass(TEXT_CONTENT);
+    createEAttribute(textContentEClass, TEXT_CONTENT__TEXT);
 
     buttonEClass = createEClass(BUTTON);
+    createEAttribute(buttonEClass, BUTTON__TEXT);
     createEReference(buttonEClass, BUTTON__PANE);
 
     constraintEClass = createEClass(CONSTRAINT);
@@ -764,11 +809,15 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEReference(getFrame_Constraint(), this.getConstraint(), null, "constraint", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elementsEClass, Elements.class, "Elements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElements_Text(), ecorePackage.getEString(), "text", null, 0, 1, Elements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getText_Text(), this.getTextContent(), null, "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textContentEClass, TextContent.class, "TextContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTextContent_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getButton_Text(), ecorePackage.getEString(), "text", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getButton_Pane(), this.getPane(), null, "pane", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

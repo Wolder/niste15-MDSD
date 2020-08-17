@@ -78,6 +78,15 @@ public interface AndroidFactory extends EFactory
   Text createText();
 
   /**
+   * Returns a new object of class '<em>Text Content</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text Content</em>'.
+   * @generated
+   */
+  TextContent createTextContent();
+
+  /**
    * Returns a new object of class '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -13,6 +13,7 @@ package org.xtext.niste15.mdsd.android;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.niste15.mdsd.android.Button#getText <em>Text</em>}</li>
  *   <li>{@link org.xtext.niste15.mdsd.android.Button#getPane <em>Pane</em>}</li>
  * </ul>
  *
@@ -22,6 +23,28 @@ package org.xtext.niste15.mdsd.android;
  */
 public interface Button extends Elements
 {
+  /**
+   * Returns the value of the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Text</em>' attribute.
+   * @see #setText(String)
+   * @see org.xtext.niste15.mdsd.android.AndroidPackage#getButton_Text()
+   * @model
+   * @generated
+   */
+  String getText();
+
+  /**
+   * Sets the value of the '{@link org.xtext.niste15.mdsd.android.Button#getText <em>Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Text</em>' attribute.
+   * @see #getText()
+   * @generated
+   */
+  void setText(String value);
+
   /**
    * Returns the value of the '<em><b>Pane</b></em>' reference.
    * <!-- begin-user-doc -->

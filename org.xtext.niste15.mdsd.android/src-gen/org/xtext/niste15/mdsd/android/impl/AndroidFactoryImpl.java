@@ -71,6 +71,7 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
       case AndroidPackage.FRAME: return createFrame();
       case AndroidPackage.ELEMENTS: return createElements();
       case AndroidPackage.TEXT: return createText();
+      case AndroidPackage.TEXT_CONTENT: return createTextContent();
       case AndroidPackage.BUTTON: return createButton();
       case AndroidPackage.CONSTRAINT: return createConstraint();
       case AndroidPackage.CONSTRAINT_TYPE_VERTICAL: return createConstraintTypeVertical();
@@ -160,6 +161,18 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
   {
     TextImpl text = new TextImpl();
     return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TextContent createTextContent()
+  {
+    TextContentImpl textContent = new TextContentImpl();
+    return textContent;
   }
 
   /**
