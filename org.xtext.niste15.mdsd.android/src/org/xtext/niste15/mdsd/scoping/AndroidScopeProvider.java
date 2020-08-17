@@ -3,6 +3,17 @@
  */
 package org.xtext.niste15.mdsd.scoping;
 
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.xtext.niste15.mdsd.android.AndroidPackage;
+import org.xtext.niste15.mdsd.android.Button;
+import org.xtext.niste15.mdsd.android.Frame;
+import org.xtext.niste15.mdsd.android.Pane;
 
 /**
  * This class contains custom scoping description.
@@ -11,5 +22,25 @@ package org.xtext.niste15.mdsd.scoping;
  * on how and when to use it.
  */
 public class AndroidScopeProvider extends AbstractAndroidScopeProvider {
-
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+	    
+		// We want to define the Scope for the Element's superElement cross-reference
+	    if (context instanceof Button && reference == AndroidPackage.Literals.BUTTON__PANE) {
+	        EObject rootElement = EcoreUtil2.getRootContainer(context);
+	        List<Pane> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Pane.class);
+	        
+	        for (int i = 0; i < candidates.size(); i++) {
+	        	for (Frame frame: candidates.get(i).getFrames()) {
+	        		if (frame.eContents().contains(context)) {
+		        		candidates.remove(i);
+	        		}
+	        	}
+	        }
+	        
+	        // Create IEObjectDescriptions and puts them into an IScope instance
+	        return Scopes.scopeFor(candidates);
+	    }
+	    return super.getScope(context, reference);
+	} 
 }

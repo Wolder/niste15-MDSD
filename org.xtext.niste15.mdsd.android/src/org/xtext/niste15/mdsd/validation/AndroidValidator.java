@@ -6,9 +6,7 @@ package org.xtext.niste15.mdsd.validation;
 import org.eclipse.xtext.validation.Check;
 import org.xtext.niste15.mdsd.android.AndroidPackage;
 import org.xtext.niste15.mdsd.android.Button;
-import org.xtext.niste15.mdsd.android.Pane;
 import org.xtext.niste15.mdsd.android.Text;
-import org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl;
 
 /**
  * This class contains custom validation rules. 
