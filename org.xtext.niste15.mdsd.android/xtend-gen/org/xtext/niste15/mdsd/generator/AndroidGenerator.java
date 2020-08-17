@@ -142,6 +142,40 @@ public class AndroidGenerator extends AbstractGenerator {
             _builder.append(_name_4, "\t\t");
             _builder.append(");");
             _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            _builder.newLine();
+            {
+              if ((element_1 instanceof Button)) {
+                {
+                  Pane _pane = ((Button)element_1).getPane();
+                  boolean _tripleNotEquals_1 = (_pane != null);
+                  if (_tripleNotEquals_1) {
+                    _builder.append("\t\t");
+                    String _name_5 = ((Button)element_1).getName();
+                    _builder.append(_name_5, "\t\t");
+                    _builder.append(".setOnClickListener(new View.OnClickListener(){");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
+                    _builder.append("override void onClick(View view) {");
+                    _builder.newLine();
+                    _builder.append("\t\t");
+                    _builder.append("\t");
+                    _builder.append("Intent intent = new Intent(getApplicationContext(), ");
+                    String _name_6 = ((Button)element_1).getPane().getName();
+                    _builder.append(_name_6, "\t\t\t");
+                    _builder.append(".class);");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t\t");
+                    _builder.append("\t");
+                    _builder.append("startActivity(intent);");
+                    _builder.newLine();
+                    _builder.append("\t\t");
+                    _builder.append("}}); ");
+                    _builder.newLine();
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -220,8 +254,9 @@ public class AndroidGenerator extends AbstractGenerator {
               Constraint _constraint_1 = frame.getConstraint();
               boolean _tripleNotEquals_1 = (_constraint_1 != null);
               if (_tripleNotEquals_1) {
+                _builder.append("\t\t");
                 CharSequence _constraintsFromConstraintParameter = this.getConstraintsFromConstraintParameter(frame);
-                _builder.append(_constraintsFromConstraintParameter);
+                _builder.append(_constraintsFromConstraintParameter, "\t\t");
                 _builder.newLineIfNotEmpty();
               }
             }
@@ -405,19 +440,21 @@ public class AndroidGenerator extends AbstractGenerator {
     if ((_constraintType instanceof TopOf)) {
       _matched=true;
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("app:layout_constraintTop_toTopOf=\"parent\"");
-      _builder.newLine();
-      _builder.append("app:layout_constraintStart_toStartOf=\"parent\"");
-      _builder.newLine();
-      _builder.append("app:layout_constraintEnd_toEndOf=\"parent\"");
-      _builder.newLine();
-      _builder.append("app:layout_constraintBottom_toTopOf=\"@+id/");
+      _builder.append("app:layout_constraintStart_toStartOf=\"@+id/");
       String _name = frame.getConstraint().getFrame().getName();
       _builder.append(_name);
       _builder.append("\"");
       _builder.newLineIfNotEmpty();
-      _builder.append("app:layout_constraintVertical_bias=\"100.0\">");
-      _builder.newLine();
+      _builder.append("app:layout_constraintEnd_toEndOf=\"@+id/");
+      String _name_1 = frame.getConstraint().getFrame().getName();
+      _builder.append(_name_1);
+      _builder.append("\"");
+      _builder.newLineIfNotEmpty();
+      _builder.append("app:layout_constraintBottom_toTopOf=\"@+id/");
+      String _name_2 = frame.getConstraint().getFrame().getName();
+      _builder.append(_name_2);
+      _builder.append("\">");
+      _builder.newLineIfNotEmpty();
       _switchResult = _builder;
     }
     if (!_matched) {
@@ -426,18 +463,20 @@ public class AndroidGenerator extends AbstractGenerator {
         _matched=true;
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("app:layout_constraintTop_toBottomOf=\"@+id/");
-        String _name_1 = frame.getConstraint().getFrame().getName();
-        _builder_1.append(_name_1);
+        String _name_3 = frame.getConstraint().getFrame().getName();
+        _builder_1.append(_name_3);
         _builder_1.append("\"");
         _builder_1.newLineIfNotEmpty();
-        _builder_1.append("app:layout_constraintStart_toStartOf=\"parent\"");
-        _builder_1.newLine();
-        _builder_1.append("app:layout_constraintEnd_toEndOf=\"parent\"");
-        _builder_1.newLine();
-        _builder_1.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
-        _builder_1.newLine();
-        _builder_1.append("app:layout_constraintVertical_bias=\"0.0\">");
-        _builder_1.newLine();
+        _builder_1.append("app:layout_constraintStart_toStartOf=\"@+id/");
+        String _name_4 = frame.getConstraint().getFrame().getName();
+        _builder_1.append(_name_4);
+        _builder_1.append("\"");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.append("app:layout_constraintEnd_toEndOf=\"@+id/");
+        String _name_5 = frame.getConstraint().getFrame().getName();
+        _builder_1.append(_name_5);
+        _builder_1.append("\">");
+        _builder_1.newLineIfNotEmpty();
         _switchResult = _builder_1;
       }
     }
@@ -446,19 +485,21 @@ public class AndroidGenerator extends AbstractGenerator {
       if ((_constraintType_2 instanceof LeftOf)) {
         _matched=true;
         StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("app:layout_constraintTop_toTopOf=\"parent\"");
-        _builder_2.newLine();
-        _builder_2.append("app:layout_constraintStart_toStartOf=\"parent\"");
-        _builder_2.newLine();
         _builder_2.append("app:layout_constraintEnd_toStartOf=\"\"@+id/");
-        String _name_2 = frame.getConstraint().getFrame().getName();
-        _builder_2.append(_name_2);
+        String _name_6 = frame.getConstraint().getFrame().getName();
+        _builder_2.append(_name_6);
         _builder_2.append("\"");
         _builder_2.newLineIfNotEmpty();
-        _builder_2.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
-        _builder_2.newLine();
-        _builder_2.append("app:layout_constraintHorizontal_bias=\"0.0\">");
-        _builder_2.newLine();
+        _builder_2.append("app:layout_constraintBottom_toBottomOf=\"@+id/");
+        String _name_7 = frame.getConstraint().getFrame().getName();
+        _builder_2.append(_name_7);
+        _builder_2.append("\"");
+        _builder_2.newLineIfNotEmpty();
+        _builder_2.append("app:layout_constraintTop_toTopOf=\"@+id/");
+        String _name_8 = frame.getConstraint().getFrame().getName();
+        _builder_2.append(_name_8);
+        _builder_2.append("\">");
+        _builder_2.newLineIfNotEmpty();
         _switchResult = _builder_2;
       }
     }
@@ -467,33 +508,26 @@ public class AndroidGenerator extends AbstractGenerator {
       if ((_constraintType_3 instanceof RightOf)) {
         _matched=true;
         StringConcatenation _builder_3 = new StringConcatenation();
-        _builder_3.append("app:layout_constraintTop_toTopOf=\"parent\"");
-        _builder_3.newLine();
         _builder_3.append("app:layout_constraintStart_toEndOf=\"@+id/");
-        String _name_3 = frame.getConstraint().getFrame().getName();
-        _builder_3.append(_name_3);
+        String _name_9 = frame.getConstraint().getFrame().getName();
+        _builder_3.append(_name_9);
         _builder_3.append("\"");
         _builder_3.newLineIfNotEmpty();
-        _builder_3.append("app:layout_constraintEnd_toEndOf=\"parent\"");
-        _builder_3.newLine();
-        _builder_3.append("app:layout_constraintBottom_toBottomOf=\"parent\"");
-        _builder_3.newLine();
-        _builder_3.append("app:layout_constraintHorizontal_bias=\"100.0\">");
-        _builder_3.newLine();
+        _builder_3.append("app:layout_constraintBottom_toBottomOf=\"@+id/");
+        String _name_10 = frame.getConstraint().getFrame().getName();
+        _builder_3.append(_name_10);
+        _builder_3.append("\"");
+        _builder_3.newLineIfNotEmpty();
+        _builder_3.append("app:layout_constraintTop_toTopOf=\"@+id/");
+        String _name_11 = frame.getConstraint().getFrame().getName();
+        _builder_3.append(_name_11);
+        _builder_3.append("\">");
+        _builder_3.newLineIfNotEmpty();
         _switchResult = _builder_3;
       }
     }
     if (!_matched) {
-      StringConcatenation _builder_4 = new StringConcatenation();
-      _builder_4.append("app:layout_constraintTop_toTopOf=\"parent\"");
-      _builder_4.newLine();
-      _builder_4.append("app:layout_constraintStart_toStartOf=\"parent\"");
-      _builder_4.newLine();
-      _builder_4.append("app:layout_constraintEnd_toEndOf=\"parent\"");
-      _builder_4.newLine();
-      _builder_4.append("app:layout_constraintBottom_toBottomOf=\"parent\">");
-      _builder_4.newLine();
-      _switchResult = _builder_4;
+      _switchResult = this.getDefaultConstraints(frame);
     }
     return _switchResult;
   }

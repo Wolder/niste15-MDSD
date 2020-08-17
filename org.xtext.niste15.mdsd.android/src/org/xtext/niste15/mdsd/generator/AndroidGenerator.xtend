@@ -67,6 +67,16 @@ class AndroidGenerator extends AbstractGenerator {
         		«FOR element : frame.elements»
 		
 				«element.name» = findViewById(R.id.«element.name»);
+				
+				«IF element instanceof Button»
+				«IF element.pane !== null»
+				«element.name».setOnClickListener(new View.OnClickListener(){
+				override void onClick(View view) {
+					Intent intent = new Intent(getApplicationContext(), «element.pane.name».class);
+					startActivity(intent);
+				}}); 
+				«ENDIF»
+				«ENDIF»
         		«ENDFOR»
         		«ENDFOR»
             }
@@ -93,7 +103,7 @@ class AndroidGenerator extends AbstractGenerator {
     				«ELSEIF frame.constraint.frame !== null»
     				«getConstraintsFromConstraintType(frame)»
     				«ELSEIF frame.constraint !== null»
-					«getConstraintsFromConstraintParameter(frame)»
+    				«getConstraintsFromConstraintParameter(frame)»
     				«ENDIF»
     		«FOR element : frame.elements»
     		«IF element instanceof Text»
@@ -177,43 +187,30 @@ class AndroidGenerator extends AbstractGenerator {
 		switch frame.constraint {
 			case frame.constraint.constraintType instanceof TopOf: 
 				'''
-					app:layout_constraintTop_toTopOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintBottom_toTopOf="@+id/«frame.constraint.frame.name»"
-					app:layout_constraintVertical_bias="100.0">
+					app:layout_constraintStart_toStartOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintEnd_toEndOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintBottom_toTopOf="@+id/«frame.constraint.frame.name»">
 				'''
 			case frame.constraint.constraintType instanceof BottomOf: 
 				'''
 					app:layout_constraintTop_toBottomOf="@+id/«frame.constraint.frame.name»"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintVertical_bias="0.0">
+					app:layout_constraintStart_toStartOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintEnd_toEndOf="@+id/«frame.constraint.frame.name»">
 				'''
 			case frame.constraint.constraintType instanceof LeftOf: 
 				'''
-					app:layout_constraintTop_toTopOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintEnd_toStartOf=""@+id/«frame.constraint.frame.name»"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintHorizontal_bias="0.0">
+					app:layout_constraintBottom_toBottomOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintTop_toTopOf="@+id/«frame.constraint.frame.name»">
 				'''
 			case frame.constraint.constraintType instanceof RightOf: 
 				'''
-					app:layout_constraintTop_toTopOf="parent"
 					app:layout_constraintStart_toEndOf="@+id/«frame.constraint.frame.name»"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintHorizontal_bias="100.0">
+					app:layout_constraintBottom_toBottomOf="@+id/«frame.constraint.frame.name»"
+					app:layout_constraintTop_toTopOf="@+id/«frame.constraint.frame.name»">
 				'''
 			default : 
-				'''
-					app:layout_constraintTop_toTopOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintBottom_toBottomOf="parent">
-				'''
+				getDefaultConstraints(frame)
 		}
 	}
     

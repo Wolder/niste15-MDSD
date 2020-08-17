@@ -3,9 +3,12 @@
  */
 package org.xtext.niste15.mdsd.validation;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.validation.Check;
 import org.xtext.niste15.mdsd.android.AndroidPackage;
+import org.xtext.niste15.mdsd.android.Application;
 import org.xtext.niste15.mdsd.android.Button;
 import org.xtext.niste15.mdsd.android.Frame;
 import org.xtext.niste15.mdsd.android.Pane;

@@ -15,6 +15,7 @@ import org.xtext.niste15.mdsd.android.Button;
 import org.xtext.niste15.mdsd.android.Constraint;
 import org.xtext.niste15.mdsd.android.Frame;
 import org.xtext.niste15.mdsd.android.Pane;
+import org.xtext.niste15.mdsd.android.Text;
 
 /**
  * This class contains custom scoping description.
@@ -26,7 +27,7 @@ public class AndroidScopeProvider extends AbstractAndroidScopeProvider {
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 	    
-		// We want to define the Scope for the Element's superElement cross-reference
+		// Scoping for Button navigation pane references.
 	    if (context instanceof Button && reference == AndroidPackage.Literals.BUTTON__PANE) {
 	        EObject rootElement = EcoreUtil2.getRootContainer(context);
 	        List<Pane> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Pane.class);
@@ -42,7 +43,9 @@ public class AndroidScopeProvider extends AbstractAndroidScopeProvider {
 	        // Create IEObjectDescriptions and puts them into an IScope instance
 	        return Scopes.scopeFor(candidates);
 	    }
-	    else if (context instanceof Constraint && reference == AndroidPackage.Literals.CONSTRAINT__FRAME) {
+	    
+	    // Scoping for not being able to have a constraint from a frame to itself.
+	    if (context instanceof Constraint && reference == AndroidPackage.Literals.CONSTRAINT__FRAME) {
 	        EObject rootElement = EcoreUtil2.getRootContainer(context);
 	        List<Frame> candidates = EcoreUtil2.getAllContentsOfType(rootElement, Frame.class);
 	        
@@ -55,6 +58,8 @@ public class AndroidScopeProvider extends AbstractAndroidScopeProvider {
 	        // Create IEObjectDescriptions and puts them into an IScope instance
 	        return Scopes.scopeFor(candidates);
 	    }
+
+	    
 	    return super.getScope(context, reference);
 	} 
 }
