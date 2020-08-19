@@ -6,7 +6,7 @@ Model:
 	application=Application;
 	
 Application:
-	'Application' name=ID '{' (panes+=Pane)* '}' //NavigationBar
+	'Application' name=ID '{' (panes+=Pane)* '}'
 ;
 
 Pane:
@@ -14,16 +14,16 @@ Pane:
 ;
 
 Frame:
-	{Frame} 'Frame' (name=ID)? '{' (elements+=Elements)* (constraint=Constraint)? '}'
+	{Frame} 'Frame' name=ID '{' (elements+=Elements)* (constraint=Constraint)? '}'
 ;
 
 Elements:
 	Button | 
-	Text // ADD MORE 
+	Text 
 ;
 
 Text:
-	'Text' name=ID '(' text=TextContent ')'  //More Params
+	'Text' (name=ID) '(' (text=TextContent) ')' 
 ;
 
 TextContent:
@@ -31,7 +31,7 @@ TextContent:
 ;
 
 Button:
-	'Button' name=ID '(' text=STRING ('navigate' '->' pane=[Pane])? ')' 
+	'Button' (name=ID) '(' (text=STRING) ('navigate' '->' pane=[Pane])? ')' 
 ;
 
 Constraint:
@@ -47,7 +47,6 @@ ConstraintType:
 ;
 
 ConstraintParameter:
-	{Persentage} value=ID '%' |
 	{Right} 'right' |
 	{Left} 'left' |
 	{Top} 'top' |

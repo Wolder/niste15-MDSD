@@ -26,7 +26,6 @@ import org.xtext.niste15.mdsd.android.LeftOf;
 import org.xtext.niste15.mdsd.android.Middle;
 import org.xtext.niste15.mdsd.android.Model;
 import org.xtext.niste15.mdsd.android.Pane;
-import org.xtext.niste15.mdsd.android.Persentage;
 import org.xtext.niste15.mdsd.android.Right;
 import org.xtext.niste15.mdsd.android.RightOf;
 import org.xtext.niste15.mdsd.android.Text;
@@ -146,13 +145,6 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   private EClass topOfEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass persentageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -599,28 +591,6 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
    * @generated
    */
   @Override
-  public EClass getPersentage()
-  {
-    return persentageEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getPersentage_Value()
-  {
-    return (EAttribute)persentageEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getRight()
   {
     return rightEClass;
@@ -747,9 +717,6 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
 
     topOfEClass = createEClass(TOP_OF);
 
-    persentageEClass = createEClass(PERSENTAGE);
-    createEAttribute(persentageEClass, PERSENTAGE__VALUE);
-
     rightEClass = createEClass(RIGHT);
 
     leftEClass = createEClass(LEFT);
@@ -796,7 +763,6 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     leftOfEClass.getESuperTypes().add(this.getConstraintType());
     bottomOfEClass.getESuperTypes().add(this.getConstraintType());
     topOfEClass.getESuperTypes().add(this.getConstraintType());
-    persentageEClass.getESuperTypes().add(this.getConstraintParameter());
     rightEClass.getESuperTypes().add(this.getConstraintParameter());
     leftEClass.getESuperTypes().add(this.getConstraintParameter());
     topEClass.getESuperTypes().add(this.getConstraintParameter());
@@ -849,9 +815,6 @@ public class AndroidPackageImpl extends EPackageImpl implements AndroidPackage
     initEClass(bottomOfEClass, BottomOf.class, "BottomOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(topOfEClass, TopOf.class, "TopOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(persentageEClass, Persentage.class, "Persentage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPersentage_Value(), ecorePackage.getEString(), "value", null, 0, 1, Persentage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rightEClass, Right.class, "Right", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -159,15 +159,6 @@ public interface AndroidFactory extends EFactory
   TopOf createTopOf();
 
   /**
-   * Returns a new object of class '<em>Persentage</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Persentage</em>'.
-   * @generated
-   */
-  Persentage createPersentage();
-
-  /**
    * Returns a new object of class '<em>Right</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

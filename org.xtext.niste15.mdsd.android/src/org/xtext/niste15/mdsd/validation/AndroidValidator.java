@@ -40,10 +40,17 @@ public class AndroidValidator extends AbstractAndroidValidator {
 	}
 	
 	@Check
-	public void checkIfFrameHasConstraints(Pane pane) {
-		for (int i = 0; i < pane.getFrames().size(); i++) {
-			if (pane.getFrames().get(i).getConstraint() == null) {
-				warning("Frame has no constaints. Will be placed in the middle of the pane", AndroidPackage.Literals.PANE__FRAMES, NO_CONSTRAINTS);
+	public void checkIfFrameHasConstraints(Frame frame) {
+		if (frame.getConstraint() == null) {
+				warning("Frame has no constaints. Will be placed in the middle of the pane", AndroidPackage.Literals.FRAME__CONSTRAINT, NO_CONSTRAINTS);
+		}
+	}
+	
+	@Check
+	public void checkIfButtonHasName(Button button) {
+		if (button.getName() == null) {
+			if (button.getPane() != null) {
+				error("Button has to have a name, when the button has the navigation keyword.", AndroidPackage.Literals.BUTTON__PANE, INVALID_NAME);
 			}
 		}
 	}

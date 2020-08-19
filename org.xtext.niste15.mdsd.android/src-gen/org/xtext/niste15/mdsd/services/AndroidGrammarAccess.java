@@ -51,8 +51,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Application:
-		//	'Application' name=ID '{' panes+=Pane* '}' //NavigationBar
-		//;
+		//	'Application' name=ID '{' panes+=Pane* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Application' name=ID '{' panes+=Pane* '}'
@@ -137,10 +136,10 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Frame:
-		//	{Frame} 'Frame' name=ID? '{' elements+=Elements* constraint=Constraint? '}';
+		//	{Frame} 'Frame' name=ID '{' elements+=Elements* constraint=Constraint? '}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Frame} 'Frame' name=ID? '{' elements+=Elements* constraint=Constraint? '}'
+		//{Frame} 'Frame' name=ID '{' elements+=Elements* constraint=Constraint? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Frame}
@@ -149,7 +148,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'Frame'
 		public Keyword getFrameKeyword_1() { return cFrameKeyword_1; }
 		
-		//name=ID?
+		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 		
 		//ID
@@ -180,8 +179,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Elements:
-		//	Button | Text // ADD MORE 
-		//;
+		//	Button | Text;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Button | Text
@@ -205,8 +203,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Text:
-		//	'Text' name=ID '(' text=TextContent ')' //More Params
-		//;
+		//	'Text' name=ID '(' text=TextContent ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Text' name=ID '(' text=TextContent ')'
@@ -442,92 +439,72 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.niste15.mdsd.Android.ConstraintParameter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cPersentageAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Assignment cValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cValueIDTerminalRuleCall_0_1_0 = (RuleCall)cValueAssignment_0_1.eContents().get(0);
-		private final Keyword cPercentSignKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Action cRightAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cRightKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cRightAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cRightKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Action cLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cLeftKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cLeftAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cLeftKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Action cTopAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cTopKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cTopAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Keyword cTopKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Action cBottomAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Keyword cBottomKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cBottomAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cBottomKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Action cMiddleAction_5_0 = (Action)cGroup_5.eContents().get(0);
-		private final Keyword cMiddleKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Action cMiddleAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cMiddleKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
 		
 		//ConstraintParameter:
-		//	{Persentage} value=ID '%' | {Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle';
+		//	{Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Persentage} value=ID '%' | {Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle'
+		//{Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{Persentage} value=ID '%'
+		//{Right} 'right'
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//{Persentage}
-		public Action getPersentageAction_0_0() { return cPersentageAction_0_0; }
-		
-		//value=ID
-		public Assignment getValueAssignment_0_1() { return cValueAssignment_0_1; }
-		
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_0_1_0() { return cValueIDTerminalRuleCall_0_1_0; }
-		
-		//'%'
-		public Keyword getPercentSignKeyword_0_2() { return cPercentSignKeyword_0_2; }
-		
-		//{Right} 'right'
-		public Group getGroup_1() { return cGroup_1; }
-		
 		//{Right}
-		public Action getRightAction_1_0() { return cRightAction_1_0; }
+		public Action getRightAction_0_0() { return cRightAction_0_0; }
 		
 		//'right'
-		public Keyword getRightKeyword_1_1() { return cRightKeyword_1_1; }
+		public Keyword getRightKeyword_0_1() { return cRightKeyword_0_1; }
 		
 		//{Left} 'left'
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//{Left}
-		public Action getLeftAction_2_0() { return cLeftAction_2_0; }
+		public Action getLeftAction_1_0() { return cLeftAction_1_0; }
 		
 		//'left'
-		public Keyword getLeftKeyword_2_1() { return cLeftKeyword_2_1; }
+		public Keyword getLeftKeyword_1_1() { return cLeftKeyword_1_1; }
 		
 		//{Top} 'top'
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//{Top}
-		public Action getTopAction_3_0() { return cTopAction_3_0; }
+		public Action getTopAction_2_0() { return cTopAction_2_0; }
 		
 		//'top'
-		public Keyword getTopKeyword_3_1() { return cTopKeyword_3_1; }
+		public Keyword getTopKeyword_2_1() { return cTopKeyword_2_1; }
 		
 		//{Bottom} 'bottom'
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//{Bottom}
-		public Action getBottomAction_4_0() { return cBottomAction_4_0; }
+		public Action getBottomAction_3_0() { return cBottomAction_3_0; }
 		
 		//'bottom'
-		public Keyword getBottomKeyword_4_1() { return cBottomKeyword_4_1; }
+		public Keyword getBottomKeyword_3_1() { return cBottomKeyword_3_1; }
 		
 		//{Middle} 'middle'
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_4() { return cGroup_4; }
 		
 		//{Middle}
-		public Action getMiddleAction_5_0() { return cMiddleAction_5_0; }
+		public Action getMiddleAction_4_0() { return cMiddleAction_4_0; }
 		
 		//'middle'
-		public Keyword getMiddleKeyword_5_1() { return cMiddleKeyword_5_1; }
+		public Keyword getMiddleKeyword_4_1() { return cMiddleKeyword_4_1; }
 	}
 	
 	
@@ -603,8 +580,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Application:
-	//	'Application' name=ID '{' panes+=Pane* '}' //NavigationBar
-	//;
+	//	'Application' name=ID '{' panes+=Pane* '}';
 	public ApplicationElements getApplicationAccess() {
 		return pApplication;
 	}
@@ -624,7 +600,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Frame:
-	//	{Frame} 'Frame' name=ID? '{' elements+=Elements* constraint=Constraint? '}';
+	//	{Frame} 'Frame' name=ID '{' elements+=Elements* constraint=Constraint? '}';
 	public FrameElements getFrameAccess() {
 		return pFrame;
 	}
@@ -634,8 +610,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Elements:
-	//	Button | Text // ADD MORE 
-	//;
+	//	Button | Text;
 	public ElementsElements getElementsAccess() {
 		return pElements;
 	}
@@ -645,8 +620,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//Text:
-	//	'Text' name=ID '(' text=TextContent ')' //More Params
-	//;
+	//	'Text' name=ID '(' text=TextContent ')';
 	public TextElements getTextAccess() {
 		return pText;
 	}
@@ -697,7 +671,7 @@ public class AndroidGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//ConstraintParameter:
-	//	{Persentage} value=ID '%' | {Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle';
+	//	{Right} 'right' | {Left} 'left' | {Top} 'top' | {Bottom} 'bottom' | {Middle} 'middle';
 	public ConstraintParameterElements getConstraintParameterAccess() {
 		return pConstraintParameter;
 	}

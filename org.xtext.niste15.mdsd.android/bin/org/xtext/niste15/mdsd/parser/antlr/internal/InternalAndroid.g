@@ -283,7 +283,7 @@ ruleFrame returns [EObject current=null]
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
-		)?
+		)
 		otherlv_3='{'
 		{
 			newLeafNode(otherlv_3, grammarAccess.getFrameAccess().getLeftCurlyBracketKeyword_3());
@@ -751,31 +751,13 @@ ruleConstraintParameter returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getPersentageAction_0_0(),
+						grammarAccess.getConstraintParameterAccess().getRightAction_0_0(),
 						$current);
 				}
 			)
-			(
-				(
-					lv_value_1_0=RULE_ID
-					{
-						newLeafNode(lv_value_1_0, grammarAccess.getConstraintParameterAccess().getValueIDTerminalRuleCall_0_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getConstraintParameterRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_1_0,
-							"org.eclipse.xtext.common.Terminals.ID");
-					}
-				)
-			)
-			otherlv_2='%'
+			otherlv_1='right'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getConstraintParameterAccess().getPercentSignKeyword_0_2());
+				newLeafNode(otherlv_1, grammarAccess.getConstraintParameterAccess().getRightKeyword_0_1());
 			}
 		)
 		    |
@@ -783,13 +765,13 @@ ruleConstraintParameter returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getRightAction_1_0(),
+						grammarAccess.getConstraintParameterAccess().getLeftAction_1_0(),
 						$current);
 				}
 			)
-			otherlv_4='right'
+			otherlv_3='left'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConstraintParameterAccess().getRightKeyword_1_1());
+				newLeafNode(otherlv_3, grammarAccess.getConstraintParameterAccess().getLeftKeyword_1_1());
 			}
 		)
 		    |
@@ -797,13 +779,13 @@ ruleConstraintParameter returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getLeftAction_2_0(),
+						grammarAccess.getConstraintParameterAccess().getTopAction_2_0(),
 						$current);
 				}
 			)
-			otherlv_6='left'
+			otherlv_5='top'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getConstraintParameterAccess().getLeftKeyword_2_1());
+				newLeafNode(otherlv_5, grammarAccess.getConstraintParameterAccess().getTopKeyword_2_1());
 			}
 		)
 		    |
@@ -811,13 +793,13 @@ ruleConstraintParameter returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getTopAction_3_0(),
+						grammarAccess.getConstraintParameterAccess().getBottomAction_3_0(),
 						$current);
 				}
 			)
-			otherlv_8='top'
+			otherlv_7='bottom'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getConstraintParameterAccess().getTopKeyword_3_1());
+				newLeafNode(otherlv_7, grammarAccess.getConstraintParameterAccess().getBottomKeyword_3_1());
 			}
 		)
 		    |
@@ -825,27 +807,13 @@ ruleConstraintParameter returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getBottomAction_4_0(),
+						grammarAccess.getConstraintParameterAccess().getMiddleAction_4_0(),
 						$current);
 				}
 			)
-			otherlv_10='bottom'
+			otherlv_9='middle'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getConstraintParameterAccess().getBottomKeyword_4_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getConstraintParameterAccess().getMiddleAction_5_0(),
-						$current);
-				}
-			)
-			otherlv_12='middle'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getConstraintParameterAccess().getMiddleKeyword_5_1());
+				newLeafNode(otherlv_9, grammarAccess.getConstraintParameterAccess().getMiddleKeyword_4_1());
 			}
 		)
 	)

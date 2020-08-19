@@ -184,14 +184,6 @@ public class AndroidSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AndroidPackage.PERSENTAGE:
-      {
-        Persentage persentage = (Persentage)theEObject;
-        T result = casePersentage(persentage);
-        if (result == null) result = caseConstraintParameter(persentage);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AndroidPackage.RIGHT:
       {
         Right right = (Right)theEObject;
@@ -472,22 +464,6 @@ public class AndroidSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTopOf(TopOf object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Persentage</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Persentage</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePersentage(Persentage object)
   {
     return null;
   }

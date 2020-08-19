@@ -52,7 +52,6 @@ public class AndroidParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstraintParameterAccess().getGroup_2(), "rule__ConstraintParameter__Group_2__0");
 			builder.put(grammarAccess.getConstraintParameterAccess().getGroup_3(), "rule__ConstraintParameter__Group_3__0");
 			builder.put(grammarAccess.getConstraintParameterAccess().getGroup_4(), "rule__ConstraintParameter__Group_4__0");
-			builder.put(grammarAccess.getConstraintParameterAccess().getGroup_5(), "rule__ConstraintParameter__Group_5__0");
 			builder.put(grammarAccess.getModelAccess().getApplicationAssignment(), "rule__Model__ApplicationAssignment");
 			builder.put(grammarAccess.getApplicationAccess().getNameAssignment_1(), "rule__Application__NameAssignment_1");
 			builder.put(grammarAccess.getApplicationAccess().getPanesAssignment_3(), "rule__Application__PanesAssignment_3");
@@ -70,7 +69,6 @@ public class AndroidParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstraintAccess().getConstraintTypeAssignment_0_2(), "rule__Constraint__ConstraintTypeAssignment_0_2");
 			builder.put(grammarAccess.getConstraintAccess().getFrameAssignment_0_4(), "rule__Constraint__FrameAssignment_0_4");
 			builder.put(grammarAccess.getConstraintAccess().getParamAssignment_1_2(), "rule__Constraint__ParamAssignment_1_2");
-			builder.put(grammarAccess.getConstraintParameterAccess().getValueAssignment_0_1(), "rule__ConstraintParameter__ValueAssignment_0_1");
 		}
 	}
 	

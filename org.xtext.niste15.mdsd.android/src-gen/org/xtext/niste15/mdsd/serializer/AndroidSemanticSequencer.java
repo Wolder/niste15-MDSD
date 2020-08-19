@@ -26,7 +26,6 @@ import org.xtext.niste15.mdsd.android.LeftOf;
 import org.xtext.niste15.mdsd.android.Middle;
 import org.xtext.niste15.mdsd.android.Model;
 import org.xtext.niste15.mdsd.android.Pane;
-import org.xtext.niste15.mdsd.android.Persentage;
 import org.xtext.niste15.mdsd.android.Right;
 import org.xtext.niste15.mdsd.android.RightOf;
 import org.xtext.niste15.mdsd.android.Text;
@@ -81,9 +80,6 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 				return; 
 			case AndroidPackage.PANE:
 				sequence_Pane(context, (Pane) semanticObject); 
-				return; 
-			case AndroidPackage.PERSENTAGE:
-				sequence_ConstraintParameter(context, (Persentage) semanticObject); 
 				return; 
 			case AndroidPackage.RIGHT:
 				sequence_ConstraintParameter(context, (Right) semanticObject); 
@@ -166,24 +162,6 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_ConstraintParameter(ISerializationContext context, Middle semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ConstraintParameter returns Persentage
-	 *
-	 * Constraint:
-	 *     value=ID
-	 */
-	protected void sequence_ConstraintParameter(ISerializationContext context, Persentage semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AndroidPackage.Literals.PERSENTAGE__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstraintParameterAccess().getValueIDTerminalRuleCall_0_1_0(), semanticObject.getValue());
-		feeder.finish();
 	}
 	
 	
@@ -276,7 +254,7 @@ public class AndroidSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Frame returns Frame
 	 *
 	 * Constraint:
-	 *     (name=ID? elements+=Elements* constraint=Constraint?)
+	 *     (name=ID elements+=Elements* constraint=Constraint?)
 	 */
 	protected void sequence_Frame(ISerializationContext context, Frame semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -505,34 +505,6 @@ public interface AndroidPackage extends EPackage
   int TOP_OF_FEATURE_COUNT = CONSTRAINT_TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.PersentageImpl <em>Persentage</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.niste15.mdsd.android.impl.PersentageImpl
-   * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getPersentage()
-   * @generated
-   */
-  int PERSENTAGE = 15;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSENTAGE__VALUE = CONSTRAINT_PARAMETER_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Persentage</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PERSENTAGE_FEATURE_COUNT = CONSTRAINT_PARAMETER_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.niste15.mdsd.android.impl.RightImpl <em>Right</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -540,7 +512,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getRight()
    * @generated
    */
-  int RIGHT = 16;
+  int RIGHT = 15;
 
   /**
    * The number of structural features of the '<em>Right</em>' class.
@@ -559,7 +531,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getLeft()
    * @generated
    */
-  int LEFT = 17;
+  int LEFT = 16;
 
   /**
    * The number of structural features of the '<em>Left</em>' class.
@@ -578,7 +550,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getTop()
    * @generated
    */
-  int TOP = 18;
+  int TOP = 17;
 
   /**
    * The number of structural features of the '<em>Top</em>' class.
@@ -597,7 +569,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getBottom()
    * @generated
    */
-  int BOTTOM = 19;
+  int BOTTOM = 18;
 
   /**
    * The number of structural features of the '<em>Bottom</em>' class.
@@ -616,7 +588,7 @@ public interface AndroidPackage extends EPackage
    * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getMiddle()
    * @generated
    */
-  int MIDDLE = 20;
+  int MIDDLE = 19;
 
   /**
    * The number of structural features of the '<em>Middle</em>' class.
@@ -953,27 +925,6 @@ public interface AndroidPackage extends EPackage
    * @generated
    */
   EClass getTopOf();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Persentage <em>Persentage</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Persentage</em>'.
-   * @see org.xtext.niste15.mdsd.android.Persentage
-   * @generated
-   */
-  EClass getPersentage();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.niste15.mdsd.android.Persentage#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.xtext.niste15.mdsd.android.Persentage#getValue()
-   * @see #getPersentage()
-   * @generated
-   */
-  EAttribute getPersentage_Value();
 
   /**
    * Returns the meta object for class '{@link org.xtext.niste15.mdsd.android.Right <em>Right</em>}'.
@@ -1325,24 +1276,6 @@ public interface AndroidPackage extends EPackage
      * @generated
      */
     EClass TOP_OF = eINSTANCE.getTopOf();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.PersentageImpl <em>Persentage</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.niste15.mdsd.android.impl.PersentageImpl
-     * @see org.xtext.niste15.mdsd.android.impl.AndroidPackageImpl#getPersentage()
-     * @generated
-     */
-    EClass PERSENTAGE = eINSTANCE.getPersentage();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PERSENTAGE__VALUE = eINSTANCE.getPersentage_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.niste15.mdsd.android.impl.RightImpl <em>Right</em>}' class.

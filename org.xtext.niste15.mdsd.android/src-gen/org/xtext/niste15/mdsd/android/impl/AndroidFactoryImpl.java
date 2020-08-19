@@ -80,7 +80,6 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
       case AndroidPackage.LEFT_OF: return createLeftOf();
       case AndroidPackage.BOTTOM_OF: return createBottomOf();
       case AndroidPackage.TOP_OF: return createTopOf();
-      case AndroidPackage.PERSENTAGE: return createPersentage();
       case AndroidPackage.RIGHT: return createRight();
       case AndroidPackage.LEFT: return createLeft();
       case AndroidPackage.TOP: return createTop();
@@ -269,18 +268,6 @@ public class AndroidFactoryImpl extends EFactoryImpl implements AndroidFactory
   {
     TopOfImpl topOf = new TopOfImpl();
     return topOf;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Persentage createPersentage()
-  {
-    PersentageImpl persentage = new PersentageImpl();
-    return persentage;
   }
 
   /**

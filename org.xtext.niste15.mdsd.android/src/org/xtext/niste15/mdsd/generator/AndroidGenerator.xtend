@@ -38,24 +38,26 @@ class AndroidGenerator extends AbstractGenerator {
         for (e : resource.allContents.toIterable.filter(Pane)) {
             fsa.generateFile(
                 e.fullyQualifiedName.toString("/") + ".java",
-                e.compile)
+                e.generateJava)
                 
             fsa.generateFile(
                 e.fullyQualifiedName.toString("/") + ".xml",
-                e.compileXML)
+                e.generateXML)
         }
     }
  
-    private def compile(Pane e) '''
+    private def generateJava(Pane e) '''
         «IF e.eContainer.fullyQualifiedName !== null»
         package «e.eContainer.fullyQualifiedName»;
         «ENDIF»
         
         public class «e.name» extends AppCompatActivity {
         	
-        	«FOR frame : e.frames»
+        	«FOR frame : e.frames» 
         	«FOR element : frame.elements»
+        	«IF element.name !== null»
         	private «IF element instanceof Button»Button«ENDIF»«IF element instanceof Text»TextView«ENDIF» «element.name»;
+        	«ENDIF»
         	«ENDFOR»
         	«ENDFOR»
             
@@ -65,16 +67,20 @@ class AndroidGenerator extends AbstractGenerator {
                 setContentView(R.layout.«e.name»);
                 «FOR frame : e.frames»
         		«FOR element : frame.elements»
-		
+        		«IF element.name !== null»
 				«element.name» = findViewById(R.id.«element.name»);
-				
+				«ENDIF»
 				«IF element instanceof Button»
 				«IF element.pane !== null»
+				«IF element.name !== null»
 				«element.name».setOnClickListener(new View.OnClickListener(){
-				override void onClick(View view) {
-					Intent intent = new Intent(getApplicationContext(), «element.pane.name».class);
-					startActivity(intent);
-				}}); 
+					@Override
+					public void onClick(View view) {
+						Intent intent = new Intent(getApplicationContext(), «element.pane.name».class);
+						startActivity(intent);
+					}
+				}); 
+				«ENDIF»
 				«ENDIF»
 				«ENDIF»
         		«ENDFOR»
@@ -83,7 +89,7 @@ class AndroidGenerator extends AbstractGenerator {
         }
     '''
     
-    private def compileXML(Pane e) '''
+    private def generateXML(Pane e) '''
         <?xml version="1.0" encoding="utf-8"?>
         <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -94,7 +100,9 @@ class AndroidGenerator extends AbstractGenerator {
             «FOR frame : e.frames»
     		
     			<LinearLayout
-    				android:id="@+id/«frame.name»"
+    			    «IF frame.name !== null»
+    			    android:id="@+id/«frame.name»"
+    			    «ENDIF»
     				android:layout_width="wrap_content"
     				android:layout_height="wrap_content"
     				android:orientation="horizontal"
@@ -107,6 +115,7 @@ class AndroidGenerator extends AbstractGenerator {
     				«ENDIF»
     		«FOR element : frame.elements»
     		«IF element instanceof Text»
+    		«IF element.name !== null»
     		
     				<TextView
     					android:id="@+id/«element.name»"
@@ -114,13 +123,16 @@ class AndroidGenerator extends AbstractGenerator {
     					android:layout_height="wrap_content"
     					android:text="«element.text.text»" />
     		«ENDIF»
+    		«ENDIF»
     		«IF element instanceof Button»
+    		«IF element.name !== null»
     		
     				<Button
     					android:id="@+id/«element.name»"
     					android:layout_width="wrap_content"
     					android:layout_height="wrap_content"
     					android:text="«element.text»" /> 
+    		«ENDIF»
     		«ENDIF»
     		«ENDFOR»
     			</LinearLayout>
@@ -173,12 +185,7 @@ class AndroidGenerator extends AbstractGenerator {
 				app:layout_constraintBottom_toBottomOf="parent">
 			'''
 			default:
-			'''
-				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintBottom_toBottomOf="parent">
-			'''
+				getDefaultConstraints(frame)
 			
 		}
 	}

@@ -151,11 +151,6 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
         return createTopOfAdapter();
       }
       @Override
-      public Adapter casePersentage(Persentage object)
-      {
-        return createPersentageAdapter();
-      }
-      @Override
       public Adapter caseRight(Right object)
       {
         return createRightAdapter();
@@ -423,21 +418,6 @@ public class AndroidAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTopOfAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.niste15.mdsd.android.Persentage <em>Persentage</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.niste15.mdsd.android.Persentage
-   * @generated
-   */
-  public Adapter createPersentageAdapter()
   {
     return null;
   }

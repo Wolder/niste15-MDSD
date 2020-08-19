@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAndroidParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Application'", "'{'", "'}'", "'Pane'", "'Frame'", "'Text'", "'('", "')'", "'Button'", "'navigate'", "'->'", "'constraint'", "':'", "'='", "'rightOf'", "'leftOf'", "'bottomOf'", "'topOf'", "'%'", "'right'", "'left'", "'top'", "'bottom'", "'middle'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Application'", "'{'", "'}'", "'Pane'", "'Frame'", "'Text'", "'('", "')'", "'Button'", "'navigate'", "'->'", "'constraint'", "':'", "'='", "'rightOf'", "'leftOf'", "'bottomOf'", "'topOf'", "'right'", "'left'", "'top'", "'bottom'", "'middle'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -33,7 +33,6 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__33=33;
     public static final int T__12=12;
-    public static final int T__34=34;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
@@ -578,7 +577,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFrame"
-    // InternalAndroid.g:250:1: ruleFrame returns [EObject current=null] : ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' ) ;
+    // InternalAndroid.g:250:1: ruleFrame returns [EObject current=null] : ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' ) ;
     public final EObject ruleFrame() throws RecognitionException {
         EObject current = null;
 
@@ -595,11 +594,11 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAndroid.g:256:2: ( ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' ) )
-            // InternalAndroid.g:257:2: ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' )
+            // InternalAndroid.g:256:2: ( ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' ) )
+            // InternalAndroid.g:257:2: ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' )
             {
-            // InternalAndroid.g:257:2: ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' )
-            // InternalAndroid.g:258:3: () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}'
+            // InternalAndroid.g:257:2: ( () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}' )
+            // InternalAndroid.g:258:3: () otherlv_1= 'Frame' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_elements_4_0= ruleElements ) )* ( (lv_constraint_5_0= ruleConstraint ) )? otherlv_6= '}'
             {
             // InternalAndroid.g:258:3: ()
             // InternalAndroid.g:259:4: 
@@ -612,63 +611,52 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,15,FOLLOW_7); 
+            otherlv_1=(Token)match(input,15,FOLLOW_3); 
 
             			newLeafNode(otherlv_1, grammarAccess.getFrameAccess().getFrameKeyword_1());
             		
-            // InternalAndroid.g:269:3: ( (lv_name_2_0= RULE_ID ) )?
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalAndroid.g:269:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalAndroid.g:270:4: (lv_name_2_0= RULE_ID )
+            {
+            // InternalAndroid.g:270:4: (lv_name_2_0= RULE_ID )
+            // InternalAndroid.g:271:5: lv_name_2_0= RULE_ID
+            {
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_4); 
 
-            if ( (LA3_0==RULE_ID) ) {
-                alt3=1;
-            }
-            switch (alt3) {
-                case 1 :
-                    // InternalAndroid.g:270:4: (lv_name_2_0= RULE_ID )
-                    {
-                    // InternalAndroid.g:270:4: (lv_name_2_0= RULE_ID )
-                    // InternalAndroid.g:271:5: lv_name_2_0= RULE_ID
-                    {
-                    lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_4); 
+            					newLeafNode(lv_name_2_0, grammarAccess.getFrameAccess().getNameIDTerminalRuleCall_2_0());
+            				
 
-                    					newLeafNode(lv_name_2_0, grammarAccess.getFrameAccess().getNameIDTerminalRuleCall_2_0());
-                    				
-
-                    					if (current==null) {
-                    						current = createModelElement(grammarAccess.getFrameRule());
-                    					}
-                    					setWithLastConsumed(
-                    						current,
-                    						"name",
-                    						lv_name_2_0,
-                    						"org.eclipse.xtext.common.Terminals.ID");
-                    				
-
-                    }
-
-
-                    }
-                    break;
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getFrameRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"org.eclipse.xtext.common.Terminals.ID");
+            				
 
             }
 
-            otherlv_3=(Token)match(input,12,FOLLOW_8); 
+
+            }
+
+            otherlv_3=(Token)match(input,12,FOLLOW_7); 
 
             			newLeafNode(otherlv_3, grammarAccess.getFrameAccess().getLeftCurlyBracketKeyword_3());
             		
             // InternalAndroid.g:291:3: ( (lv_elements_4_0= ruleElements ) )*
-            loop4:
+            loop3:
             do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
+                int alt3=2;
+                int LA3_0 = input.LA(1);
 
-                if ( (LA4_0==16||LA4_0==19) ) {
-                    alt4=1;
+                if ( (LA3_0==16||LA3_0==19) ) {
+                    alt3=1;
                 }
 
 
-                switch (alt4) {
+                switch (alt3) {
             	case 1 :
             	    // InternalAndroid.g:292:4: (lv_elements_4_0= ruleElements )
             	    {
@@ -678,7 +666,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getFrameAccess().getElementsElementsParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_7);
             	    lv_elements_4_0=ruleElements();
 
             	    state._fsp--;
@@ -702,18 +690,18 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop3;
                 }
             } while (true);
 
             // InternalAndroid.g:310:3: ( (lv_constraint_5_0= ruleConstraint ) )?
-            int alt5=2;
-            int LA5_0 = input.LA(1);
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
-            if ( (LA5_0==22) ) {
-                alt5=1;
+            if ( (LA4_0==22) ) {
+                alt4=1;
             }
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
                     // InternalAndroid.g:311:4: (lv_constraint_5_0= ruleConstraint )
                     {
@@ -723,7 +711,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getFrameAccess().getConstraintConstraintParserRuleCall_5_0());
                     				
-                    pushFollow(FOLLOW_9);
+                    pushFollow(FOLLOW_8);
                     lv_constraint_5_0=ruleConstraint();
 
                     state._fsp--;
@@ -828,22 +816,22 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:351:2: (this_Button_0= ruleButton | this_Text_1= ruleText )
             {
             // InternalAndroid.g:351:2: (this_Button_0= ruleButton | this_Text_1= ruleText )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( (LA6_0==19) ) {
-                alt6=1;
+            if ( (LA5_0==19) ) {
+                alt5=1;
             }
-            else if ( (LA6_0==16) ) {
-                alt6=2;
+            else if ( (LA5_0==16) ) {
+                alt5=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
                     // InternalAndroid.g:352:3: this_Button_0= ruleButton
                     {
@@ -970,7 +958,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:393:4: (lv_name_1_0= RULE_ID )
             // InternalAndroid.g:394:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getTextAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -990,7 +978,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_11); 
+            otherlv_2=(Token)match(input,17,FOLLOW_10); 
 
             			newLeafNode(otherlv_2, grammarAccess.getTextAccess().getLeftParenthesisKeyword_2());
             		
@@ -1003,7 +991,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getTextAccess().getTextTextContentParserRuleCall_3_0());
             				
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_11);
             lv_text_3_0=ruleTextContent();
 
             state._fsp--;
@@ -1216,7 +1204,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:496:4: (lv_name_1_0= RULE_ID )
             // InternalAndroid.g:497:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getButtonAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -1236,7 +1224,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,17,FOLLOW_11); 
+            otherlv_2=(Token)match(input,17,FOLLOW_10); 
 
             			newLeafNode(otherlv_2, grammarAccess.getButtonAccess().getLeftParenthesisKeyword_2());
             		
@@ -1246,7 +1234,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:518:4: (lv_text_3_0= RULE_STRING )
             // InternalAndroid.g:519:5: lv_text_3_0= RULE_STRING
             {
-            lv_text_3_0=(Token)match(input,RULE_STRING,FOLLOW_13); 
+            lv_text_3_0=(Token)match(input,RULE_STRING,FOLLOW_12); 
 
             					newLeafNode(lv_text_3_0, grammarAccess.getButtonAccess().getTextSTRINGTerminalRuleCall_3_0());
             				
@@ -1267,17 +1255,17 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             }
 
             // InternalAndroid.g:535:3: (otherlv_4= 'navigate' otherlv_5= '->' ( (otherlv_6= RULE_ID ) ) )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA7_0==20) ) {
-                alt7=1;
+            if ( (LA6_0==20) ) {
+                alt6=1;
             }
-            switch (alt7) {
+            switch (alt6) {
                 case 1 :
                     // InternalAndroid.g:536:4: otherlv_4= 'navigate' otherlv_5= '->' ( (otherlv_6= RULE_ID ) )
                     {
-                    otherlv_4=(Token)match(input,20,FOLLOW_14); 
+                    otherlv_4=(Token)match(input,20,FOLLOW_13); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getButtonAccess().getNavigateKeyword_4_0());
                     			
@@ -1296,7 +1284,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     							current = createModelElement(grammarAccess.getButtonRule());
                     						}
                     					
-                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_12); 
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_11); 
 
                     						newLeafNode(otherlv_6, grammarAccess.getButtonAccess().getPanePaneCrossReference_4_2_0());
                     					
@@ -1398,43 +1386,43 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:580:2: ( (otherlv_0= 'constraint' otherlv_1= ':' ( (lv_constraintType_2_0= ruleConstraintType ) ) otherlv_3= '=' ( (otherlv_4= RULE_ID ) ) ) | (otherlv_5= 'constraint' otherlv_6= '=' ( (lv_param_7_0= ruleConstraintParameter ) ) ) )
             {
             // InternalAndroid.g:580:2: ( (otherlv_0= 'constraint' otherlv_1= ':' ( (lv_constraintType_2_0= ruleConstraintType ) ) otherlv_3= '=' ( (otherlv_4= RULE_ID ) ) ) | (otherlv_5= 'constraint' otherlv_6= '=' ( (lv_param_7_0= ruleConstraintParameter ) ) ) )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA8_0==22) ) {
-                int LA8_1 = input.LA(2);
+            if ( (LA7_0==22) ) {
+                int LA7_1 = input.LA(2);
 
-                if ( (LA8_1==24) ) {
-                    alt8=2;
+                if ( (LA7_1==24) ) {
+                    alt7=2;
                 }
-                else if ( (LA8_1==23) ) {
-                    alt8=1;
+                else if ( (LA7_1==23) ) {
+                    alt7=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 8, 1, input);
+                        new NoViableAltException("", 7, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
-            switch (alt8) {
+            switch (alt7) {
                 case 1 :
                     // InternalAndroid.g:581:3: (otherlv_0= 'constraint' otherlv_1= ':' ( (lv_constraintType_2_0= ruleConstraintType ) ) otherlv_3= '=' ( (otherlv_4= RULE_ID ) ) )
                     {
                     // InternalAndroid.g:581:3: (otherlv_0= 'constraint' otherlv_1= ':' ( (lv_constraintType_2_0= ruleConstraintType ) ) otherlv_3= '=' ( (otherlv_4= RULE_ID ) ) )
                     // InternalAndroid.g:582:4: otherlv_0= 'constraint' otherlv_1= ':' ( (lv_constraintType_2_0= ruleConstraintType ) ) otherlv_3= '=' ( (otherlv_4= RULE_ID ) )
                     {
-                    otherlv_0=(Token)match(input,22,FOLLOW_15); 
+                    otherlv_0=(Token)match(input,22,FOLLOW_14); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0_0());
                     			
-                    otherlv_1=(Token)match(input,23,FOLLOW_16); 
+                    otherlv_1=(Token)match(input,23,FOLLOW_15); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getColonKeyword_0_1());
                     			
@@ -1447,7 +1435,7 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getConstraintAccess().getConstraintTypeConstraintTypeParserRuleCall_0_2_0());
                     					
-                    pushFollow(FOLLOW_17);
+                    pushFollow(FOLLOW_16);
                     lv_constraintType_2_0=ruleConstraintType();
 
                     state._fsp--;
@@ -1506,11 +1494,11 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     // InternalAndroid.g:628:3: (otherlv_5= 'constraint' otherlv_6= '=' ( (lv_param_7_0= ruleConstraintParameter ) ) )
                     // InternalAndroid.g:629:4: otherlv_5= 'constraint' otherlv_6= '=' ( (lv_param_7_0= ruleConstraintParameter ) )
                     {
-                    otherlv_5=(Token)match(input,22,FOLLOW_17); 
+                    otherlv_5=(Token)match(input,22,FOLLOW_16); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getConstraintAccess().getConstraintKeyword_1_0());
                     			
-                    otherlv_6=(Token)match(input,24,FOLLOW_18); 
+                    otherlv_6=(Token)match(input,24,FOLLOW_17); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getConstraintAccess().getEqualsSignKeyword_1_1());
                     			
@@ -1627,36 +1615,36 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
             // InternalAndroid.g:675:2: ( ( () otherlv_1= 'rightOf' ) | ( () otherlv_3= 'leftOf' ) | ( () otherlv_5= 'bottomOf' ) | ( () otherlv_7= 'topOf' ) )
             {
             // InternalAndroid.g:675:2: ( ( () otherlv_1= 'rightOf' ) | ( () otherlv_3= 'leftOf' ) | ( () otherlv_5= 'bottomOf' ) | ( () otherlv_7= 'topOf' ) )
-            int alt9=4;
+            int alt8=4;
             switch ( input.LA(1) ) {
             case 25:
                 {
-                alt9=1;
+                alt8=1;
                 }
                 break;
             case 26:
                 {
-                alt9=2;
+                alt8=2;
                 }
                 break;
             case 27:
                 {
-                alt9=3;
+                alt8=3;
                 }
                 break;
             case 28:
                 {
-                alt9=4;
+                alt8=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
                     // InternalAndroid.g:676:3: ( () otherlv_1= 'rightOf' )
                     {
@@ -1824,112 +1812,79 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConstraintParameter"
-    // InternalAndroid.g:742:1: ruleConstraintParameter returns [EObject current=null] : ( ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' ) | ( () otherlv_4= 'right' ) | ( () otherlv_6= 'left' ) | ( () otherlv_8= 'top' ) | ( () otherlv_10= 'bottom' ) | ( () otherlv_12= 'middle' ) ) ;
+    // InternalAndroid.g:742:1: ruleConstraintParameter returns [EObject current=null] : ( ( () otherlv_1= 'right' ) | ( () otherlv_3= 'left' ) | ( () otherlv_5= 'top' ) | ( () otherlv_7= 'bottom' ) | ( () otherlv_9= 'middle' ) ) ;
     public final EObject ruleConstraintParameter() throws RecognitionException {
         EObject current = null;
 
-        Token lv_value_1_0=null;
-        Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        Token otherlv_8=null;
-        Token otherlv_10=null;
-        Token otherlv_12=null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
+        Token otherlv_9=null;
 
 
         	enterRule();
 
         try {
-            // InternalAndroid.g:748:2: ( ( ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' ) | ( () otherlv_4= 'right' ) | ( () otherlv_6= 'left' ) | ( () otherlv_8= 'top' ) | ( () otherlv_10= 'bottom' ) | ( () otherlv_12= 'middle' ) ) )
-            // InternalAndroid.g:749:2: ( ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' ) | ( () otherlv_4= 'right' ) | ( () otherlv_6= 'left' ) | ( () otherlv_8= 'top' ) | ( () otherlv_10= 'bottom' ) | ( () otherlv_12= 'middle' ) )
+            // InternalAndroid.g:748:2: ( ( ( () otherlv_1= 'right' ) | ( () otherlv_3= 'left' ) | ( () otherlv_5= 'top' ) | ( () otherlv_7= 'bottom' ) | ( () otherlv_9= 'middle' ) ) )
+            // InternalAndroid.g:749:2: ( ( () otherlv_1= 'right' ) | ( () otherlv_3= 'left' ) | ( () otherlv_5= 'top' ) | ( () otherlv_7= 'bottom' ) | ( () otherlv_9= 'middle' ) )
             {
-            // InternalAndroid.g:749:2: ( ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' ) | ( () otherlv_4= 'right' ) | ( () otherlv_6= 'left' ) | ( () otherlv_8= 'top' ) | ( () otherlv_10= 'bottom' ) | ( () otherlv_12= 'middle' ) )
-            int alt10=6;
+            // InternalAndroid.g:749:2: ( ( () otherlv_1= 'right' ) | ( () otherlv_3= 'left' ) | ( () otherlv_5= 'top' ) | ( () otherlv_7= 'bottom' ) | ( () otherlv_9= 'middle' ) )
+            int alt9=5;
             switch ( input.LA(1) ) {
-            case RULE_ID:
+            case 29:
                 {
-                alt10=1;
+                alt9=1;
                 }
                 break;
             case 30:
                 {
-                alt10=2;
+                alt9=2;
                 }
                 break;
             case 31:
                 {
-                alt10=3;
+                alt9=3;
                 }
                 break;
             case 32:
                 {
-                alt10=4;
+                alt9=4;
                 }
                 break;
             case 33:
                 {
-                alt10=5;
-                }
-                break;
-            case 34:
-                {
-                alt10=6;
+                alt9=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt9) {
                 case 1 :
-                    // InternalAndroid.g:750:3: ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' )
+                    // InternalAndroid.g:750:3: ( () otherlv_1= 'right' )
                     {
-                    // InternalAndroid.g:750:3: ( () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%' )
-                    // InternalAndroid.g:751:4: () ( (lv_value_1_0= RULE_ID ) ) otherlv_2= '%'
+                    // InternalAndroid.g:750:3: ( () otherlv_1= 'right' )
+                    // InternalAndroid.g:751:4: () otherlv_1= 'right'
                     {
                     // InternalAndroid.g:751:4: ()
                     // InternalAndroid.g:752:5: 
                     {
 
                     					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getPersentageAction_0_0(),
+                    						grammarAccess.getConstraintParameterAccess().getRightAction_0_0(),
                     						current);
                     				
 
                     }
 
-                    // InternalAndroid.g:758:4: ( (lv_value_1_0= RULE_ID ) )
-                    // InternalAndroid.g:759:5: (lv_value_1_0= RULE_ID )
-                    {
-                    // InternalAndroid.g:759:5: (lv_value_1_0= RULE_ID )
-                    // InternalAndroid.g:760:6: lv_value_1_0= RULE_ID
-                    {
-                    lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_19); 
+                    otherlv_1=(Token)match(input,29,FOLLOW_2); 
 
-                    						newLeafNode(lv_value_1_0, grammarAccess.getConstraintParameterAccess().getValueIDTerminalRuleCall_0_1_0());
-                    					
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getConstraintParameterRule());
-                    						}
-                    						setWithLastConsumed(
-                    							current,
-                    							"value",
-                    							lv_value_1_0,
-                    							"org.eclipse.xtext.common.Terminals.ID");
-                    					
-
-                    }
-
-
-                    }
-
-                    otherlv_2=(Token)match(input,29,FOLLOW_2); 
-
-                    				newLeafNode(otherlv_2, grammarAccess.getConstraintParameterAccess().getPercentSignKeyword_0_2());
+                    				newLeafNode(otherlv_1, grammarAccess.getConstraintParameterAccess().getRightKeyword_0_1());
                     			
 
                     }
@@ -1938,25 +1893,25 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAndroid.g:782:3: ( () otherlv_4= 'right' )
+                    // InternalAndroid.g:764:3: ( () otherlv_3= 'left' )
                     {
-                    // InternalAndroid.g:782:3: ( () otherlv_4= 'right' )
-                    // InternalAndroid.g:783:4: () otherlv_4= 'right'
+                    // InternalAndroid.g:764:3: ( () otherlv_3= 'left' )
+                    // InternalAndroid.g:765:4: () otherlv_3= 'left'
                     {
-                    // InternalAndroid.g:783:4: ()
-                    // InternalAndroid.g:784:5: 
+                    // InternalAndroid.g:765:4: ()
+                    // InternalAndroid.g:766:5: 
                     {
 
                     					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getRightAction_1_0(),
+                    						grammarAccess.getConstraintParameterAccess().getLeftAction_1_0(),
                     						current);
                     				
 
                     }
 
-                    otherlv_4=(Token)match(input,30,FOLLOW_2); 
+                    otherlv_3=(Token)match(input,30,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_4, grammarAccess.getConstraintParameterAccess().getRightKeyword_1_1());
+                    				newLeafNode(otherlv_3, grammarAccess.getConstraintParameterAccess().getLeftKeyword_1_1());
                     			
 
                     }
@@ -1965,25 +1920,25 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAndroid.g:796:3: ( () otherlv_6= 'left' )
+                    // InternalAndroid.g:778:3: ( () otherlv_5= 'top' )
                     {
-                    // InternalAndroid.g:796:3: ( () otherlv_6= 'left' )
-                    // InternalAndroid.g:797:4: () otherlv_6= 'left'
+                    // InternalAndroid.g:778:3: ( () otherlv_5= 'top' )
+                    // InternalAndroid.g:779:4: () otherlv_5= 'top'
                     {
-                    // InternalAndroid.g:797:4: ()
-                    // InternalAndroid.g:798:5: 
+                    // InternalAndroid.g:779:4: ()
+                    // InternalAndroid.g:780:5: 
                     {
 
                     					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getLeftAction_2_0(),
+                    						grammarAccess.getConstraintParameterAccess().getTopAction_2_0(),
                     						current);
                     				
 
                     }
 
-                    otherlv_6=(Token)match(input,31,FOLLOW_2); 
+                    otherlv_5=(Token)match(input,31,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_6, grammarAccess.getConstraintParameterAccess().getLeftKeyword_2_1());
+                    				newLeafNode(otherlv_5, grammarAccess.getConstraintParameterAccess().getTopKeyword_2_1());
                     			
 
                     }
@@ -1992,25 +1947,25 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAndroid.g:810:3: ( () otherlv_8= 'top' )
+                    // InternalAndroid.g:792:3: ( () otherlv_7= 'bottom' )
                     {
-                    // InternalAndroid.g:810:3: ( () otherlv_8= 'top' )
-                    // InternalAndroid.g:811:4: () otherlv_8= 'top'
+                    // InternalAndroid.g:792:3: ( () otherlv_7= 'bottom' )
+                    // InternalAndroid.g:793:4: () otherlv_7= 'bottom'
                     {
-                    // InternalAndroid.g:811:4: ()
-                    // InternalAndroid.g:812:5: 
+                    // InternalAndroid.g:793:4: ()
+                    // InternalAndroid.g:794:5: 
                     {
 
                     					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getTopAction_3_0(),
+                    						grammarAccess.getConstraintParameterAccess().getBottomAction_3_0(),
                     						current);
                     				
 
                     }
 
-                    otherlv_8=(Token)match(input,32,FOLLOW_2); 
+                    otherlv_7=(Token)match(input,32,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_8, grammarAccess.getConstraintParameterAccess().getTopKeyword_3_1());
+                    				newLeafNode(otherlv_7, grammarAccess.getConstraintParameterAccess().getBottomKeyword_3_1());
                     			
 
                     }
@@ -2019,52 +1974,25 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalAndroid.g:824:3: ( () otherlv_10= 'bottom' )
+                    // InternalAndroid.g:806:3: ( () otherlv_9= 'middle' )
                     {
-                    // InternalAndroid.g:824:3: ( () otherlv_10= 'bottom' )
-                    // InternalAndroid.g:825:4: () otherlv_10= 'bottom'
+                    // InternalAndroid.g:806:3: ( () otherlv_9= 'middle' )
+                    // InternalAndroid.g:807:4: () otherlv_9= 'middle'
                     {
-                    // InternalAndroid.g:825:4: ()
-                    // InternalAndroid.g:826:5: 
+                    // InternalAndroid.g:807:4: ()
+                    // InternalAndroid.g:808:5: 
                     {
 
                     					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getBottomAction_4_0(),
+                    						grammarAccess.getConstraintParameterAccess().getMiddleAction_4_0(),
                     						current);
                     				
 
                     }
 
-                    otherlv_10=(Token)match(input,33,FOLLOW_2); 
+                    otherlv_9=(Token)match(input,33,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_10, grammarAccess.getConstraintParameterAccess().getBottomKeyword_4_1());
-                    			
-
-                    }
-
-
-                    }
-                    break;
-                case 6 :
-                    // InternalAndroid.g:838:3: ( () otherlv_12= 'middle' )
-                    {
-                    // InternalAndroid.g:838:3: ( () otherlv_12= 'middle' )
-                    // InternalAndroid.g:839:4: () otherlv_12= 'middle'
-                    {
-                    // InternalAndroid.g:839:4: ()
-                    // InternalAndroid.g:840:5: 
-                    {
-
-                    					current = forceCreateModelElement(
-                    						grammarAccess.getConstraintParameterAccess().getMiddleAction_5_0(),
-                    						current);
-                    				
-
-                    }
-
-                    otherlv_12=(Token)match(input,34,FOLLOW_2); 
-
-                    				newLeafNode(otherlv_12, grammarAccess.getConstraintParameterAccess().getMiddleKeyword_5_1());
+                    				newLeafNode(otherlv_9, grammarAccess.getConstraintParameterAccess().getMiddleKeyword_4_1());
                     			
 
                     }
@@ -2104,18 +2032,16 @@ public class InternalAndroidParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000006000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x000000000000A000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000001010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000492000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000140000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000001E000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000007C0000010L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000492000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000140000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000001E000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x00000003E0000000L});
 
 }

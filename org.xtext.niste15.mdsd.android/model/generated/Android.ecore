@@ -49,9 +49,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="LeftOf" eSuperTypes="#//ConstraintType"/>
   <eClassifiers xsi:type="ecore:EClass" name="BottomOf" eSuperTypes="#//ConstraintType"/>
   <eClassifiers xsi:type="ecore:EClass" name="TopOf" eSuperTypes="#//ConstraintType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Persentage" eSuperTypes="#//ConstraintParameter">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Right" eSuperTypes="#//ConstraintParameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Left" eSuperTypes="#//ConstraintParameter"/>
   <eClassifiers xsi:type="ecore:EClass" name="Top" eSuperTypes="#//ConstraintParameter"/>
